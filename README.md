@@ -9,6 +9,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 560 | [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) | Medium | Arrays / Prefix Sum | `arrays/560_subarray_sum_equals_k.py` |
 | 102 | [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) | Medium | Trees / BFS | `trees/102_binary_tree_level_order_traversal.py` |
 | 49 | [Group Anagrams](https://leetcode.com/problems/group-anagrams/) | Medium | Hashing / Strings | `hashing/49_group_anagrams.py` |
+| 198 | [House Robber](https://leetcode.com/problems/house-robber/) | Medium | Dynamic Programming | `dp/198_house_robber.py` |
+| 33 | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) | Medium | Binary Search | `binary_search/33_search_in_rotated_sorted_array.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -62,4 +64,40 @@ Run the demo:
 
 ```bash
 python3 hashing/49_group_anagrams.py
+```
+
+## 198 — House Robber
+
+**Problem.** Given an integer array `nums` where `nums[i]` is the money in house `i`, return the maximum amount you can rob without robbing two adjacent houses.
+
+**Thought process.**
+1. Trying every subset of non-adjacent houses is exponential — too slow.
+2. The decision at house `i` depends only on `i-1` and `i-2`. Let `dp[i]` be the best loot from houses `0..i`: either skip `i` (`dp[i-1]`) or rob it (`dp[i-2] + nums[i]`).
+3. So `dp[i] = max(dp[i-1], dp[i-2] + nums[i])`, with virtual `dp[-1] = dp[-2] = 0` as base cases.
+4. Only the last two values are needed, so two rolling variables replace the array; the answer is the final `dp` value (0 for an empty street).
+
+**Complexity.** O(n) time, O(1) extra space.
+
+Run the demo:
+
+```bash
+python3 dp/198_house_robber.py
+```
+
+## 33 — Search in Rotated Sorted Array
+
+**Problem.** Given a distinct-valued sorted array `nums` that was rotated at an unknown pivot, and a `target`, return the index of `target` or `-1`. Must run in O(log n).
+
+**Thought process.**
+1. O(log n) points to binary search, but the array is not fully sorted.
+2. Splitting a rotated sorted array at `mid` always leaves at least one sorted half; `nums[lo] <= nums[mid]` tells you it is the left one, otherwise the right.
+3. Check in O(1) whether `target` falls in the sorted half's value range — if so, search there; otherwise search the other half.
+4. Each step halves the range, exactly like ordinary binary search. Return `mid` on a hit, `-1` once `lo > hi`.
+
+**Complexity.** O(log n) time, O(1) extra space.
+
+Run the demo:
+
+```bash
+python3 binary_search/33_search_in_rotated_sorted_array.py
 ```
