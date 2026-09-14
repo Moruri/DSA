@@ -27,10 +27,18 @@
 | 198 | House Robber | Dynamic Programming | `dp/198_house_robber.py` |
 | 33 | Search in Rotated Sorted Array | Binary Search | `binary_search/33_search_in_rotated_sorted_array.py` |
 
+### 2026-09-14 (Monday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 3 | Longest Substring Without Repeating Characters | Sliding Window | `sliding_window/3_longest_substring_without_repeating_characters.py` |
+| 200 | Number of Islands | Graphs / DFS | `graphs/200_number_of_islands.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
 - **2026-09-12:** complete (49)
 - **2026-09-13:** complete (198 + 33)
-- **Next open day:** 2026-09-14
-- **Remaining days in streak (from 2026-09-14 inclusive through 2026-12-09):** 87
+- **2026-09-14:** complete (3 + 200)
+- **Next open day:** 2026-09-15
+- **Remaining days in streak (from 2026-09-15 inclusive through 2026-12-09):** 86
