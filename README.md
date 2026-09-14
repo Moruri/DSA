@@ -11,6 +11,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 49 | [Group Anagrams](https://leetcode.com/problems/group-anagrams/) | Medium | Hashing / Strings | `hashing/49_group_anagrams.py` |
 | 198 | [House Robber](https://leetcode.com/problems/house-robber/) | Medium | Dynamic Programming | `dp/198_house_robber.py` |
 | 33 | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) | Medium | Binary Search | `binary_search/33_search_in_rotated_sorted_array.py` |
+| 3 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | Medium | Sliding Window | `sliding_window/3_longest_substring_without_repeating_characters.py` |
+| 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands/) | Medium | Graphs / DFS | `graphs/200_number_of_islands.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -100,4 +102,40 @@ Run the demo:
 
 ```bash
 python3 binary_search/33_search_in_rotated_sorted_array.py
+```
+
+## 3 — Longest Substring Without Repeating Characters
+
+**Problem.** Given a string `s`, return the length of the longest substring that contains no duplicate characters.
+
+**Thought process.**
+1. Checking every substring for duplicates is O(n³) (O(n²) substrings, O(n) to validate each) — too slow.
+2. If `s[i..j]` contains a repeat, extending `j` can never fix it; only advancing `i` can. That monotonic structure is what a sliding window exploits.
+3. Keep a window `[left, right]` with no duplicates. Before adding `s[right]`, if that character is already inside the window, jump `left` to one past its previous index.
+4. A hash map `last_seen[ch] -> latest index` makes the jump O(1); guarding with `last_seen[ch] >= left` ignores stale indices so the window never moves backwards. After each step record `right - left + 1`.
+
+**Complexity.** O(n) time, O(min(n, alphabet)) extra space.
+
+Run the demo:
+
+```bash
+python3 sliding_window/3_longest_substring_without_repeating_characters.py
+```
+
+## 200 — Number of Islands
+
+**Problem.** Given an `m x n` grid of `'1'` (land) and `'0'` (water), return the number of islands, where an island is a group of land cells connected horizontally or vertically.
+
+**Thought process.**
+1. Treat the grid as an implicit graph: land cells are vertices, 4-directional neighbours are edges. An island is a connected component.
+2. Count components by scanning every cell; each unvisited `'1'` starts a new island, so increment the count and flood-fill that component.
+3. The flood fill is a DFS over in-bounds `'1'` neighbours. Overwrite visited cells with `'0'` (sink the island) so no separate visited set is needed.
+4. Use an explicit stack instead of recursion — a 300×300 all-land grid would exceed Python's recursion limit. Mark cells on push so each is pushed at most once.
+
+**Complexity.** O(m · n) time, O(m · n) worst-case stack space.
+
+Run the demo:
+
+```bash
+python3 graphs/200_number_of_islands.py
 ```
