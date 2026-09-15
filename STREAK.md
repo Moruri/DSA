@@ -34,11 +34,19 @@
 | 3 | Longest Substring Without Repeating Characters | Sliding Window | `sliding_window/3_longest_substring_without_repeating_characters.py` |
 | 200 | Number of Islands | Graphs / DFS | `graphs/200_number_of_islands.py` |
 
+### 2026-09-15 (Tuesday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 15 | 3Sum | Two Pointers | `two_pointers/15_3sum.py` |
+| 739 | Daily Temperatures | Monotonic Stack | `stack/739_daily_temperatures.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
 - **2026-09-12:** complete (49)
 - **2026-09-13:** complete (198 + 33)
 - **2026-09-14:** complete (3 + 200)
-- **Next open day:** 2026-09-15
-- **Remaining days in streak (from 2026-09-15 inclusive through 2026-12-09):** 86
+- **2026-09-15:** complete (15 + 739)
+- **Next open day:** 2026-09-16
+- **Remaining days in streak (from 2026-09-16 inclusive through 2026-12-09):** 85

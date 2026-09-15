@@ -13,6 +13,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 33 | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) | Medium | Binary Search | `binary_search/33_search_in_rotated_sorted_array.py` |
 | 3 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | Medium | Sliding Window | `sliding_window/3_longest_substring_without_repeating_characters.py` |
 | 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands/) | Medium | Graphs / DFS | `graphs/200_number_of_islands.py` |
+| 15 | [3Sum](https://leetcode.com/problems/3sum/) | Medium | Two Pointers | `two_pointers/15_3sum.py` |
+| 739 | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) | Medium | Monotonic Stack | `stack/739_daily_temperatures.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -138,4 +140,40 @@ Run the demo:
 
 ```bash
 python3 graphs/200_number_of_islands.py
+```
+
+## 15 — 3Sum
+
+**Problem.** Given an integer array `nums`, return all unique triplets `[nums[i], nums[j], nums[k]]` with distinct indices such that the three values sum to `0`.
+
+**Thought process.**
+1. Brute force over every `(i, j, k)` is O(n³) — too slow for n up to 3000.
+2. Fix the smallest element `nums[i]` as an anchor; the rest is a 2Sum for `-nums[i]`. Sorting first turns that into a two-pointer sweep: `lo` just after the anchor, `hi` at the end. Too small → `lo += 1`; too big → `hi -= 1`; zero → record it.
+3. Sorting also makes dedup trivial: skip an anchor equal to the previous one, and after each hit step `lo`/`hi` past any repeated values so the same triplet is never emitted twice.
+4. Stop early once `nums[i] > 0` — everything after a positive anchor is positive, so no triple can reach zero.
+
+**Complexity.** O(n²) time, O(1) extra space beyond the output (ignoring the sort).
+
+Run the demo:
+
+```bash
+python3 two_pointers/15_3sum.py
+```
+
+## 739 — Daily Temperatures
+
+**Problem.** Given `temperatures`, return `answer` where `answer[i]` is the number of days after day `i` until a strictly warmer temperature, or `0` if there is none.
+
+**Thought process.**
+1. Scanning forward from each day is O(n²) on a non-increasing sequence — too slow for n up to 10⁵.
+2. This is "next greater element". The waste is re-scanning the same cold days; once day `j` is warmer than day `i`, day `i` is resolved forever.
+3. Keep a stack of indices whose answer is still unknown. For each day `j`, while the top index `i` is colder than `temperatures[j]`, set `answer[i] = j - i` and pop. Then push `j`.
+4. The stack stays non-increasing in temperature (a monotonic stack). Indices still on it at the end never saw a warmer day and keep the default `0`. Each index is pushed once and popped at most once, so the nested-looking loop is linear.
+
+**Complexity.** O(n) time, O(n) extra space for the stack.
+
+Run the demo:
+
+```bash
+python3 stack/739_daily_temperatures.py
 ```
