@@ -41,6 +41,13 @@
 | 15 | 3Sum | Two Pointers | `two_pointers/15_3sum.py` |
 | 739 | Daily Temperatures | Monotonic Stack | `stack/739_daily_temperatures.py` |
 
+### 2026-09-16 (Wednesday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 56 | Merge Intervals | Intervals / Sorting | `intervals/56_merge_intervals.py` |
+| 215 | Kth Largest Element in an Array | Heaps / Quickselect | `heap/215_kth_largest_element_in_an_array.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -48,5 +55,6 @@
 - **2026-09-13:** complete (198 + 33)
 - **2026-09-14:** complete (3 + 200)
 - **2026-09-15:** complete (15 + 739)
-- **Next open day:** 2026-09-16
-- **Remaining days in streak (from 2026-09-16 inclusive through 2026-12-09):** 85
+- **2026-09-16:** complete (56 + 215)
+- **Next open day:** 2026-09-17
+- **Remaining days in streak (from 2026-09-17 inclusive through 2026-12-09):** 84

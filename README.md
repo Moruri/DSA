@@ -15,6 +15,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands/) | Medium | Graphs / DFS | `graphs/200_number_of_islands.py` |
 | 15 | [3Sum](https://leetcode.com/problems/3sum/) | Medium | Two Pointers | `two_pointers/15_3sum.py` |
 | 739 | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) | Medium | Monotonic Stack | `stack/739_daily_temperatures.py` |
+| 56 | [Merge Intervals](https://leetcode.com/problems/merge-intervals/) | Medium | Intervals / Sorting | `intervals/56_merge_intervals.py` |
+| 215 | [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) | Medium | Heaps / Quickselect | `heap/215_kth_largest_element_in_an_array.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -176,4 +178,40 @@ Run the demo:
 
 ```bash
 python3 stack/739_daily_temperatures.py
+```
+
+## 56 — Merge Intervals
+
+**Problem.** Given an array of `intervals` where `intervals[i] = [start_i, end_i]`, merge all overlapping intervals and return the non-overlapping intervals that cover all of the input.
+
+**Thought process.**
+1. Repeatedly scanning for any overlapping pair and merging it is O(n²) per pass — too slow for n up to 10⁴.
+2. Once the intervals are sorted by start, a new interval can only overlap the *last* merged block; everything earlier already ended before that block began.
+3. Sort, then sweep left to right. If the current `start` is past the last block's end, there is a gap — append a new block. Otherwise extend the last block's end to `max(last_end, end)` (the max handles fully contained intervals like `[1, 10]` then `[2, 3]`).
+4. Touching intervals (`[1, 4]` and `[4, 5]`) must merge, so the gap test is strict (`start > last_end`). The output comes out sorted and disjoint for free.
+
+**Complexity.** O(n log n) time (the sort), O(n) space for the output.
+
+Run the demo:
+
+```bash
+python3 intervals/56_merge_intervals.py
+```
+
+## 215 — Kth Largest Element in an Array
+
+**Problem.** Given an integer array `nums` and an integer `k`, return the k-th largest element in sorted order (not the k-th distinct element), ideally without fully sorting.
+
+**Thought process.**
+1. Sorting descending and taking index `k-1` is O(n log n) — correct, but we only need one order statistic, not the whole ordering.
+2. Keep a min-heap of size `k`. Seed it with the first `k` elements (`heapify`), then for each remaining element, if it beats the root, `heapreplace` the root with it. The heap always holds the `k` largest values seen so far, so its root is the k-th largest.
+3. Each heap operation is O(log k), so the total is O(n log k) with O(k) space — a big win when `k << n`, and it streams. `heapq.nlargest(k, nums)[-1]` is the same idea in one line.
+4. Alternative — quickselect: pick a random pivot, three-way partition into `>`, `==`, `<`, and recurse only into the side holding rank `k`. Expected O(n) time and O(1) extra space in place, but with an O(n²) worst case; the file includes it as `findKthLargestQuickselect` for comparison.
+
+**Complexity.** O(n log k) time, O(k) extra space (heap). Quickselect: O(n) expected time.
+
+Run the demo:
+
+```bash
+python3 heap/215_kth_largest_element_in_an_array.py
 ```
