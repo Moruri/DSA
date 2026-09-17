@@ -48,6 +48,13 @@
 | 56 | Merge Intervals | Intervals / Sorting | `intervals/56_merge_intervals.py` |
 | 215 | Kth Largest Element in an Array | Heaps / Quickselect | `heap/215_kth_largest_element_in_an_array.py` |
 
+### 2026-09-17 (Thursday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 2 | Add Two Numbers | Linked Lists | `linked_list/2_add_two_numbers.py` |
+| 78 | Subsets | Backtracking | `backtracking/78_subsets.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -56,5 +63,6 @@
 - **2026-09-14:** complete (3 + 200)
 - **2026-09-15:** complete (15 + 739)
 - **2026-09-16:** complete (56 + 215)
-- **Next open day:** 2026-09-17
-- **Remaining days in streak (from 2026-09-17 inclusive through 2026-12-09):** 84
+- **2026-09-17:** complete (2 + 78)
+- **Next open day:** 2026-09-18
+- **Remaining days in streak (from 2026-09-18 inclusive through 2026-12-09):** 83

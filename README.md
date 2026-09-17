@@ -17,6 +17,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 739 | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) | Medium | Monotonic Stack | `stack/739_daily_temperatures.py` |
 | 56 | [Merge Intervals](https://leetcode.com/problems/merge-intervals/) | Medium | Intervals / Sorting | `intervals/56_merge_intervals.py` |
 | 215 | [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) | Medium | Heaps / Quickselect | `heap/215_kth_largest_element_in_an_array.py` |
+| 2 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) | Medium | Linked Lists | `linked_list/2_add_two_numbers.py` |
+| 78 | [Subsets](https://leetcode.com/problems/subsets/) | Medium | Backtracking | `backtracking/78_subsets.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -214,4 +216,40 @@ Run the demo:
 
 ```bash
 python3 heap/215_kth_largest_element_in_an_array.py
+```
+
+## 2 — Add Two Numbers
+
+**Problem.** You are given two non-empty linked lists representing two non-negative integers. Digits are stored in reverse order, and each node contains a single digit. Add the two numbers and return the sum as a linked list (also reverse-order).
+
+**Thought process.**
+1. Turning each list into an integer, adding, then rebuilding works but fights the linked-list framing and is awkward for very long inputs.
+2. Digits are already least-significant-first, so walk both lists in lockstep. At each step add the two digits plus any carry, emit `sum % 10`, and keep `sum // 10` as the next carry.
+3. When one list ends, keep walking the other with a zero digit. After both finish, append one more node if a carry remains.
+4. A dummy head makes the first digit just another append. Return `dummy.next`.
+
+**Complexity.** O(max(m, n)) time, O(1) extra space beyond the output (m, n = input lengths).
+
+Run the demo:
+
+```bash
+python3 linked_list/2_add_two_numbers.py
+```
+
+## 78 — Subsets
+
+**Problem.** Given an integer array `nums` of unique elements, return all possible subsets (the power set). Duplicate subsets are not allowed; order does not matter.
+
+**Thought process.**
+1. The power set of n distinct elements has size 2ⁿ. A bitmask loop works, but the recursive include/skip (or "choose from the suffix") tree is the standard interview framing.
+2. Backtracking: for each start index, append `nums[start]`, recurse from `start + 1` (only later elements, so no duplicates), then pop.
+3. Every time you enter the recursive call, the current path is already a valid subset — snapshot `path[:]` into the answer before exploring further choices.
+4. Snapshotting is required: mutating the shared path later would corrupt earlier results.
+
+**Complexity.** O(n · 2ⁿ) time (copy each subset), O(n) recursion depth beyond the output.
+
+Run the demo:
+
+```bash
+python3 backtracking/78_subsets.py
 ```
