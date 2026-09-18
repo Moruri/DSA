@@ -55,6 +55,13 @@
 | 2 | Add Two Numbers | Linked Lists | `linked_list/2_add_two_numbers.py` |
 | 78 | Subsets | Backtracking | `backtracking/78_subsets.py` |
 
+### 2026-09-18 (Friday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 146 | LRU Cache | Design | `design/146_lru_cache.py` |
+| 547 | Number of Provinces | Union-Find | `union_find/547_number_of_provinces.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -64,5 +71,6 @@
 - **2026-09-15:** complete (15 + 739)
 - **2026-09-16:** complete (56 + 215)
 - **2026-09-17:** complete (2 + 78)
-- **Next open day:** 2026-09-18
-- **Remaining days in streak (from 2026-09-18 inclusive through 2026-12-09):** 83
+- **2026-09-18:** complete (146 + 547)
+- **Next open day:** 2026-09-19
+- **Remaining days in streak (from 2026-09-19 inclusive through 2026-12-09):** 82

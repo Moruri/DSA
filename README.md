@@ -19,6 +19,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 215 | [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) | Medium | Heaps / Quickselect | `heap/215_kth_largest_element_in_an_array.py` |
 | 2 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) | Medium | Linked Lists | `linked_list/2_add_two_numbers.py` |
 | 78 | [Subsets](https://leetcode.com/problems/subsets/) | Medium | Backtracking | `backtracking/78_subsets.py` |
+| 146 | [LRU Cache](https://leetcode.com/problems/lru-cache/) | Medium | Design | `design/146_lru_cache.py` |
+| 547 | [Number of Provinces](https://leetcode.com/problems/number-of-provinces/) | Medium | Union-Find | `union_find/547_number_of_provinces.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -252,4 +254,40 @@ Run the demo:
 
 ```bash
 python3 backtracking/78_subsets.py
+```
+
+## 146 — LRU Cache
+
+**Problem.** Design an LRU cache with `get(key)` and `put(key, value)`. Both must run in O(1); when capacity is exceeded, evict the least recently used key before inserting.
+
+**Thought process.**
+1. A plain dict is O(1) by key but has no recency order; a list tracks order but lookups/moves are O(n). We need both.
+2. Pair a hash map (`key -> node`) with a doubly linked list ordered least-recent → most-recent, using dummy head/tail sentinels so splices stay O(1).
+3. `get`: miss → `-1`; hit → move the node to the tail (most recent) and return its value.
+4. `put`: update + refresh if the key exists; otherwise append a new node and, if over capacity, unlink the node after the head (the LRU) and drop it from the map.
+
+**Complexity.** O(1) time per `get`/`put`, O(capacity) space.
+
+Run the demo:
+
+```bash
+python3 design/146_lru_cache.py
+```
+
+## 547 — Number of Provinces
+
+**Problem.** Given an `n x n` adjacency matrix `isConnected`, return the number of provinces (connected components of cities; connectivity is transitive).
+
+**Thought process.**
+1. A province is a connected component in an undirected graph: cities are vertices, `isConnected[i][j] == 1` edges (symmetric matrix).
+2. DFS/BFS also works (same idea as Number of Islands); Union-Find fits the disjoint-set theme and the matrix as a batch of undirected edges.
+3. Start with `n` singleton sets. For every `i < j` with `isConnected[i][j] == 1`, `union(i, j)`. The number of distinct roots left is the province count.
+4. Path compression + union-by-rank keeps each operation nearly O(1) (inverse Ackermann).
+
+**Complexity.** O(n² · α(n)) time, O(n) extra space.
+
+Run the demo:
+
+```bash
+python3 union_find/547_number_of_provinces.py
 ```
