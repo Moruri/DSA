@@ -21,6 +21,7 @@ Data Structures & Algorithms practice solutions (Python).
 | 78 | [Subsets](https://leetcode.com/problems/subsets/) | Medium | Backtracking | `backtracking/78_subsets.py` |
 | 146 | [LRU Cache](https://leetcode.com/problems/lru-cache/) | Medium | Design | `design/146_lru_cache.py` |
 | 547 | [Number of Provinces](https://leetcode.com/problems/number-of-provinces/) | Medium | Union-Find | `union_find/547_number_of_provinces.py` |
+| 207 | [Course Schedule](https://leetcode.com/problems/course-schedule/) | Medium | Graphs / Topological Sort | `topological_sort/207_course_schedule.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -290,4 +291,22 @@ Run the demo:
 
 ```bash
 python3 union_find/547_number_of_provinces.py
+```
+
+## 207 — Course Schedule
+
+**Problem.** There are `numCourses` courses labeled `0..numCourses-1`. Given `prerequisites` where each `[a, b]` means you must take `b` before `a`, return whether you can finish every course.
+
+**Thought process.**
+1. Finishing every course is possible iff the prerequisite graph has a valid ordering — i.e. it is a DAG (no cycles).
+2. Draw an edge `b → a` for each pair `[a, b]` ("`b` unlocks `a`"). Track each course's indegree (how many prereqs it still needs).
+3. Kahn's algorithm: put every indegree-0 course in a queue. Repeatedly take one, decrement its neighbors' indegrees, and enqueue any neighbor that hits 0.
+4. If the number of courses taken equals `numCourses`, every node entered the order — no cycle. Leftover positive indegrees mean a cycle.
+
+**Complexity.** O(V + E) time and space (V = `numCourses`, E = `|prerequisites|`).
+
+Run the demo:
+
+```bash
+python3 topological_sort/207_course_schedule.py
 ```
