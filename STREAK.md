@@ -68,6 +68,13 @@
 |---|-------|-------|------|
 | 207 | Course Schedule | Graphs / Topological Sort | `topological_sort/207_course_schedule.py` |
 
+### 2026-09-20 (Sunday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 238 | Product of Array Except Self | Arrays / Prefix Products | `arrays/238_product_of_array_except_self.py` |
+| 208 | Implement Trie (Prefix Tree) | Trie / Prefix Tree | `trie/208_implement_trie.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -79,5 +86,6 @@
 - **2026-09-17:** complete (2 + 78)
 - **2026-09-18:** complete (146 + 547)
 - **2026-09-19:** complete (207)
-- **Next open day:** 2026-09-20
-- **Remaining days in streak (from 2026-09-20 inclusive through 2026-12-09):** 81
+- **2026-09-20:** complete (238 + 208)
+- **Next open day:** 2026-09-21
+- **Remaining days in streak (from 2026-09-21 inclusive through 2026-12-09):** 80
