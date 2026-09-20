@@ -22,6 +22,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 146 | [LRU Cache](https://leetcode.com/problems/lru-cache/) | Medium | Design | `design/146_lru_cache.py` |
 | 547 | [Number of Provinces](https://leetcode.com/problems/number-of-provinces/) | Medium | Union-Find | `union_find/547_number_of_provinces.py` |
 | 207 | [Course Schedule](https://leetcode.com/problems/course-schedule/) | Medium | Graphs / Topological Sort | `topological_sort/207_course_schedule.py` |
+| 238 | [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) | Medium | Arrays / Prefix Products | `arrays/238_product_of_array_except_self.py` |
+| 208 | [Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) | Medium | Trie / Prefix Tree | `trie/208_implement_trie.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -309,4 +311,42 @@ Run the demo:
 
 ```bash
 python3 topological_sort/207_course_schedule.py
+```
+
+## 238 — Product of Array Except Self
+
+**Problem.** Given an integer array `nums`, return an array `answer` where `answer[i]` is the product of every element of `nums` except `nums[i]`. Do it in O(n) without division.
+
+**Thought process.**
+1. Division is banned, and multiplying everything except index `i` naively is O(n²).
+2. `answer[i]` is (product of everything left of `i`) times (product of everything right of `i`).
+3. Left-to-right pass: fill `answer[i]` with the running left product, then multiply the runner by `nums[i]`.
+4. Right-to-left pass: multiply each `answer[i]` by a running right product, then fold `nums[i]` into that runner.
+5. One output array plus a scalar for the right product meets the O(1) extra-space follow-up.
+
+**Complexity.** O(n) time, O(1) extra space beyond the output.
+
+Run the demo:
+
+```bash
+python3 arrays/238_product_of_array_except_self.py
+```
+
+## 208 — Implement Trie (Prefix Tree)
+
+**Problem.** Implement a trie with `insert(word)`, `search(word)` (exact word), and `startsWith(prefix)`.
+
+**Thought process.**
+1. A plain set of words makes exact search easy but `startsWith` still scans every word.
+2. Store characters on tree edges: each node maps `child_char → child_node` and marks whether a full word ends there.
+3. `insert` walks or creates one child per character, then sets the end-of-word flag.
+4. `search` walks the path and requires the end flag; `startsWith` only needs the path to exist.
+5. Shared prefixes reuse nodes, so total space tracks unique character paths across all words.
+
+**Complexity.** O(L) time per operation for a string of length L; space O(total characters inserted).
+
+Run the demo:
+
+```bash
+python3 trie/208_implement_trie.py
 ```
