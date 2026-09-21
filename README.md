@@ -24,6 +24,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 207 | [Course Schedule](https://leetcode.com/problems/course-schedule/) | Medium | Graphs / Topological Sort | `topological_sort/207_course_schedule.py` |
 | 238 | [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) | Medium | Arrays / Prefix Products | `arrays/238_product_of_array_except_self.py` |
 | 208 | [Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) | Medium | Trie / Prefix Tree | `trie/208_implement_trie.py` |
+| 994 | [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) | Medium | Graphs / Multi-source BFS | `graphs/994_rotting_oranges.py` |
+| 322 | [Coin Change](https://leetcode.com/problems/coin-change/) | Medium | Dynamic Programming | `dp/322_coin_change.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -349,4 +351,40 @@ Run the demo:
 
 ```bash
 python3 trie/208_implement_trie.py
+```
+
+## 994 — Rotting Oranges
+
+**Problem.** In an `m x n` grid of empty (0), fresh (1), and rotten (2) oranges, every minute every fresh orange adjacent (4-dir) to a rotten one becomes rotten. Return the minutes until no fresh oranges remain, or `-1` if impossible.
+
+**Thought process.**
+1. Rot spreads simultaneously from every rotten cell each minute — multi-source BFS on the grid graph.
+2. Seed a queue with all initial rotten cells and count the fresh oranges; if the count is already 0, return 0.
+3. Process the queue level by level (one minute per level): infect every fresh 4-neighbour, enqueue it, and decrement the fresh count.
+4. When BFS ends, return the minutes if every fresh orange was reached; otherwise `-1` (unreachable pockets).
+
+**Complexity.** O(m · n) time, O(m · n) space for the queue.
+
+Run the demo:
+
+```bash
+python3 graphs/994_rotting_oranges.py
+```
+
+## 322 — Coin Change
+
+**Problem.** Given coin denominations `coins` and a target `amount`, return the fewest coins needed to make that amount (unlimited supply of each coin), or `-1` if impossible.
+
+**Thought process.**
+1. Greedy fails on some denomination sets, so use exact DP.
+2. Let `dp[x]` be the fewest coins for amount `x`; `dp[0] = 0`, and unreachable amounts stay at a sentinel `amount + 1`.
+3. For each `x` from 1..amount and each coin `c ≤ x`, set `dp[x] = min(dp[x], dp[x - c] + 1)` when `x - c` is reachable.
+4. After filling, return `dp[amount]` or `-1` if it is still the sentinel.
+
+**Complexity.** O(amount · len(coins)) time, O(amount) space.
+
+Run the demo:
+
+```bash
+python3 dp/322_coin_change.py
 ```

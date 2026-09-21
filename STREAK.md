@@ -75,6 +75,13 @@
 | 238 | Product of Array Except Self | Arrays / Prefix Products | `arrays/238_product_of_array_except_self.py` |
 | 208 | Implement Trie (Prefix Tree) | Trie / Prefix Tree | `trie/208_implement_trie.py` |
 
+### 2026-09-21 (Monday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 994 | Rotting Oranges | Graphs / Multi-source BFS | `graphs/994_rotting_oranges.py` |
+| 322 | Coin Change | Dynamic Programming | `dp/322_coin_change.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -87,5 +94,6 @@
 - **2026-09-18:** complete (146 + 547)
 - **2026-09-19:** complete (207)
 - **2026-09-20:** complete (238 + 208)
-- **Next open day:** 2026-09-21
-- **Remaining days in streak (from 2026-09-21 inclusive through 2026-12-09):** 80
+- **2026-09-21:** complete (994 + 322)
+- **Next open day:** 2026-09-22
+- **Remaining days in streak (from 2026-09-22 inclusive through 2026-12-09):** 79
