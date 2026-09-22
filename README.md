@@ -26,6 +26,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 208 | [Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) | Medium | Trie / Prefix Tree | `trie/208_implement_trie.py` |
 | 994 | [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) | Medium | Graphs / Multi-source BFS | `graphs/994_rotting_oranges.py` |
 | 322 | [Coin Change](https://leetcode.com/problems/coin-change/) | Medium | Dynamic Programming | `dp/322_coin_change.py` |
+| 424 | [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) | Medium | Sliding Window | `sliding_window/424_longest_repeating_character_replacement.py` |
+| 98 | [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) | Medium | Trees / BST | `trees/98_validate_binary_search_tree.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -387,4 +389,40 @@ Run the demo:
 
 ```bash
 python3 dp/322_coin_change.py
+```
+
+## 424 — Longest Repeating Character Replacement
+
+**Problem.** Given a string `s` and an integer `k`, you may replace any character with any other uppercase English letter at most `k` times. Return the length of the longest substring that can be made all the same letter after those replacements.
+
+**Thought process.**
+1. Inside a window of length `L`, the cheapest uniform rewrite keeps the most frequent character and replaces the rest — valid iff `L - max_freq ≤ k`.
+2. Grow a sliding window while maintaining character counts and the peak frequency in the window.
+3. When replacements needed exceed `k`, advance the left edge and decrement the leaving character's count.
+4. Track the maximum valid window length; each index enters/leaves at most once.
+
+**Complexity.** O(n) time, O(1) space (fixed alphabet of 26).
+
+Run the demo:
+
+```bash
+python3 sliding_window/424_longest_repeating_character_replacement.py
+```
+
+## 98 — Validate Binary Search Tree
+
+**Problem.** Given the root of a binary tree, return whether it is a valid BST: every node's left subtree holds only keys strictly less than the node, every right subtree only keys strictly greater, and both subtrees are themselves valid BSTs.
+
+**Thought process.**
+1. Checking only immediate children is not enough — a deep descendant can violate an ancestor's bound.
+2. Propagate an open interval `(lo, hi)` down the tree; the root starts unbounded.
+3. A node with value `v` must satisfy `lo < v < hi`; its left child inherits `(lo, v)` and its right child `(v, hi)`.
+4. Empty subtrees are valid; use `None` sentinels for unbound ends so extreme 32-bit values stay safe.
+
+**Complexity.** O(n) time, O(h) space for the recursion stack (h = height).
+
+Run the demo:
+
+```bash
+python3 trees/98_validate_binary_search_tree.py
 ```
