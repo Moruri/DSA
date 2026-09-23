@@ -28,6 +28,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 322 | [Coin Change](https://leetcode.com/problems/coin-change/) | Medium | Dynamic Programming | `dp/322_coin_change.py` |
 | 424 | [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) | Medium | Sliding Window | `sliding_window/424_longest_repeating_character_replacement.py` |
 | 98 | [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) | Medium | Trees / BST | `trees/98_validate_binary_search_tree.py` |
+| 11 | [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | Medium | Two Pointers | `two_pointers/11_container_with_most_water.py` |
+| 139 | [Word Break](https://leetcode.com/problems/word-break/) | Medium | Dynamic Programming | `dp/139_word_break.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -425,4 +427,41 @@ Run the demo:
 
 ```bash
 python3 trees/98_validate_binary_search_tree.py
+```
+
+
+## 11 — Container With Most Water
+
+**Problem.** You are given `n` vertical lines where the `i`-th line has endpoints `(i, 0)` and `(i, height[i])`. Choose two lines that, with the x-axis, form a container holding the most water (no slanting). Return that maximum area.
+
+**Thought process.**
+1. Checking every pair is O(n²) — too slow for large `n`.
+2. Area equals `min(height[lo], height[hi]) * (hi - lo)`. Start at the widest span (`lo = 0`, `hi = n - 1`) so width is maximised first.
+3. The shorter line limits the height; moving the taller pointer can never raise that min, so always advance the shorter side.
+4. Track a running maximum while `lo < hi`; each index is visited at most once.
+
+**Complexity.** O(n) time, O(1) extra space.
+
+Run the demo:
+
+```bash
+python3 two_pointers/11_container_with_most_water.py
+```
+
+## 139 — Word Break
+
+**Problem.** Given a string `s` and a dictionary `wordDict`, return whether `s` can be segmented into a space-separated sequence of one or more dictionary words (words may be reused).
+
+**Thought process.**
+1. Enumerating every split is exponential without memoisation.
+2. Let `dp[i]` mean the prefix `s[0:i]` can be segmented; `dp[0] = True` for the empty prefix.
+3. For each end `i`, try a prior break `j`: if `dp[j]` and `s[j:i]` is in the dictionary, set `dp[i] = True`.
+4. Store `wordDict` in a set and bound the look-back by the longest word length; the answer is `dp[n]`.
+
+**Complexity.** O(n²) time with set lookups (n = `|s|`), O(n + dictionary size) space.
+
+Run the demo:
+
+```bash
+python3 dp/139_word_break.py
 ```
