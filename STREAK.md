@@ -89,6 +89,13 @@
 | 424 | Longest Repeating Character Replacement | Sliding Window | `sliding_window/424_longest_repeating_character_replacement.py` |
 | 98 | Validate Binary Search Tree | Trees / BST | `trees/98_validate_binary_search_tree.py` |
 
+### 2026-09-23 (Wednesday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 11 | Container With Most Water | Two Pointers | `two_pointers/11_container_with_most_water.py` |
+| 139 | Word Break | Dynamic Programming | `dp/139_word_break.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -103,5 +110,6 @@
 - **2026-09-20:** complete (238 + 208)
 - **2026-09-21:** complete (994 + 322)
 - **2026-09-22:** complete (424 + 98)
-- **Next open day:** 2026-09-23
-- **Remaining days in streak (from 2026-09-23 inclusive through 2026-12-09):** 78
+- **2026-09-23:** complete (11 + 139)
+- **Next open day:** 2026-09-24
+- **Remaining days in streak (from 2026-09-24 inclusive through 2026-12-09):** 77
