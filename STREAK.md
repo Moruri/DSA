@@ -103,6 +103,14 @@
 | 54 | Spiral Matrix | Matrix / Simulation | `matrix/54_spiral_matrix.py` |
 | 39 | Combination Sum | Backtracking | `backtracking/39_combination_sum.py` |
 
+
+### 2026-09-25 (Friday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 42 | Trapping Rain Water | Two Pointers | `two_pointers/42_trapping_rain_water.py` |
+| 300 | Longest Increasing Subsequence | Dynamic Programming / Binary Search | `dp/300_longest_increasing_subsequence.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -119,5 +127,6 @@
 - **2026-09-22:** complete (424 + 98)
 - **2026-09-23:** complete (11 + 139)
 - **2026-09-24:** complete (54 + 39)
-- **Next open day:** 2026-09-25
-- **Remaining days in streak (from 2026-09-25 inclusive through 2026-12-09):** 76
+- **2026-09-25:** complete (42 + 300)
+- **Next open day:** 2026-09-26
+- **Remaining days in streak (from 2026-09-26 inclusive through 2026-12-09):** 75
