@@ -32,6 +32,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 139 | [Word Break](https://leetcode.com/problems/word-break/) | Medium | Dynamic Programming | `dp/139_word_break.py` |
 | 54 | [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) | Medium | Matrix / Simulation | `matrix/54_spiral_matrix.py` |
 | 39 | [Combination Sum](https://leetcode.com/problems/combination-sum/) | Medium | Backtracking | `backtracking/39_combination_sum.py` |
+| 42 | [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) | Hard | Two Pointers | `two_pointers/42_trapping_rain_water.py` |
+| 300 | [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) | Medium | Dynamic Programming / Binary Search | `dp/300_longest_increasing_subsequence.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -503,4 +505,41 @@ Run the demo:
 
 ```bash
 python3 backtracking/39_combination_sum.py
+```
+
+
+## 42 — Trapping Rain Water
+
+**Problem.** Given `n` non-negative integers representing an elevation map where each bar has width 1, compute how much water it can trap after raining.
+
+**Thought process.**
+1. Water above index `i` is `max(0, min(left_max[i], right_max[i]) - height[i])`. Two max arrays solve it in O(n) time / O(n) space; a monotonic stack is another O(n)/O(n) option.
+2. Two pointers keep the same answer in O(1) extra space: track `lo`/`hi` and running `left_max`/`right_max`.
+3. Always advance the side whose running max is smaller — that wall is the limit for the current index, so water there is safe to accumulate.
+4. Empty or single-bar maps trap nothing; each index is processed once.
+
+**Complexity.** O(n) time, O(1) extra space.
+
+Run the demo:
+
+```bash
+python3 two_pointers/42_trapping_rain_water.py
+```
+
+## 300 — Longest Increasing Subsequence
+
+**Problem.** Given an integer array `nums`, return the length of the longest strictly increasing subsequence.
+
+**Thought process.**
+1. Classic DP (`dp[i]` = LIS ending at `i`) is O(n²) — fine for small `n`, heavy for `n = 2500`.
+2. Patience sorting keeps a `tails` array: `tails[k]` is the smallest tail of every increasing subsequence of length `k + 1` seen so far (strictly increasing).
+3. For each `num`, binary-search the first tail `>= num` and replace it (or append if `num` is largest). A smaller tail only helps future extensions; the length never shrinks.
+4. After the scan, `len(tails)` is the LIS length. Empty → 0; all equal → 1.
+
+**Complexity.** O(n log n) time, O(n) space for the tails array.
+
+Run the demo:
+
+```bash
+python3 dp/300_longest_increasing_subsequence.py
 ```
