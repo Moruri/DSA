@@ -96,6 +96,13 @@
 | 11 | Container With Most Water | Two Pointers | `two_pointers/11_container_with_most_water.py` |
 | 139 | Word Break | Dynamic Programming | `dp/139_word_break.py` |
 
+### 2026-09-24 (Thursday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 54 | Spiral Matrix | Matrix / Simulation | `matrix/54_spiral_matrix.py` |
+| 39 | Combination Sum | Backtracking | `backtracking/39_combination_sum.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -111,5 +118,6 @@
 - **2026-09-21:** complete (994 + 322)
 - **2026-09-22:** complete (424 + 98)
 - **2026-09-23:** complete (11 + 139)
-- **Next open day:** 2026-09-24
-- **Remaining days in streak (from 2026-09-24 inclusive through 2026-12-09):** 77
+- **2026-09-24:** complete (54 + 39)
+- **Next open day:** 2026-09-25
+- **Remaining days in streak (from 2026-09-25 inclusive through 2026-12-09):** 76

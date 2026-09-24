@@ -30,6 +30,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 98 | [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) | Medium | Trees / BST | `trees/98_validate_binary_search_tree.py` |
 | 11 | [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | Medium | Two Pointers | `two_pointers/11_container_with_most_water.py` |
 | 139 | [Word Break](https://leetcode.com/problems/word-break/) | Medium | Dynamic Programming | `dp/139_word_break.py` |
+| 54 | [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) | Medium | Matrix / Simulation | `matrix/54_spiral_matrix.py` |
+| 39 | [Combination Sum](https://leetcode.com/problems/combination-sum/) | Medium | Backtracking | `backtracking/39_combination_sum.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -464,4 +466,41 @@ Run the demo:
 
 ```bash
 python3 dp/139_word_break.py
+```
+
+
+## 54 — Spiral Matrix
+
+**Problem.** Given an `m x n` matrix, return all elements of the matrix in spiral order (clockwise from the top-left).
+
+**Thought process.**
+1. Peeling layer by layer is clearer than a direction+visited walk and needs no extra visited set.
+2. Keep four bounds (`top`, `bottom`, `left`, `right`). Walk left→right on the top row, top→bottom on the right column, then (if still a row/column left) right→left on the bottom and bottom→top on the left.
+3. Shrink the corresponding bound after each side; the inner-leg guards prevent double-counting a lone remaining row or column.
+4. Empty input yields `[]`; each cell is emitted exactly once.
+
+**Complexity.** O(m · n) time, O(1) extra space beyond the output.
+
+Run the demo:
+
+```bash
+python3 matrix/54_spiral_matrix.py
+```
+
+## 39 — Combination Sum
+
+**Problem.** Given distinct integers `candidates` and a `target`, return all unique combinations that sum to `target`. The same number may be chosen unlimited times; order within a combination does not matter.
+
+**Thought process.**
+1. Backtracking: pick a candidate, subtract from the remaining target, recurse.
+2. Only consider candidates at or after the current start index so `[2, 3]` and `[3, 2]` are not both emitted; reuse the same index to allow unlimited repeats of one value.
+3. Sort first and prune once `candidates[i] > remaining` (later values are larger).
+4. Snapshot the path when remaining hits 0; always pop after exploring a branch.
+
+**Complexity.** O(n^{T/m}) time worst case (n candidates, T = target, m = smallest candidate), O(T/m) recursion depth beyond the output.
+
+Run the demo:
+
+```bash
+python3 backtracking/39_combination_sum.py
 ```
