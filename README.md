@@ -34,6 +34,7 @@ Data Structures & Algorithms practice solutions (Python).
 | 39 | [Combination Sum](https://leetcode.com/problems/combination-sum/) | Medium | Backtracking | `backtracking/39_combination_sum.py` |
 | 42 | [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) | Hard | Two Pointers | `two_pointers/42_trapping_rain_water.py` |
 | 300 | [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) | Medium | Dynamic Programming / Binary Search | `dp/300_longest_increasing_subsequence.py` |
+| 347 | [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) | Medium | Heap / Bucket Sort | `heap/347_top_k_frequent_elements.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -542,4 +543,22 @@ Run the demo:
 
 ```bash
 python3 dp/300_longest_increasing_subsequence.py
+```
+
+## 347 — Top K Frequent Elements
+
+**Problem.** Given an integer array `nums` and an integer `k`, return the `k` most frequent elements. You may return the answer in any order.
+
+**Thought process.**
+1. Count each value's frequency with a hash map in one O(n) pass.
+2. Heap option: keep a min-heap of size `k` keyed by frequency; after the scan it holds the top `k` — O(n log k).
+3. Bucket option (used here): put every value into `buckets[freq]`. Max frequency is at most `n`, so the array is O(n). Walk from high frequency down and collect until you have `k` values — O(n) total.
+4. Order among the `k` answers is free; ties at the cutoff frequency may go either way.
+
+**Complexity.** O(n) time and O(n) space with frequency buckets (heap alternative: O(n log k) time).
+
+Run the demo:
+
+```bash
+python3 heap/347_top_k_frequent_elements.py
 ```
