@@ -35,6 +35,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 42 | [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) | Hard | Two Pointers | `two_pointers/42_trapping_rain_water.py` |
 | 300 | [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) | Medium | Dynamic Programming / Binary Search | `dp/300_longest_increasing_subsequence.py` |
 | 347 | [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) | Medium | Heap / Bucket Sort | `heap/347_top_k_frequent_elements.py` |
+| 133 | [Clone Graph](https://leetcode.com/problems/clone-graph/) | Medium | Graphs / DFS | `graphs/133_clone_graph.py` |
+| 48 | [Rotate Image](https://leetcode.com/problems/rotate-image/) | Medium | Matrix / In-place | `matrix/48_rotate_image.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -561,4 +563,41 @@ Run the demo:
 
 ```bash
 python3 heap/347_top_k_frequent_elements.py
+```
+
+## 133 — Clone Graph
+
+**Problem.** Given a reference node in a connected undirected graph, return a deep copy of the graph. Each node holds a value and a list of neighbours; the graph may be empty.
+
+**Thought process.**
+1. A shallow copy that reuses original neighbour objects is wrong — every node needs a brand-new clone, with edges only among clones.
+2. DFS (or BFS) from the given node with a map `original → clone` so each node is created once and cycles do not recurse forever.
+3. On first visit allocate `Node(val)`, store it, then recursively clone each neighbour and append the clones to `neighbors`.
+4. Already-seen neighbours reuse the mapped clone — that wires shared edges and back-edges correctly.
+5. `None` input → `None`; a lone node with no neighbours → a single new node with an empty list.
+
+**Complexity.** O(V + E) time, O(V) space for the map / recursion stack.
+
+Run the demo:
+
+```bash
+python3 graphs/133_clone_graph.py
+```
+
+## 48 — Rotate Image
+
+**Problem.** Given an `n x n` matrix representing an image, rotate it 90° clockwise **in place** (no second matrix).
+
+**Thought process.**
+1. `result[c][n - 1 - r] = matrix[r][c]` is correct but uses O(n²) extra space — forbidden here.
+2. A 90° clockwise rotation equals: transpose, then reverse each row — both steps are in-place.
+3. Transpose by swapping `matrix[r][c]` with `matrix[c][r]` for `c > r`; the diagonal stays put.
+4. Reverse every row left↔right. (Layer four-cycles work too; transpose + reverse is shorter.)
+
+**Complexity.** O(n²) time, O(1) extra space.
+
+Run the demo:
+
+```bash
+python3 matrix/48_rotate_image.py
 ```
