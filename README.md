@@ -37,6 +37,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 347 | [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) | Medium | Heap / Bucket Sort | `heap/347_top_k_frequent_elements.py` |
 | 133 | [Clone Graph](https://leetcode.com/problems/clone-graph/) | Medium | Graphs / DFS | `graphs/133_clone_graph.py` |
 | 48 | [Rotate Image](https://leetcode.com/problems/rotate-image/) | Medium | Matrix / In-place | `matrix/48_rotate_image.py` |
+| 152 | [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) | Medium | Dynamic Programming | `dp/152_maximum_product_subarray.py` |
+| 236 | [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) | Medium | Trees | `trees/236_lowest_common_ancestor_of_a_binary_tree.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -600,4 +602,40 @@ Run the demo:
 
 ```bash
 python3 matrix/48_rotate_image.py
+```
+
+## 152 — Maximum Product Subarray
+
+**Problem.** Given an integer array `nums`, find a contiguous non-empty subarray whose product is maximised, and return that product.
+
+**Thought process.**
+1. Ordinary Kadane for sums fails: a negative factor can turn a large negative running product into the new maximum, so both extremes must be tracked.
+2. At each index keep `cur_max` and `cur_min` — the best / worst product of any subarray ending here.
+3. For value `x`, the candidates are `x`, `cur_max * x`, and `cur_min * x` (a negative `x` swaps the roles of max and min). Update both runners from those three.
+4. The answer is the largest `cur_max` seen; zeros reset the runners via the bare `x` candidate.
+
+**Complexity.** O(n) time, O(1) extra space.
+
+Run the demo:
+
+```bash
+python3 dp/152_maximum_product_subarray.py
+```
+
+## 236 — Lowest Common Ancestor of a Binary Tree
+
+**Problem.** Given a binary tree and two nodes `p` and `q`, return their lowest common ancestor — the deepest node that has both as descendants (a node may be a descendant of itself).
+
+**Thought process.**
+1. Unlike a BST there is no value-order shortcut; search the structure with a post-order DFS.
+2. If the current root is `None`, `p`, or `q`, return it immediately (a node is an ancestor of itself).
+3. Recurse on left and right. If both sides are non-null, `p` and `q` sit in different subtrees — the current root is the LCA.
+4. Otherwise bubble up the non-null side (both targets are deeper there, or only one was found so far).
+
+**Complexity.** O(n) time, O(h) space for the recursion stack (h = height).
+
+Run the demo:
+
+```bash
+python3 trees/236_lowest_common_ancestor_of_a_binary_tree.py
 ```

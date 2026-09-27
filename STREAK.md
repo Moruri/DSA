@@ -124,6 +124,14 @@
 | 133 | Clone Graph | Graphs / DFS | `graphs/133_clone_graph.py` |
 | 48 | Rotate Image | Matrix / In-place | `matrix/48_rotate_image.py` |
 
+
+### 2026-09-28 (Monday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 152 | Maximum Product Subarray | Dynamic Programming | `dp/152_maximum_product_subarray.py` |
+| 236 | Lowest Common Ancestor of a Binary Tree | Trees | `trees/236_lowest_common_ancestor_of_a_binary_tree.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -143,5 +151,6 @@
 - **2026-09-25:** complete (42 + 300)
 - **2026-09-26:** complete (347)
 - **2026-09-27:** complete (133 + 48)
-- **Next open day:** 2026-09-28
-- **Remaining days in streak (from 2026-09-28 inclusive through 2026-12-09):** 73
+- **2026-09-28:** complete (152 + 236)
+- **Next open day:** 2026-09-29
+- **Remaining days in streak (from 2026-09-29 inclusive through 2026-12-09):** 72
