@@ -39,6 +39,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 48 | [Rotate Image](https://leetcode.com/problems/rotate-image/) | Medium | Matrix / In-place | `matrix/48_rotate_image.py` |
 | 152 | [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) | Medium | Dynamic Programming | `dp/152_maximum_product_subarray.py` |
 | 236 | [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) | Medium | Trees | `trees/236_lowest_common_ancestor_of_a_binary_tree.py` |
+| 19 | [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) | Medium | Linked Lists / Two Pointers | `linked_list/19_remove_nth_node_from_end_of_list.py` |
+| 79 | [Word Search](https://leetcode.com/problems/word-search/) | Medium | Backtracking / DFS on Grid | `backtracking/79_word_search.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -638,4 +640,40 @@ Run the demo:
 
 ```bash
 python3 trees/236_lowest_common_ancestor_of_a_binary_tree.py
+```
+
+## 19 — Remove Nth Node From End of List
+
+**Problem.** Given the head of a linked list, remove the nth node from the end of the list and return its head.
+
+**Thought process.**
+1. Counting length then walking to `(length - n)` needs two passes; a fixed gap between two pointers finds the victim in one.
+2. Advance `fast` n steps ahead of `slow`. Move both until `fast` hits the end — `slow` sits just before the node to delete.
+3. A dummy head in front of the real list makes removing the original head the same unlink (`slow` starts on the dummy; return `dummy.next`).
+4. Unlink with `slow.next = slow.next.next`.
+
+**Complexity.** O(L) time, O(1) extra space (L = list length).
+
+Run the demo:
+
+```bash
+python3 linked_list/19_remove_nth_node_from_end_of_list.py
+```
+
+## 79 — Word Search
+
+**Problem.** Given an `m x n` board of characters and a string `word`, return whether `word` exists on the board. Letters must come from sequentially adjacent (up/down/left/right) cells; the same cell may not be reused.
+
+**Thought process.**
+1. Try every cell as a start. If it matches `word[0]`, DFS for the remaining characters.
+2. From the current cell, recurse into the four neighbors that still match the next letter; out-of-bounds or a mismatch prunes immediately.
+3. Mark the cell visited (overwrite with `'#'`) before exploring neighbors so the path cannot reuse it; restore the letter on the way back so sibling branches see a clean board.
+4. When the matched index reaches `len(word)`, return `True` up the stack. If no start succeeds, return `False`.
+
+**Complexity.** O(m · n · 4^L) time worst case, O(L) recursion depth (L = word length).
+
+Run the demo:
+
+```bash
+python3 backtracking/79_word_search.py
 ```

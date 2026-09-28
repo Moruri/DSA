@@ -132,6 +132,13 @@
 | 152 | Maximum Product Subarray | Dynamic Programming | `dp/152_maximum_product_subarray.py` |
 | 236 | Lowest Common Ancestor of a Binary Tree | Trees | `trees/236_lowest_common_ancestor_of_a_binary_tree.py` |
 
+### 2026-09-29 (Tuesday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 19 | Remove Nth Node From End of List | Linked Lists / Two Pointers | `linked_list/19_remove_nth_node_from_end_of_list.py` |
+| 79 | Word Search | Backtracking / DFS on Grid | `backtracking/79_word_search.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -152,5 +159,6 @@
 - **2026-09-26:** complete (347)
 - **2026-09-27:** complete (133 + 48)
 - **2026-09-28:** complete (152 + 236)
-- **Next open day:** 2026-09-29
-- **Remaining days in streak (from 2026-09-29 inclusive through 2026-12-09):** 72
+- **2026-09-29:** complete (19 + 79)
+- **Next open day:** 2026-09-30
+- **Remaining days in streak (from 2026-09-30 inclusive through 2026-12-09):** 71
