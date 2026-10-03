@@ -41,6 +41,13 @@ Data Structures & Algorithms practice solutions (Python).
 | 236 | [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) | Medium | Trees | `trees/236_lowest_common_ancestor_of_a_binary_tree.py` |
 | 19 | [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) | Medium | Linked Lists / Two Pointers | `linked_list/19_remove_nth_node_from_end_of_list.py` |
 | 79 | [Word Search](https://leetcode.com/problems/word-search/) | Medium | Backtracking / DFS on Grid | `backtracking/79_word_search.py` |
+| 621 | [Task Scheduler](https://leetcode.com/problems/task-scheduler/) | Medium | Greedy / Heap | `greedy/621_task_scheduler.py` |
+| 543 | [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/) | Easy | Trees | `trees/543_diameter_of_binary_tree.py` |
+| 128 | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) | Medium | Hashing | `hashing/128_longest_consecutive_sequence.py` |
+| 1143 | [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) | Medium | Dynamic Programming | `dp/1143_longest_common_subsequence.py` |
+| 76 | [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) | Hard | Sliding Window | `sliding_window/76_minimum_window_substring.py` |
+| 23 | [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) | Hard | Linked Lists / Heap | `linked_list/23_merge_k_sorted_lists.py` |
+| 55 | [Jump Game](https://leetcode.com/problems/jump-game/) | Medium | Greedy | `greedy/55_jump_game.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -677,3 +684,130 @@ Run the demo:
 ```bash
 python3 backtracking/79_word_search.py
 ```
+
+## 621 — Task Scheduler
+
+**Problem.** Given CPU tasks (letters) and a cool-down `n`, return the least units of time to finish all tasks so that identical tasks are at least `n` apart.
+
+**Thought process.**
+1. The most frequent task is the bottleneck: if it appears `f` times you need `(f - 1)` cool-down gaps of length `n` between its occurrences, framing `(f - 1) * (n + 1) + 1` slots.
+2. When several tasks share max frequency `f`, each claims a "last-row" slot — use `count_of_max` instead of 1.
+3. You can never finish faster than running every task once, so answer = `max(formula, len(tasks))`.
+4. Frequency counting is linear; no heap simulation is required for the length alone.
+
+**Complexity.** O(T) time, O(1) extra space (fixed alphabet).
+
+Run the demo:
+
+```bash
+python3 greedy/621_task_scheduler.py
+```
+
+## 543 — Diameter of Binary Tree
+
+**Problem.** Given the root of a binary tree, return the length (edge count) of the longest path between any two nodes. The path may or may not pass through the root.
+
+**Thought process.**
+1. For any node, the longest path that bends through it is `left_height + right_height`.
+2. The diameter is the max of that quantity over every node — a single DFS that returns height also updates a running best.
+3. Height of `None` is 0; height of a node is `1 + max(left, right)`. Score the bend before returning.
+4. Post-order ensures both children are known; a diameter living entirely in one subtree is still caught by the global max.
+
+**Complexity.** O(n) time, O(h) recursion space.
+
+Run the demo:
+
+```bash
+python3 trees/543_diameter_of_binary_tree.py
+```
+
+## 128 — Longest Consecutive Sequence
+
+**Problem.** Given an unsorted integer array `nums`, return the length of the longest consecutive elements sequence. Must run in O(n).
+
+**Thought process.**
+1. Sorting would work in O(n log n); the O(n) budget needs a hash set instead.
+2. Put every value in a set. Only start a streak when `x - 1` is absent — that marks a true run start.
+3. From each start walk forward while successors remain; track the global max length.
+4. Each number is visited at most twice, so the nested-looking loop is still O(n).
+
+**Complexity.** O(n) time, O(n) space.
+
+Run the demo:
+
+```bash
+python3 hashing/128_longest_consecutive_sequence.py
+```
+
+## 1143 — Longest Common Subsequence
+
+**Problem.** Given two strings `text1` and `text2`, return the length of their longest common subsequence (delete zero or more chars without reordering). Return 0 if none.
+
+**Thought process.**
+1. Let `dp[i][j]` be the LCS length of prefixes `text1[:i]` and `text2[:j]`; empty prefixes are 0.
+2. Matching characters: `dp[i][j] = dp[i-1][j-1] + 1`.
+3. Otherwise skip one side: `max(dp[i-1][j], dp[i][j-1])`.
+4. Answer is `dp[m][n]`. Rolling rows can shrink space to O(min(m, n)); the 2D table keeps the recurrence clear.
+
+**Complexity.** O(m · n) time and space.
+
+Run the demo:
+
+```bash
+python3 dp/1143_longest_common_subsequence.py
+```
+
+## 76 — Minimum Window Substring
+
+**Problem.** Given strings `s` and `t`, return the minimum window substring of `s` that covers every character in `t` (with multiplicity). Return `""` if impossible.
+
+**Thought process.**
+1. Checking every covering substring is too slow; a sliding window shrinks whenever it is already valid.
+2. Count required frequencies from `t`. Grow `right` across `s`, tracking how many requirements are fully met (`have`).
+3. When `have == required`, shrink `left` while the window stays valid and record the shortest span.
+4. Dropping below a needed count decrements `have` and forces growth again. Each index enters/leaves once.
+
+**Complexity.** O(|s| + |t|) time, O(|Σ|) space.
+
+Run the demo:
+
+```bash
+python3 sliding_window/76_minimum_window_substring.py
+```
+
+## 23 — Merge k Sorted Lists
+
+**Problem.** Given `k` linked lists each sorted ascending, merge them into one sorted linked list and return it.
+
+**Thought process.**
+1. Pairwise left-to-right merging is O(k · N); a min-heap of current heads keeps the global minimum in O(log k) per step.
+2. Seed the heap with `(val, list_index, node)` so ties never compare ListNode objects.
+3. Pop the smallest, append it, and push its successor if any. A dummy head makes the first append uniform.
+4. When the heap empties every node has been emitted in sorted order — O(N log k) for N total nodes.
+
+**Complexity.** O(N log k) time, O(k) heap space beyond the output.
+
+Run the demo:
+
+```bash
+python3 linked_list/23_merge_k_sorted_lists.py
+```
+
+## 55 — Jump Game
+
+**Problem.** Given `nums` where `nums[i]` is the max jump length from index `i`, return whether you can reach the last index from index 0.
+
+**Thought process.**
+1. Tracking every reachable index works but is heavier than needed — only the farthest reach matters.
+2. Scan left to right while `i <= farthest`, updating `farthest = max(farthest, i + nums[i])`.
+3. If `farthest` covers the last index, return True; if the scan stalls before the end, a gap blocks the path.
+4. One pass and a few scalars — no queue or DP table.
+
+**Complexity.** O(n) time, O(1) extra space.
+
+Run the demo:
+
+```bash
+python3 greedy/55_jump_game.py
+```
+
