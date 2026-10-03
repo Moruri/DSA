@@ -139,6 +139,34 @@
 | 19 | Remove Nth Node From End of List | Linked Lists / Two Pointers | `linked_list/19_remove_nth_node_from_end_of_list.py` |
 | 79 | Word Search | Backtracking / DFS on Grid | `backtracking/79_word_search.py` |
 
+
+### 2026-09-30 (Wednesday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 621 | Task Scheduler | Greedy / Heap | `greedy/621_task_scheduler.py` |
+| 543 | Diameter of Binary Tree | Trees | `trees/543_diameter_of_binary_tree.py` |
+
+### 2026-10-01 (Thursday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 128 | Longest Consecutive Sequence | Hashing | `hashing/128_longest_consecutive_sequence.py` |
+| 1143 | Longest Common Subsequence | Dynamic Programming | `dp/1143_longest_common_subsequence.py` |
+
+### 2026-10-02 (Friday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 76 | Minimum Window Substring | Sliding Window | `sliding_window/76_minimum_window_substring.py` |
+| 23 | Merge k Sorted Lists | Linked Lists / Heap | `linked_list/23_merge_k_sorted_lists.py` |
+
+### 2026-10-03 (Saturday) — complete (quota 1)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 55 | Jump Game | Greedy | `greedy/55_jump_game.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -160,5 +188,9 @@
 - **2026-09-27:** complete (133 + 48)
 - **2026-09-28:** complete (152 + 236)
 - **2026-09-29:** complete (19 + 79)
-- **Next open day:** 2026-09-30
-- **Remaining days in streak (from 2026-09-30 inclusive through 2026-12-09):** 71
+- **2026-09-30:** complete (621 + 543)
+- **2026-10-01:** complete (128 + 1143)
+- **2026-10-02:** complete (76 + 23)
+- **2026-10-03:** complete (55)
+- **Next open day:** 2026-10-04
+- **Remaining days in streak (from 2026-10-04 inclusive through 2026-12-09):** 67
