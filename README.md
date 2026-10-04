@@ -50,6 +50,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 55 | [Jump Game](https://leetcode.com/problems/jump-game/) | Medium | Greedy | `greedy/55_jump_game.py` |
 | 239 | [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) | Hard | Sliding Window / Monotonic Deque | `sliding_window/239_sliding_window_maximum.py` |
 | 105 | [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | Medium | Trees | `trees/105_construct_binary_tree_from_preorder_and_inorder_traversal.py` |
+| 875 | [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/) | Medium | Binary Search on the Answer | `binary_search/875_koko_eating_bananas.py` |
+| 417 | [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/) | Medium | Graphs / Reverse Multi-source DFS | `graphs/417_pacific_atlantic_water_flow.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -847,4 +849,40 @@ Run the demo:
 
 ```bash
 python3 trees/105_construct_binary_tree_from_preorder_and_inorder_traversal.py
+```
+
+## 875 — Koko Eating Bananas
+
+**Problem.** Koko eats up to `k` bananas from one pile per hour. Return the minimum integer speed `k` that finishes all `piles` within `h` hours.
+
+**Thought process.**
+1. Search over the *answer* (the speed), not the array: it lies in `[1, max(piles)]`.
+2. Feasibility is monotonic — if speed `k` works, every faster speed works — so the range looks like "too slow … OK OK OK" and we want the first OK.
+3. For a candidate `k`, hours needed is `sum(ceil(p / k))`, computed as `(p + k - 1) // k`.
+4. If it fits, keep `k` as a candidate (`hi = k`); otherwise `lo = k + 1`. Stop when they meet.
+
+**Complexity.** O(n log M) time with M = max(piles), O(1) extra space.
+
+Run the demo:
+
+```bash
+python3 binary_search/875_koko_eating_bananas.py
+```
+
+## 417 — Pacific Atlantic Water Flow
+
+**Problem.** Water flows from a cell to neighbours of equal or lower height. The Pacific touches the top/left edges, the Atlantic the bottom/right. Return every cell that can drain into both.
+
+**Thought process.**
+1. Searching from every cell repeats work — up to O((m·n)²).
+2. Reverse it: start from each ocean's border and walk *uphill* (to neighbours with height ≥ current). Those are exactly the cells that drain into that ocean.
+3. Run one multi-source DFS for the Pacific border and one for the Atlantic border.
+4. Return the intersection of the two visited sets.
+
+**Complexity.** O(m·n) time and space.
+
+Run the demo:
+
+```bash
+python3 graphs/417_pacific_atlantic_water_flow.py
 ```
