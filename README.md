@@ -48,6 +48,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 76 | [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) | Hard | Sliding Window | `sliding_window/76_minimum_window_substring.py` |
 | 23 | [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) | Hard | Linked Lists / Heap | `linked_list/23_merge_k_sorted_lists.py` |
 | 55 | [Jump Game](https://leetcode.com/problems/jump-game/) | Medium | Greedy | `greedy/55_jump_game.py` |
+| 239 | [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) | Hard | Sliding Window / Monotonic Deque | `sliding_window/239_sliding_window_maximum.py` |
+| 105 | [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | Medium | Trees | `trees/105_construct_binary_tree_from_preorder_and_inorder_traversal.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -811,3 +813,38 @@ Run the demo:
 python3 greedy/55_jump_game.py
 ```
 
+## 239 — Sliding Window Maximum
+
+**Problem.** Given `nums` and window size `k`, return the maximum value in every contiguous window of length `k` as the window slides left to right.
+
+**Thought process.**
+1. Recomputing max over every window is O(n·k); each index should do amortized O(1) work.
+2. Keep a deque of indices in decreasing value order — the front is always the current window max.
+3. Drop indices that left the window; drop from the back while they are ≤ the new value; append the new index and record the front when the window is full.
+4. Each index is pushed/popped at most once → O(n).
+
+**Complexity.** O(n) time, O(k) extra space.
+
+Run the demo:
+
+```bash
+python3 sliding_window/239_sliding_window_maximum.py
+```
+
+## 105 — Construct Binary Tree from Preorder and Inorder Traversal
+
+**Problem.** Given unique-valued `preorder` and `inorder` traversals of a binary tree, reconstruct and return the tree.
+
+**Thought process.**
+1. Preorder lists root first (then left, then right); inorder lists left, root, right.
+2. Take `preorder[0]` as root; find it in inorder to split left/right subtrees.
+3. Left-subtree size = count of inorder elements before the root; recurse on both sides with matching preorder slices.
+4. An index map makes root lookup O(1); index ranges avoid copying slices → O(n) build.
+
+**Complexity.** O(n) time, O(n) space (map + recursion).
+
+Run the demo:
+
+```bash
+python3 trees/105_construct_binary_tree_from_preorder_and_inorder_traversal.py
+```
