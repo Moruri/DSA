@@ -167,6 +167,27 @@
 |---|-------|-------|------|
 | 55 | Jump Game | Greedy | `greedy/55_jump_game.py` |
 
+### 2026-10-04 (Sunday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 239 | Sliding Window Maximum | Sliding Window / Monotonic Deque | `sliding_window/239_sliding_window_maximum.py` |
+| 105 | Construct Binary Tree from Preorder and Inorder Traversal | Trees | `trees/105_construct_binary_tree_from_preorder_and_inorder_traversal.py` |
+
+### 2026-10-05 (Monday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 875 | Koko Eating Bananas | Binary Search on the Answer | `binary_search/875_koko_eating_bananas.py` |
+| 417 | Pacific Atlantic Water Flow | Graphs / Reverse Multi-source DFS | `graphs/417_pacific_atlantic_water_flow.py` |
+
+### 2026-10-06 (Tuesday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 84 | Largest Rectangle in Histogram | Monotonic Stack | `stack/84_largest_rectangle_in_histogram.py` |
+| 435 | Non-overlapping Intervals | Intervals / Greedy | `intervals/435_non_overlapping_intervals.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -194,5 +215,6 @@
 - **2026-10-03:** complete (55)
 - **2026-10-04:** complete (239 + 105)
 - **2026-10-05:** complete (875 + 417)
-- **Next open day:** 2026-10-06
-- **Remaining days in streak (from 2026-10-06 inclusive through 2026-12-09):** 65
+- **2026-10-06:** complete (84 + 435)
+- **Next open day:** 2026-10-07
+- **Remaining days in streak (from 2026-10-07 inclusive through 2026-12-09):** 64

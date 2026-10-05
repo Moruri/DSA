@@ -52,6 +52,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 105 | [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | Medium | Trees | `trees/105_construct_binary_tree_from_preorder_and_inorder_traversal.py` |
 | 875 | [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/) | Medium | Binary Search on the Answer | `binary_search/875_koko_eating_bananas.py` |
 | 417 | [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/) | Medium | Graphs / Reverse Multi-source DFS | `graphs/417_pacific_atlantic_water_flow.py` |
+| 84 | [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) | Hard | Monotonic Stack | `stack/84_largest_rectangle_in_histogram.py` |
+| 435 | [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) | Medium | Intervals / Greedy | `intervals/435_non_overlapping_intervals.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -885,4 +887,40 @@ Run the demo:
 
 ```bash
 python3 graphs/417_pacific_atlantic_water_flow.py
+```
+
+## 84 — Largest Rectangle in Histogram
+
+**Problem.** Each bar has width 1. Return the area of the largest rectangle that fits inside the histogram.
+
+**Thought process.**
+1. Checking every pair of bars is O(n²). Instead ask, for each bar, how wide a rectangle can get if this bar is its shortest bar.
+2. That width runs from the nearest shorter bar on the left to the nearest shorter bar on the right.
+3. Keep a stack of indices with increasing heights. When a shorter bar arrives, pop taller bars: the current index is their right wall and the index left on the stack is their left wall.
+4. A height-0 sentinel at the end flushes everything; an empty stack means the left wall is -1.
+
+**Complexity.** O(n) time, O(n) space.
+
+Run the demo:
+
+```bash
+python3 stack/84_largest_rectangle_in_histogram.py
+```
+
+## 435 — Non-overlapping Intervals
+
+**Problem.** Return the fewest intervals to remove so the rest don't overlap (touching endpoints are fine).
+
+**Thought process.**
+1. Removing the fewest is the same as keeping the most non-overlapping intervals, which is activity selection.
+2. Sort by end time and always keep the interval that finishes first, since it leaves the most room afterwards.
+3. Walk the list: if an interval starts at or after the last kept end, keep it; otherwise count it as removed.
+4. An exchange argument shows swapping in the earliest-ending interval never hurts an optimal answer.
+
+**Complexity.** O(n log n) time for the sort, O(1) extra space.
+
+Run the demo:
+
+```bash
+python3 intervals/435_non_overlapping_intervals.py
 ```
