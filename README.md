@@ -54,6 +54,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 417 | [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/) | Medium | Graphs / Reverse Multi-source DFS | `graphs/417_pacific_atlantic_water_flow.py` |
 | 84 | [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) | Hard | Monotonic Stack | `stack/84_largest_rectangle_in_histogram.py` |
 | 435 | [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) | Medium | Intervals / Greedy | `intervals/435_non_overlapping_intervals.py` |
+| 210 | [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) | Medium | Graphs / Topological Sort | `topological_sort/210_course_schedule_ii.py` |
+| 371 | [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) | Medium | Bit Manipulation | `bit_manipulation/371_sum_of_two_integers.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -923,4 +925,40 @@ Run the demo:
 
 ```bash
 python3 intervals/435_non_overlapping_intervals.py
+```
+
+## 210 — Course Schedule II
+
+**Problem.** Given `numCourses` and prerequisite pairs `[a, b]` (take `b` before `a`), return any order that finishes every course, or `[]` if a cycle makes it impossible.
+
+**Thought process.**
+1. Courses are nodes and each prerequisite is an edge `b -> a`; a valid plan is a topological order of that graph.
+2. Track each course's in-degree (prerequisites still pending) and queue every course with in-degree 0.
+3. Pop a course, add it to the order, and decrement the in-degree of the courses it unlocks; any that reach 0 join the queue (Kahn's algorithm).
+4. If the order contains every course, return it. If some are missing, they're stuck behind a cycle, so return `[]`.
+
+**Complexity.** O(V + E) time and space.
+
+Run the demo:
+
+```bash
+python3 topological_sort/210_course_schedule_ii.py
+```
+
+## 371 — Sum of Two Integers
+
+**Problem.** Return `a + b` without using the `+` or `-` operators.
+
+**Thought process.**
+1. In binary addition, XOR gives each column's sum bit without carries, and `(a & b) << 1` gives the carries moved into the next column.
+2. So `a + b == (a ^ b) + ((a & b) << 1)`; repeat that step until the carry is 0.
+3. Python ints are unbounded, so negatives would loop forever. Mask to 32 bits (`0xFFFFFFFF`) so the carry falls off the top within 32 rounds.
+4. If bit 31 of the result is set, it's negative: convert back with `~(a ^ MASK)`.
+
+**Complexity.** O(1) time (at most 32 iterations), O(1) space.
+
+Run the demo:
+
+```bash
+python3 bit_manipulation/371_sum_of_two_integers.py
 ```
