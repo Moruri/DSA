@@ -195,6 +195,13 @@
 | 210 | Course Schedule II | Graphs / Topological Sort | `topological_sort/210_course_schedule_ii.py` |
 | 371 | Sum of Two Integers | Bit Manipulation | `bit_manipulation/371_sum_of_two_integers.py` |
 
+### 2026-10-08 (Thursday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 143 | Reorder List | Linked Lists / Fast-Slow Pointers | `linked_list/143_reorder_list.py` |
+| 973 | K Closest Points to Origin | Heap / Top-K | `heap/973_k_closest_points_to_origin.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -224,5 +231,6 @@
 - **2026-10-05:** complete (875 + 417)
 - **2026-10-06:** complete (84 + 435)
 - **2026-10-07:** complete (210 + 371)
-- **Next open day:** 2026-10-08
-- **Remaining days in streak (from 2026-10-08 inclusive through 2026-12-09):** 63
+- **2026-10-08:** complete (143 + 973)
+- **Next open day:** 2026-10-09
+- **Remaining days in streak (from 2026-10-09 inclusive through 2026-12-09):** 62

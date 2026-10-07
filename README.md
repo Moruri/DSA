@@ -56,6 +56,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 435 | [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) | Medium | Intervals / Greedy | `intervals/435_non_overlapping_intervals.py` |
 | 210 | [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) | Medium | Graphs / Topological Sort | `topological_sort/210_course_schedule_ii.py` |
 | 371 | [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) | Medium | Bit Manipulation | `bit_manipulation/371_sum_of_two_integers.py` |
+| 143 | [Reorder List](https://leetcode.com/problems/reorder-list/) | Medium | Linked Lists / Fast-Slow Pointers | `linked_list/143_reorder_list.py` |
+| 973 | [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) | Medium | Heap / Top-K | `heap/973_k_closest_points_to_origin.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -961,4 +963,40 @@ Run the demo:
 
 ```bash
 python3 bit_manipulation/371_sum_of_two_integers.py
+```
+
+## 143 — Reorder List
+
+**Problem.** Reorder a singly linked list `L0 → L1 → … → Ln` in place into `L0 → Ln → L1 → Ln-1 → …`.
+
+**Thought process.**
+1. The target alternates a node from the front with a node from the back, and "from the back toward the middle" is just the second half read in reverse.
+2. Find the middle with slow/fast pointers (stop while `fast.next and fast.next.next`), so the first half is equal or one longer.
+3. Cut at the middle and reverse the second half in place.
+4. Weave: one node from the first half, one from the reversed second half, until the second half runs out.
+
+**Complexity.** O(n) time, O(1) extra space.
+
+Run the demo:
+
+```bash
+python3 linked_list/143_reorder_list.py
+```
+
+## 973 — K Closest Points to Origin
+
+**Problem.** Return the `k` points closest to `(0, 0)`, in any order.
+
+**Thought process.**
+1. Compare squared distances `x² + y²`; the square root doesn't change the ranking.
+2. Sorting everything is O(n log n), but we only need the winners, not their order.
+3. Keep a size-k max-heap (negated distances in `heapq`): push each point and pop the farthest whenever the heap exceeds `k`. What's left is the k closest. O(n log k).
+4. Quickselect alternative: partition around a random pivot distance and recurse into one side only, average O(n).
+
+**Complexity.** Heap O(n log k) time, O(k) space; quickselect O(n) average time.
+
+Run the demo:
+
+```bash
+python3 heap/973_k_closest_points_to_origin.py
 ```
