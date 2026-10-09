@@ -58,6 +58,9 @@ Data Structures & Algorithms practice solutions (Python).
 | 371 | [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) | Medium | Bit Manipulation | `bit_manipulation/371_sum_of_two_integers.py` |
 | 143 | [Reorder List](https://leetcode.com/problems/reorder-list/) | Medium | Linked Lists / Fast-Slow Pointers | `linked_list/143_reorder_list.py` |
 | 973 | [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) | Medium | Heap / Top-K | `heap/973_k_closest_points_to_origin.py` |
+| 5 | [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) | Medium | Strings / Expand Around Center | `two_pointers/5_longest_palindromic_substring.py` |
+| 684 | [Redundant Connection](https://leetcode.com/problems/redundant-connection/) | Medium | Graphs / Union-Find | `union_find/684_redundant_connection.py` |
+| 297 | [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) | Hard | Trees / Preorder DFS | `trees/297_serialize_and_deserialize_binary_tree.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -999,4 +1002,56 @@ Run the demo:
 
 ```bash
 python3 heap/973_k_closest_points_to_origin.py
+```
+
+## 5 — Longest Palindromic Substring
+
+**Problem.** Return the longest substring of `s` that is a palindrome.
+
+**Thought process.**
+1. Checking every substring is O(n³). Flip it: every palindrome mirrors around a center, and there are only `2n - 1` centers (each character for odd lengths, each gap for even lengths).
+2. From each center, walk a left and right pointer outward while the characters match. Where they stop, the window just inside is the longest palindrome with that center.
+3. Track the best start and length across all centers. Any palindrome gets found from its own center, so nothing is missed.
+
+**Complexity.** O(n²) time worst case, O(1) extra space.
+
+Run the demo:
+
+```bash
+python3 two_pointers/5_longest_palindromic_substring.py
+```
+
+## 684 — Redundant Connection
+
+**Problem.** A tree on `n` nodes got one extra edge. Return the edge to remove (the last such edge in the input) so it becomes a tree again.
+
+**Thought process.**
+1. Replay edges in order, tracking connected components.
+2. An edge joining two different components is fine; an edge whose endpoints are already connected adds a second path between them, which is the cycle.
+3. Union-Find answers "already connected?" and "merge" in near-constant time. Every other cycle edge appeared earlier, so the edge caught is also the last cycle edge in the input.
+
+**Complexity.** O(n·α(n)) time, O(n) space.
+
+Run the demo:
+
+```bash
+python3 union_find/684_redundant_connection.py
+```
+
+## 297 — Serialize and Deserialize Binary Tree
+
+**Problem.** Turn a binary tree into a string and back into the identical tree.
+
+**Thought process.**
+1. A preorder list alone doesn't pin down the shape (that's why 105 needed inorder too). The missing piece is where the empty children are.
+2. Write them down: preorder DFS emitting `#` for every `None`. Each node is followed by its complete left subtree, then its complete right subtree.
+3. Decoding replays the same decisions: read a token, `#` means `None`, otherwise build the node, then its left subtree, then its right. The token stream lines up by itself.
+4. Both directions use an explicit stack so a 10,000-node skinny tree doesn't hit Python's recursion limit.
+
+**Complexity.** O(n) time and space each way.
+
+Run the demo:
+
+```bash
+python3 trees/297_serialize_and_deserialize_binary_tree.py
 ```
