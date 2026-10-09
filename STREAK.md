@@ -202,6 +202,19 @@
 | 143 | Reorder List | Linked Lists / Fast-Slow Pointers | `linked_list/143_reorder_list.py` |
 | 973 | K Closest Points to Origin | Heap / Top-K | `heap/973_k_closest_points_to_origin.py` |
 
+### 2026-10-09 (Friday) — complete (quota 2) — catch-up applied 2026-10-10
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 5 | Longest Palindromic Substring | Strings / Expand Around Center | `two_pointers/5_longest_palindromic_substring.py` |
+| 684 | Redundant Connection | Graphs / Union-Find | `union_find/684_redundant_connection.py` |
+
+### 2026-10-10 (Saturday) — complete (quota 1)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 297 | Serialize and Deserialize Binary Tree | Trees / Preorder DFS | `trees/297_serialize_and_deserialize_binary_tree.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -232,5 +245,7 @@
 - **2026-10-06:** complete (84 + 435)
 - **2026-10-07:** complete (210 + 371)
 - **2026-10-08:** complete (143 + 973)
-- **Next open day:** 2026-10-09
-- **Remaining days in streak (from 2026-10-09 inclusive through 2026-12-09):** 62
+- **2026-10-09:** complete (5 + 684) — catch-up applied 2026-10-10
+- **2026-10-10:** complete (297)
+- **Next open day:** 2026-10-11
+- **Remaining days in streak (from 2026-10-11 inclusive through 2026-12-09):** 60
