@@ -61,6 +61,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 5 | [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) | Medium | Strings / Expand Around Center | `two_pointers/5_longest_palindromic_substring.py` |
 | 684 | [Redundant Connection](https://leetcode.com/problems/redundant-connection/) | Medium | Graphs / Union-Find | `union_find/684_redundant_connection.py` |
 | 297 | [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) | Hard | Trees / Preorder DFS | `trees/297_serialize_and_deserialize_binary_tree.py` |
+| 853 | [Car Fleet](https://leetcode.com/problems/car-fleet/) | Medium | Stack / Sorting | `stack/853_car_fleet.py` |
+| 763 | [Partition Labels](https://leetcode.com/problems/partition-labels/) | Medium | Greedy / Hashing | `greedy/763_partition_labels.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1054,4 +1056,40 @@ Run the demo:
 
 ```bash
 python3 trees/297_serialize_and_deserialize_binary_tree.py
+```
+
+## 853 — Car Fleet
+
+**Problem.** Cars head to `target` on a one-lane road and can't pass; a car that catches up joins that fleet. Count the fleets that arrive.
+
+**Thought process.**
+1. Skip the simulation: compute each car's solo arrival time, `(target - position) / speed`.
+2. Sort by position, closest to the target first. The front car always leads a fleet.
+3. Walking backward, a car whose solo time is `<=` the fleet ahead's arrival time catches it before the finish and gets absorbed. A strictly slower time means a new fleet.
+4. Absorbed cars don't change the fleet's arrival time, so a stack of fleet times (only peeking the top) is enough; its size is the answer.
+
+**Complexity.** O(n log n) time for the sort, O(n) space.
+
+Run the demo:
+
+```bash
+python3 stack/853_car_fleet.py
+```
+
+## 763 — Partition Labels
+
+**Problem.** Cut a string into as many pieces as possible so each letter lives in only one piece; return the piece sizes.
+
+**Thought process.**
+1. A letter's first and last appearance must sit in the same piece, so record each letter's last index.
+2. Sweep left to right, stretching `end` to the furthest last index of any letter seen in the current piece.
+3. When `i == end`, every letter in the piece has made its final appearance, so cut. Cutting at the earliest safe point gives the most pieces.
+4. It's Merge Intervals (56) in disguise, done in one pass without building the intervals.
+
+**Complexity.** O(n) time, O(1) extra space (26 letters).
+
+Run the demo:
+
+```bash
+python3 greedy/763_partition_labels.py
 ```

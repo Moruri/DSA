@@ -215,6 +215,13 @@
 |---|-------|-------|------|
 | 297 | Serialize and Deserialize Binary Tree | Trees / Preorder DFS | `trees/297_serialize_and_deserialize_binary_tree.py` |
 
+### 2026-10-11 (Sunday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 853 | Car Fleet | Stack / Sorting | `stack/853_car_fleet.py` |
+| 763 | Partition Labels | Greedy / Hashing | `greedy/763_partition_labels.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -247,5 +254,6 @@
 - **2026-10-08:** complete (143 + 973)
 - **2026-10-09:** complete (5 + 684) — catch-up applied 2026-10-10
 - **2026-10-10:** complete (297)
-- **Next open day:** 2026-10-11
-- **Remaining days in streak (from 2026-10-11 inclusive through 2026-12-09):** 60
+- **2026-10-11:** complete (853 + 763)
+- **Next open day:** 2026-10-12
+- **Remaining days in streak (from 2026-10-12 inclusive through 2026-12-09):** 59
