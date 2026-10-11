@@ -63,6 +63,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 297 | [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) | Hard | Trees / Preorder DFS | `trees/297_serialize_and_deserialize_binary_tree.py` |
 | 853 | [Car Fleet](https://leetcode.com/problems/car-fleet/) | Medium | Stack / Sorting | `stack/853_car_fleet.py` |
 | 763 | [Partition Labels](https://leetcode.com/problems/partition-labels/) | Medium | Greedy / Hashing | `greedy/763_partition_labels.py` |
+| 743 | [Network Delay Time](https://leetcode.com/problems/network-delay-time/) | Medium | Graphs / Dijkstra | `graphs/743_network_delay_time.py` |
+| 981 | [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) | Medium | Binary Search / Design | `binary_search/981_time_based_key_value_store.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1092,4 +1094,39 @@ Run the demo:
 
 ```bash
 python3 greedy/763_partition_labels.py
+```
+
+## 743 — Network Delay Time
+
+**Problem.** A signal starts at node `k` in a directed weighted graph; return how long until every node hears it, or `-1` if some node never does.
+
+**Thought process.**
+1. Each node hears the signal at its shortest-path distance from `k`, so the answer is the largest shortest distance.
+2. Weights are non-negative, so Dijkstra fits: a min-heap of `(distance, node)` always hands out the nearest unsettled node, and that distance is final.
+3. Relax its outgoing edges by pushing `(d + w, neighbour)`; skip stale heap entries for nodes already settled.
+4. If all `n` nodes got settled, return the max distance, otherwise `-1`.
+
+**Complexity.** O(E log E) time, O(V + E) space.
+
+Run the demo:
+
+```bash
+python3 graphs/743_network_delay_time.py
+```
+
+## 981 — Time Based Key-Value Store
+
+**Problem.** Store values per key at timestamps, and `get(key, t)` returns the value with the latest timestamp `<= t` (or `""`).
+
+**Thought process.**
+1. Keep a per-key list of timestamps and a parallel list of values.
+2. `set` timestamps are strictly increasing, so appending keeps each list sorted with no extra work.
+3. `get` is an upper-bound search: `bisect_right(times, t)` is the first index past `t`, so the answer is one slot to its left; index 0 means nothing existed yet.
+
+**Complexity.** `set` O(1) amortised, `get` O(log m) per key with m versions; O(total sets) space.
+
+Run the demo:
+
+```bash
+python3 binary_search/981_time_based_key_value_store.py
 ```

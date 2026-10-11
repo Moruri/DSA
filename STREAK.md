@@ -222,6 +222,13 @@
 | 853 | Car Fleet | Stack / Sorting | `stack/853_car_fleet.py` |
 | 763 | Partition Labels | Greedy / Hashing | `greedy/763_partition_labels.py` |
 
+### 2026-10-12 (Monday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 743 | Network Delay Time | Graphs / Dijkstra | `graphs/743_network_delay_time.py` |
+| 981 | Time Based Key-Value Store | Binary Search / Design | `binary_search/981_time_based_key_value_store.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -255,5 +262,6 @@
 - **2026-10-09:** complete (5 + 684) — catch-up applied 2026-10-10
 - **2026-10-10:** complete (297)
 - **2026-10-11:** complete (853 + 763)
-- **Next open day:** 2026-10-12
-- **Remaining days in streak (from 2026-10-12 inclusive through 2026-12-09):** 59
+- **2026-10-12:** complete (743 + 981)
+- **Next open day:** 2026-10-13
+- **Remaining days in streak (from 2026-10-13 inclusive through 2026-12-09):** 58
