@@ -65,6 +65,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 763 | [Partition Labels](https://leetcode.com/problems/partition-labels/) | Medium | Greedy / Hashing | `greedy/763_partition_labels.py` |
 | 743 | [Network Delay Time](https://leetcode.com/problems/network-delay-time/) | Medium | Graphs / Dijkstra | `graphs/743_network_delay_time.py` |
 | 981 | [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) | Medium | Binary Search / Design | `binary_search/981_time_based_key_value_store.py` |
+| 416 | [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) | Medium | Dynamic Programming / 0-1 Knapsack | `dp/416_partition_equal_subset_sum.py` |
+| 73 | [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) | Medium | Matrix / In-place Markers | `matrix/73_set_matrix_zeroes.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1129,4 +1131,40 @@ Run the demo:
 
 ```bash
 python3 binary_search/981_time_based_key_value_store.py
+```
+
+## 416 — Partition Equal Subset Sum
+
+**Problem.** Can the array be split into two subsets with equal sums?
+
+**Thought process.**
+1. Equal halves means each half sums to `total / 2`, so an odd total is an instant no; otherwise ask whether any subset hits `target = total // 2` (the rest is the other half).
+2. We only care whether a sum is reachable, and sums are bounded by `target`, so keep a boolean array `reachable[s]`, seeded with `reachable[0] = True`.
+3. For each number `x`, every reachable `s - x` makes `s` reachable. Sweep `s` downward so `x` is used at most once (0-1 knapsack); sweeping upward would reuse it.
+4. Answer is `reachable[target]`; a Python-int bitset (`bits |= bits << x`) does the same thing faster.
+
+**Complexity.** O(n · target) time, O(target) space.
+
+Run the demo:
+
+```bash
+python3 dp/416_partition_equal_subset_sum.py
+```
+
+## 73 — Set Matrix Zeroes
+
+**Problem.** If a cell is 0, zero its whole row and column, in place.
+
+**Thought process.**
+1. Zeroing while scanning creates new zeros that look original, so record first, clear second.
+2. Sets of rows/cols cost O(m + n) space; instead use the first row and first column as marker arrays, since those cells get zeroed anyway.
+3. `matrix[0][0]` can't mark both the first row and first column, so a separate `first_col_zero` flag handles the first column.
+4. Clear inner cells from the markers, then clear the marker row and column last, because they're read until the end.
+
+**Complexity.** O(m · n) time, O(1) extra space.
+
+Run the demo:
+
+```bash
+python3 matrix/73_set_matrix_zeroes.py
 ```
