@@ -229,6 +229,13 @@
 | 743 | Network Delay Time | Graphs / Dijkstra | `graphs/743_network_delay_time.py` |
 | 981 | Time Based Key-Value Store | Binary Search / Design | `binary_search/981_time_based_key_value_store.py` |
 
+### 2026-10-13 (Tuesday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 416 | Partition Equal Subset Sum | Dynamic Programming / 0-1 Knapsack | `dp/416_partition_equal_subset_sum.py` |
+| 73 | Set Matrix Zeroes | Matrix / In-place Markers | `matrix/73_set_matrix_zeroes.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -263,5 +270,6 @@
 - **2026-10-10:** complete (297)
 - **2026-10-11:** complete (853 + 763)
 - **2026-10-12:** complete (743 + 981)
-- **Next open day:** 2026-10-13
-- **Remaining days in streak (from 2026-10-13 inclusive through 2026-12-09):** 58
+- **2026-10-13:** complete (416 + 73)
+- **Next open day:** 2026-10-14
+- **Remaining days in streak (from 2026-10-14 inclusive through 2026-12-09):** 57
