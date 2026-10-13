@@ -67,6 +67,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 981 | [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) | Medium | Binary Search / Design | `binary_search/981_time_based_key_value_store.py` |
 | 416 | [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) | Medium | Dynamic Programming / 0-1 Knapsack | `dp/416_partition_equal_subset_sum.py` |
 | 73 | [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) | Medium | Matrix / In-place Markers | `matrix/73_set_matrix_zeroes.py` |
+| 22 | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) | Medium | Backtracking / Constrained Generation | `backtracking/22_generate_parentheses.py` |
+| 211 | [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) | Medium | Trie / DFS with Wildcards | `trie/211_design_add_and_search_words.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1167,4 +1169,40 @@ Run the demo:
 
 ```bash
 python3 matrix/73_set_matrix_zeroes.py
+```
+
+## 22 — Generate Parentheses
+
+**Problem.** List every balanced string made of `n` pairs of parentheses.
+
+**Thought process.**
+1. Generating all 2^(2n) strings and filtering wastes nearly all the work, so build the string one character at a time and never make a move that can't end well.
+2. Track how many `(` and `)` you've placed. You may add `(` while fewer than `n` are used, and `)` only while it has an unmatched `(` to close.
+3. Those two rules keep every prefix fixable, so when the string hits length `2n` it's guaranteed balanced; record it and backtrack.
+4. Use a list buffer with append and pop instead of building new strings at every level.
+
+**Complexity.** The answer count is the nth Catalan number, about 4^n / n^1.5, and each answer costs O(n) to copy, so roughly O(4^n / sqrt(n)) time and O(n) extra space besides the output.
+
+Run the demo:
+
+```bash
+python3 backtracking/22_generate_parentheses.py
+```
+
+## 211 — Design Add and Search Words Data Structure
+
+**Problem.** Store words and answer searches where `.` matches any single letter.
+
+**Thought process.**
+1. A set does exact lookups fine, but a `.` query would mean scanning every word. A trie shares prefixes, so one walk covers many words at once.
+2. `addWord` walks down the trie, creating children as needed, and flags the last node as the end of a word.
+3. `search` follows one child per fixed letter; at a `.` it branches into every child and succeeds if any branch matches the rest (DFS on node and pattern index).
+4. At the end of the pattern, require the end-of-word flag so a bare prefix like `ba` doesn't match `bad`.
+
+**Complexity.** `addWord` and dot-free `search` are O(L). Searches with `d` dots can branch up to 26^d ways, capped by the trie's size. Space is O(total characters stored).
+
+Run the demo:
+
+```bash
+python3 trie/211_design_add_and_search_words.py
 ```

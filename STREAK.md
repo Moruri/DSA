@@ -236,6 +236,13 @@
 | 416 | Partition Equal Subset Sum | Dynamic Programming / 0-1 Knapsack | `dp/416_partition_equal_subset_sum.py` |
 | 73 | Set Matrix Zeroes | Matrix / In-place Markers | `matrix/73_set_matrix_zeroes.py` |
 
+### 2026-10-14 (Wednesday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 22 | Generate Parentheses | Backtracking / Constrained Generation | `backtracking/22_generate_parentheses.py` |
+| 211 | Design Add and Search Words Data Structure | Trie / DFS with Wildcards | `trie/211_design_add_and_search_words.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -271,5 +278,6 @@
 - **2026-10-11:** complete (853 + 763)
 - **2026-10-12:** complete (743 + 981)
 - **2026-10-13:** complete (416 + 73)
-- **Next open day:** 2026-10-14
-- **Remaining days in streak (from 2026-10-14 inclusive through 2026-12-09):** 57
+- **2026-10-14:** complete (22 + 211)
+- **Next open day:** 2026-10-15
+- **Remaining days in streak (from 2026-10-15 inclusive through 2026-12-09):** 56
