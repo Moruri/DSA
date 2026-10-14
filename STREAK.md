@@ -243,6 +243,13 @@
 | 22 | Generate Parentheses | Backtracking / Constrained Generation | `backtracking/22_generate_parentheses.py` |
 | 211 | Design Add and Search Words Data Structure | Trie / DFS with Wildcards | `trie/211_design_add_and_search_words.py` |
 
+### 2026-10-15 (Thursday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 287 | Find the Duplicate Number | Fast-Slow Pointers / Floyd's Cycle Detection | `linked_list/287_find_the_duplicate_number.py` |
+| 134 | Gas Station | Greedy / Running Balance | `greedy/134_gas_station.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -279,5 +286,6 @@
 - **2026-10-12:** complete (743 + 981)
 - **2026-10-13:** complete (416 + 73)
 - **2026-10-14:** complete (22 + 211)
-- **Next open day:** 2026-10-15
-- **Remaining days in streak (from 2026-10-15 inclusive through 2026-12-09):** 56
+- **2026-10-15:** complete (287 + 134)
+- **Next open day:** 2026-10-16
+- **Remaining days in streak (from 2026-10-16 inclusive through 2026-12-09):** 55

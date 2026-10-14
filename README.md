@@ -69,6 +69,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 73 | [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) | Medium | Matrix / In-place Markers | `matrix/73_set_matrix_zeroes.py` |
 | 22 | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) | Medium | Backtracking / Constrained Generation | `backtracking/22_generate_parentheses.py` |
 | 211 | [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) | Medium | Trie / DFS with Wildcards | `trie/211_design_add_and_search_words.py` |
+| 287 | [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) | Medium | Fast-Slow Pointers / Floyd's Cycle Detection | `linked_list/287_find_the_duplicate_number.py` |
+| 134 | [Gas Station](https://leetcode.com/problems/gas-station/) | Medium | Greedy / Running Balance | `greedy/134_gas_station.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1205,4 +1207,42 @@ Run the demo:
 
 ```bash
 python3 trie/211_design_add_and_search_words.py
+```
+
+## 287 — Find the Duplicate Number
+
+**Problem.** An array of `n + 1` values, each in `[1, n]`, has exactly one repeated value. Find it without modifying the array and with O(1) extra space.
+
+**Thought process.**
+1. A set needs O(n) space and sorting rewrites the array, so both break the rules. The values themselves have to do the work.
+2. Treat each index `i` as a node with one arrow to `nums[i]`. All values are valid indices, so a walk from index 0 never stops, and since no value is 0, index 0 sits on a tail leading into a cycle.
+3. The node where the tail joins the cycle has two arrows pointing at it, which means two indices store the same value. That entry point is the duplicate.
+4. Floyd's tortoise and hare finds it: move one pointer 1 step and another 2 steps from index 0 until they meet inside the cycle, then restart one at index 0 and move both 1 step; they meet at the entry.
+5. Why the second phase lands on the entry: if the tail has length `a` and they met `k` steps into a cycle of length `c`, then `a + k` is a multiple of `c`, so `a` more steps from the meeting point reaches the entry, exactly when the restarted pointer gets there too.
+
+**Complexity.** O(n) time, O(1) space, and the input is never written to.
+
+Run the demo:
+
+```bash
+python3 linked_list/287_find_the_duplicate_number.py
+```
+
+## 134 — Gas Station
+
+**Problem.** On a circular route, station `i` gives `gas[i]` and the drive to the next station costs `cost[i]`. Return the start index that lets you finish a full lap from an empty tank, or `-1`.
+
+**Thought process.**
+1. Simulating a lap from every start is O(n²). Think in net fuel per leg instead: `gas[i] - cost[i]`.
+2. If the total net fuel is negative, no start can work, so the answer is `-1`.
+3. Otherwise, scan once with a running tank from a candidate start. When the tank goes negative after station `i`, move the candidate to `i + 1` and reset the tank.
+4. Skipping is safe: every station between the old candidate and `i` was reached with a non-negative tank, so starting there fresh gives you less fuel at `i`, and it would fail at `i` too.
+5. The final candidate's stretch to the end is non-negative, and a non-negative total means that surplus covers the deficit of the skipped stations, so it finishes the lap.
+
+**Complexity.** O(n) time in one pass, O(1) space.
+
+Run the demo:
+
+```bash
+python3 greedy/134_gas_station.py
 ```
