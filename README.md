@@ -71,6 +71,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 211 | [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) | Medium | Trie / DFS with Wildcards | `trie/211_design_add_and_search_words.py` |
 | 287 | [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) | Medium | Fast-Slow Pointers / Floyd's Cycle Detection | `linked_list/287_find_the_duplicate_number.py` |
 | 134 | [Gas Station](https://leetcode.com/problems/gas-station/) | Medium | Greedy / Running Balance | `greedy/134_gas_station.py` |
+| 230 | [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | Medium | Trees / BST In-order Traversal | `trees/230_kth_smallest_element_in_a_bst.py` |
+| 567 | [Permutation in String](https://leetcode.com/problems/permutation-in-string/) | Medium | Sliding Window / Frequency Match | `sliding_window/567_permutation_in_string.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1245,4 +1247,40 @@ Run the demo:
 
 ```bash
 python3 greedy/134_gas_station.py
+```
+
+## 230 — Kth Smallest Element in a BST
+
+**Problem.** Given the root of a binary search tree and `k`, return the `k`th smallest value in the tree (1-indexed).
+
+**Thought process.**
+1. Collecting every value and sorting works in O(n log n), but it throws away the BST ordering we already have.
+2. An in-order walk (left, node, right) of a BST visits values in ascending order, so the `k`th node it visits is the answer.
+3. Walk iteratively with a stack: slide left pushing nodes, pop the next-smallest, count `k` down, then step into its right subtree. Stop as soon as `k` reaches zero instead of walking the whole tree.
+4. Follow-up for frequent updates and queries: keep a subtree size on each node and steer left or right by comparing `k` with the left subtree's size, which makes each query O(h).
+
+**Complexity.** O(h + k) time, where h is the tree height, and O(h) space for the stack.
+
+Run the demo:
+
+```bash
+python3 trees/230_kth_smallest_element_in_a_bst.py
+```
+
+## 567 — Permutation in String
+
+**Problem.** Return `True` if some contiguous substring of `s2` is a permutation (anagram) of `s1`.
+
+**Thought process.**
+1. A permutation of `s1` is any string with the same letter counts, so compare counts, not orderings.
+2. A match must be exactly `len(s1)` long, which means a fixed-size window sliding over `s2`.
+3. Instead of re-comparing all 26 counts per window, track `matches`, the number of letters whose counts currently agree between `s1` and the window.
+4. Each slide changes only two letters (one entering, one leaving), so update `matches` for just those two. When `matches == 26`, the window is an anagram.
+
+**Complexity.** O(len(s1) + len(s2)) time and O(1) space (two arrays of 26 counters).
+
+Run the demo:
+
+```bash
+python3 sliding_window/567_permutation_in_string.py
 ```

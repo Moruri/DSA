@@ -250,6 +250,13 @@
 | 287 | Find the Duplicate Number | Fast-Slow Pointers / Floyd's Cycle Detection | `linked_list/287_find_the_duplicate_number.py` |
 | 134 | Gas Station | Greedy / Running Balance | `greedy/134_gas_station.py` |
 
+### 2026-10-16 (Friday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 230 | Kth Smallest Element in a BST | Trees / BST In-order Traversal | `trees/230_kth_smallest_element_in_a_bst.py` |
+| 567 | Permutation in String | Sliding Window / Frequency Match | `sliding_window/567_permutation_in_string.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -287,5 +294,6 @@
 - **2026-10-13:** complete (416 + 73)
 - **2026-10-14:** complete (22 + 211)
 - **2026-10-15:** complete (287 + 134)
-- **Next open day:** 2026-10-16
-- **Remaining days in streak (from 2026-10-16 inclusive through 2026-12-09):** 55
+- **2026-10-16:** complete (230 + 567)
+- **Next open day:** 2026-10-17
+- **Remaining days in streak (from 2026-10-17 inclusive through 2026-12-09):** 54
