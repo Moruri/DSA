@@ -73,6 +73,7 @@ Data Structures & Algorithms practice solutions (Python).
 | 134 | [Gas Station](https://leetcode.com/problems/gas-station/) | Medium | Greedy / Running Balance | `greedy/134_gas_station.py` |
 | 230 | [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | Medium | Trees / BST In-order Traversal | `trees/230_kth_smallest_element_in_a_bst.py` |
 | 567 | [Permutation in String](https://leetcode.com/problems/permutation-in-string/) | Medium | Sliding Window / Frequency Match | `sliding_window/567_permutation_in_string.py` |
+| 127 | [Word Ladder](https://leetcode.com/problems/word-ladder/) | Hard | Graphs / BFS on Implicit Graph | `graphs/127_word_ladder.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1283,4 +1284,22 @@ Run the demo:
 
 ```bash
 python3 sliding_window/567_permutation_in_string.py
+```
+
+## 127 — Word Ladder
+
+**Problem.** Return the length of the shortest chain from `beginWord` to `endWord` where each step changes one letter and every word after the first is in `wordList` (0 if impossible).
+
+**Thought process.**
+1. Treat words as nodes and "differs by one letter" as an edge. Shortest chain on an unweighted graph means BFS, and the first time `endWord` is popped, the current level is the answer.
+2. Building edges by comparing every pair costs O(N² · L). Instead, map each word to wildcard patterns (`hot` becomes `*ot`, `h*t`, `ho*`). Two words are neighbours exactly when they share a pattern, so a dict from pattern to words hands over all neighbours directly.
+3. BFS level by level. After expanding a pattern's bucket once, clear it, because everything inside is already visited or queued.
+4. Bidirectional BFS is a common speed-up, but the one-sided version is already O(N · L²) and easier to reason about.
+
+**Complexity.** O(N · L²) time and O(N · L²) space for the pattern buckets.
+
+Run the demo:
+
+```bash
+python3 graphs/127_word_ladder.py
 ```
