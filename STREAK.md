@@ -257,6 +257,12 @@
 | 230 | Kth Smallest Element in a BST | Trees / BST In-order Traversal | `trees/230_kth_smallest_element_in_a_bst.py` |
 | 567 | Permutation in String | Sliding Window / Frequency Match | `sliding_window/567_permutation_in_string.py` |
 
+### 2026-10-17 (Saturday) — complete (quota 1)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 127 | Word Ladder | Graphs / BFS on Implicit Graph | `graphs/127_word_ladder.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -295,5 +301,6 @@
 - **2026-10-14:** complete (22 + 211)
 - **2026-10-15:** complete (287 + 134)
 - **2026-10-16:** complete (230 + 567)
-- **Next open day:** 2026-10-17
-- **Remaining days in streak (from 2026-10-17 inclusive through 2026-12-09):** 54
+- **2026-10-17:** complete (127)
+- **Next open day:** 2026-10-18
+- **Remaining days in streak (from 2026-10-18 inclusive through 2026-12-09):** 53
