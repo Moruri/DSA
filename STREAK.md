@@ -263,6 +263,13 @@
 |---|-------|-------|------|
 | 127 | Word Ladder | Graphs / BFS on Implicit Graph | `graphs/127_word_ladder.py` |
 
+### 2026-10-18 (Sunday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 295 | Find Median from Data Stream | Heap / Two Heaps | `heap/295_find_median_from_data_stream.py` |
+| 91 | Decode Ways | Dynamic Programming / 1-D | `dp/91_decode_ways.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -302,5 +309,6 @@
 - **2026-10-15:** complete (287 + 134)
 - **2026-10-16:** complete (230 + 567)
 - **2026-10-17:** complete (127)
-- **Next open day:** 2026-10-18
-- **Remaining days in streak (from 2026-10-18 inclusive through 2026-12-09):** 53
+- **2026-10-18:** complete (295 + 91)
+- **Next open day:** 2026-10-19
+- **Remaining days in streak (from 2026-10-19 inclusive through 2026-12-09):** 52
