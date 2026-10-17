@@ -74,6 +74,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 230 | [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | Medium | Trees / BST In-order Traversal | `trees/230_kth_smallest_element_in_a_bst.py` |
 | 567 | [Permutation in String](https://leetcode.com/problems/permutation-in-string/) | Medium | Sliding Window / Frequency Match | `sliding_window/567_permutation_in_string.py` |
 | 127 | [Word Ladder](https://leetcode.com/problems/word-ladder/) | Hard | Graphs / BFS on Implicit Graph | `graphs/127_word_ladder.py` |
+| 295 | [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) | Hard | Heap / Two Heaps | `heap/295_find_median_from_data_stream.py` |
+| 91 | [Decode Ways](https://leetcode.com/problems/decode-ways/) | Medium | Dynamic Programming / 1-D | `dp/91_decode_ways.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1302,4 +1304,40 @@ Run the demo:
 
 ```bash
 python3 graphs/127_word_ladder.py
+```
+
+## 295 — Find Median from Data Stream
+
+**Problem.** Design a structure that accepts numbers one at a time and can report the median of everything seen so far.
+
+**Thought process.**
+1. The median only depends on the middle of the sorted order, so there's no need to keep everything sorted. You only need the largest value of the smaller half and the smallest value of the larger half.
+2. Keep the smaller half in a max-heap (`low`, stored as negatives in Python) and the larger half in a min-heap (`high`).
+3. Maintain two invariants: everything in `low` is at most everything in `high`, and `low` holds either the same number of items as `high` or one more.
+4. To insert, push into `low`, move `low`'s top over to `high` (fixes ordering), then move `high`'s top back if `high` got bigger (fixes balance). The two heap tops are then the middle element or elements.
+
+**Complexity.** O(log n) per insert, O(1) per median query, O(n) space.
+
+Run the demo:
+
+```bash
+python3 heap/295_find_median_from_data_stream.py
+```
+
+## 91 — Decode Ways
+
+**Problem.** Digits map to letters (`1` is A through `26` is Z). Count how many ways a digit string can be decoded; leading zeros like `06` are invalid.
+
+**Thought process.**
+1. Every decoding of a prefix ends with a letter made from either the last one digit or the last two digits. So the count for `s[:i]` is the count for `s[:i-1]` (if the last digit isn't `0`) plus the count for `s[:i-2]` (if the last two digits form 10 to 26).
+2. The empty prefix has exactly one decoding, which is what lets a two-digit letter at the start count correctly.
+3. Zeros are the trap: a `0` only survives as part of `10` or `20`, so inputs like `30` or `06` collapse to 0 on their own through the recurrence.
+4. Each step reads only the previous two counts, so two rolling variables replace the array, the same shape as Climbing Stairs.
+
+**Complexity.** O(n) time and O(1) space.
+
+Run the demo:
+
+```bash
+python3 dp/91_decode_ways.py
 ```
