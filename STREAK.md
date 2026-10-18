@@ -270,6 +270,13 @@
 | 295 | Find Median from Data Stream | Heap / Two Heaps | `heap/295_find_median_from_data_stream.py` |
 | 91 | Decode Ways | Dynamic Programming / 1-D | `dp/91_decode_ways.py` |
 
+### 2026-10-19 (Monday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 57 | Insert Interval | Intervals / Linear Sweep | `intervals/57_insert_interval.py` |
+| 50 | Pow(x, n) | Math / Fast Exponentiation | `math/50_pow_x_n.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -310,5 +317,6 @@
 - **2026-10-16:** complete (230 + 567)
 - **2026-10-17:** complete (127)
 - **2026-10-18:** complete (295 + 91)
-- **Next open day:** 2026-10-19
-- **Remaining days in streak (from 2026-10-19 inclusive through 2026-12-09):** 52
+- **2026-10-19:** complete (57 + 50)
+- **Next open day:** 2026-10-20
+- **Remaining days in streak (from 2026-10-20 inclusive through 2026-12-09):** 51

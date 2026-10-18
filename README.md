@@ -76,6 +76,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 127 | [Word Ladder](https://leetcode.com/problems/word-ladder/) | Hard | Graphs / BFS on Implicit Graph | `graphs/127_word_ladder.py` |
 | 295 | [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) | Hard | Heap / Two Heaps | `heap/295_find_median_from_data_stream.py` |
 | 91 | [Decode Ways](https://leetcode.com/problems/decode-ways/) | Medium | Dynamic Programming / 1-D | `dp/91_decode_ways.py` |
+| 57 | [Insert Interval](https://leetcode.com/problems/insert-interval/) | Medium | Intervals / Linear Sweep | `intervals/57_insert_interval.py` |
+| 50 | [Pow(x, n)](https://leetcode.com/problems/powx-n/) | Medium | Math / Fast Exponentiation | `math/50_pow_x_n.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1340,4 +1342,40 @@ Run the demo:
 
 ```bash
 python3 dp/91_decode_ways.py
+```
+
+## 57 — Insert Interval
+
+**Problem.** Given sorted, non-overlapping intervals and one new interval, insert it so the list stays sorted and non-overlapping, merging where needed (touching endpoints merge).
+
+**Thought process.**
+1. The input is already sorted and clean, so there's no need to sort and re-merge everything like Merge Intervals (56). Only the intervals that touch the new one can change.
+2. Relative to the new interval `[s, e]`, the list splits into three runs: intervals that end before `s` (copy them), intervals that start at or before `e` (they overlap, so widen `[s, e]` to swallow them), and everything after (copy them).
+3. One index walks all three runs in order, so every interval is looked at once.
+4. It works because sorted, disjoint intervals that overlap `[s, e]` always sit in one contiguous block, so merging that block is exactly the union.
+
+**Complexity.** O(n) time with no sorting, O(n) space for the output.
+
+Run the demo:
+
+```bash
+python3 intervals/57_insert_interval.py
+```
+
+## 50 — Pow(x, n)
+
+**Problem.** Compute `x` to the power `n`, where `n` is any 32-bit signed integer, including negatives and zero.
+
+**Thought process.**
+1. Multiplying `n` times is O(n), which is too slow when `n` is around two billion. The fix is to halve the exponent instead of counting it down.
+2. Write `n` in binary. For `n = 13` (binary `1101`), `x^13 = x^8 * x^4 * x^1`. Keep a running base that squares each step (`x`, `x^2`, `x^4`, ...) and multiply it into the answer whenever the current lowest bit of `n` is 1, then shift `n` right.
+3. For negative `n`, use `x^-n = 1 / x^n`: flip `x` to `1/x` and make `n` positive. Python integers don't overflow, so negating `-2^31` is safe (in Java or C++ you'd widen to a 64-bit type first).
+4. `n = 0` needs no special case, since the loop never runs and the answer stays 1.
+
+**Complexity.** O(log |n|) time, O(1) space.
+
+Run the demo:
+
+```bash
+python3 math/50_pow_x_n.py
 ```
