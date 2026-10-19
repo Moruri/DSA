@@ -78,6 +78,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 91 | [Decode Ways](https://leetcode.com/problems/decode-ways/) | Medium | Dynamic Programming / 1-D | `dp/91_decode_ways.py` |
 | 57 | [Insert Interval](https://leetcode.com/problems/insert-interval/) | Medium | Intervals / Linear Sweep | `intervals/57_insert_interval.py` |
 | 50 | [Pow(x, n)](https://leetcode.com/problems/powx-n/) | Medium | Math / Fast Exponentiation | `math/50_pow_x_n.py` |
+| 4 | [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) | Hard | Binary Search / Partition Search | `binary_search/4_median_of_two_sorted_arrays.py` |
+| 155 | [Min Stack](https://leetcode.com/problems/min-stack/) | Medium | Stack / Design | `stack/155_min_stack.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1378,4 +1380,40 @@ Run the demo:
 
 ```bash
 python3 math/50_pow_x_n.py
+```
+
+## 4 — Median of Two Sorted Arrays
+
+**Problem.** Given two sorted arrays `nums1` and `nums2`, return the median of all their values combined, in O(log(m + n)) time.
+
+**Thought process.**
+1. Merging and taking the middle is O(m + n), which misses the required bound, so we can't look at every element.
+2. The median splits the combined list into a left half and a right half of equal size, with every left value no bigger than every right value. If we take `i` elements from `nums1` for the left half, we must take `j = (m + n + 1) // 2 - i` from `nums2`, so the whole problem shrinks to choosing one number `i`.
+3. A cut is valid when `nums1[i-1] <= nums2[j]` and `nums2[j-1] <= nums1[i]`, treating missing edge values as minus or plus infinity. If `nums1[i-1]` is too big we took too many from `nums1`, so move `i` left; if `nums2[j-1]` is too big we took too few, so move `i` right. That one-directional signal is what lets binary search work.
+4. Once the cut is valid, an odd total gives `max` of the two left borders, and an even total gives the average of that and the `min` of the two right borders. Searching over the shorter array keeps `j` in range.
+
+**Complexity.** O(log(min(m, n))) time, O(1) space.
+
+Run the demo:
+
+```bash
+python3 binary_search/4_median_of_two_sorted_arrays.py
+```
+
+## 155 — Min Stack
+
+**Problem.** Design a stack with `push`, `pop`, `top`, and `getMin`, all in O(1) time.
+
+**Thought process.**
+1. A list already gives O(1) push, pop, and top. The trouble is `getMin`: scanning is O(n), and a single "current min" variable goes wrong as soon as you pop the minimum, because you've forgotten what the min was before it arrived.
+2. A stack only removes its newest item, so everything underneath an entry stays frozen while that entry is on the stack. The minimum as of that entry can never change.
+3. So store it with the entry: push the pair `(value, min(value, previous min))`. The top pair always holds the minimum of the whole stack.
+4. Popping drops the pair, and the new top already carries the correct older minimum, so there's nothing to recompute. Duplicate minimums work for free because each copy carries its own snapshot.
+
+**Complexity.** O(1) per operation, O(n) space.
+
+Run the demo:
+
+```bash
+python3 stack/155_min_stack.py
 ```

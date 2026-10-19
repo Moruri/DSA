@@ -277,6 +277,13 @@
 | 57 | Insert Interval | Intervals / Linear Sweep | `intervals/57_insert_interval.py` |
 | 50 | Pow(x, n) | Math / Fast Exponentiation | `math/50_pow_x_n.py` |
 
+### 2026-10-20 (Tuesday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 4 | Median of Two Sorted Arrays | Binary Search / Partition Search | `binary_search/4_median_of_two_sorted_arrays.py` |
+| 155 | Min Stack | Stack / Design | `stack/155_min_stack.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -318,5 +325,6 @@
 - **2026-10-17:** complete (127)
 - **2026-10-18:** complete (295 + 91)
 - **2026-10-19:** complete (57 + 50)
-- **Next open day:** 2026-10-20
-- **Remaining days in streak (from 2026-10-20 inclusive through 2026-12-09):** 51
+- **2026-10-20:** complete (4 + 155)
+- **Next open day:** 2026-10-21
+- **Remaining days in streak (from 2026-10-21 inclusive through 2026-12-09):** 50
