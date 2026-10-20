@@ -80,6 +80,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 50 | [Pow(x, n)](https://leetcode.com/problems/powx-n/) | Medium | Math / Fast Exponentiation | `math/50_pow_x_n.py` |
 | 4 | [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) | Hard | Binary Search / Partition Search | `binary_search/4_median_of_two_sorted_arrays.py` |
 | 155 | [Min Stack](https://leetcode.com/problems/min-stack/) | Medium | Stack / Design | `stack/155_min_stack.py` |
+| 199 | [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/) | Medium | Trees / BFS | `trees/199_binary_tree_right_side_view.py` |
+| 45 | [Jump Game II](https://leetcode.com/problems/jump-game-ii/) | Medium | Greedy / Implicit BFS | `greedy/45_jump_game_ii.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1416,4 +1418,41 @@ Run the demo:
 
 ```bash
 python3 stack/155_min_stack.py
+```
+
+## 199 — Binary Tree Right Side View
+
+**Problem.** Given the root of a binary tree, return the values you'd see standing on its right side, top to bottom.
+
+**Thought process.**
+1. Following `.right` pointers is a trap: a deep left subtree can stick out below a short right one, and those nodes are visible too.
+2. What you see is the last node on each depth level, so this is really a level-order question.
+3. Run BFS. At the start of each level the queue holds exactly that level, so pop `len(queue)` nodes, enqueue their children left then right, and record the last value popped.
+4. An equivalent DFS visits right before left and records the first node reached at each new depth.
+
+**Complexity.** O(n) time, O(w) space where w is the widest level.
+
+Run the demo:
+
+```bash
+python3 trees/199_binary_tree_right_side_view.py
+```
+
+## 45 — Jump Game II
+
+**Problem.** From index i you can jump up to `nums[i]` steps forward. Return the fewest jumps to reach the last index (it's always reachable).
+
+**Thought process.**
+1. The DP "fewest jumps to reach i" checks every earlier index and costs O(n^2).
+2. Think in BFS rounds instead. The indices reachable with k jumps form one contiguous block, because if you can reach j you can reach everything before it.
+3. Scan the current block while tracking `farthest`, the furthest index any position in it can reach. That's the right edge of the next block.
+4. When the scan reaches the current edge `end`, spend one jump and move the edge to `farthest`. Stop once the edge covers the last index.
+5. The greedy is safe because it never picks a landing spot; it only counts how many rounds the reachable block needs to cover the end, which is the BFS distance.
+
+**Complexity.** O(n) time, O(1) space.
+
+Run the demo:
+
+```bash
+python3 greedy/45_jump_game_ii.py
 ```

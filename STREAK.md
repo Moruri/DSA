@@ -284,6 +284,13 @@
 | 4 | Median of Two Sorted Arrays | Binary Search / Partition Search | `binary_search/4_median_of_two_sorted_arrays.py` |
 | 155 | Min Stack | Stack / Design | `stack/155_min_stack.py` |
 
+### 2026-10-21 (Wednesday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 199 | Binary Tree Right Side View | Trees / BFS | `trees/199_binary_tree_right_side_view.py` |
+| 45 | Jump Game II | Greedy / Implicit BFS | `greedy/45_jump_game_ii.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -326,5 +333,6 @@
 - **2026-10-18:** complete (295 + 91)
 - **2026-10-19:** complete (57 + 50)
 - **2026-10-20:** complete (4 + 155)
-- **Next open day:** 2026-10-21
-- **Remaining days in streak (from 2026-10-21 inclusive through 2026-12-09):** 50
+- **2026-10-21:** complete (199 + 45)
+- **Next open day:** 2026-10-22
+- **Remaining days in streak (from 2026-10-22 inclusive through 2026-12-09):** 49
