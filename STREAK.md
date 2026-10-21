@@ -291,6 +291,13 @@
 | 199 | Binary Tree Right Side View | Trees / BFS | `trees/199_binary_tree_right_side_view.py` |
 | 45 | Jump Game II | Greedy / Implicit BFS | `greedy/45_jump_game_ii.py` |
 
+### 2026-10-22 (Thursday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 72 | Edit Distance | Dynamic Programming / 2-D | `dp/72_edit_distance.py` |
+| 138 | Copy List with Random Pointer | Linked Lists / Interleaving | `linked_list/138_copy_list_with_random_pointer.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -334,5 +341,6 @@
 - **2026-10-19:** complete (57 + 50)
 - **2026-10-20:** complete (4 + 155)
 - **2026-10-21:** complete (199 + 45)
-- **Next open day:** 2026-10-22
-- **Remaining days in streak (from 2026-10-22 inclusive through 2026-12-09):** 49
+- **2026-10-22:** complete (72 + 138)
+- **Next open day:** 2026-10-23
+- **Remaining days in streak (from 2026-10-23 inclusive through 2026-12-09):** 48
