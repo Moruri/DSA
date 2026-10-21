@@ -82,6 +82,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 155 | [Min Stack](https://leetcode.com/problems/min-stack/) | Medium | Stack / Design | `stack/155_min_stack.py` |
 | 199 | [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/) | Medium | Trees / BFS | `trees/199_binary_tree_right_side_view.py` |
 | 45 | [Jump Game II](https://leetcode.com/problems/jump-game-ii/) | Medium | Greedy / Implicit BFS | `greedy/45_jump_game_ii.py` |
+| 72 | [Edit Distance](https://leetcode.com/problems/edit-distance/) | Medium | Dynamic Programming / 2-D | `dp/72_edit_distance.py` |
+| 138 | [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) | Medium | Linked Lists / Interleaving | `linked_list/138_copy_list_with_random_pointer.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1455,4 +1457,41 @@ Run the demo:
 
 ```bash
 python3 greedy/45_jump_game_ii.py
+```
+
+## 72 — Edit Distance
+
+**Problem.** Return the fewest single-character inserts, deletes, or replacements that turn `word1` into `word2`.
+
+**Thought process.**
+1. Fixing mismatches greedily fails because one edit changes what later edits cost, so compare every alignment with DP.
+2. Let `dp[i][j]` be the cost of turning the first i characters of `word1` into the first j of `word2`, and look only at the last characters.
+3. If they match, they line up for free and `dp[i][j] = dp[i-1][j-1]`. Otherwise take 1 plus the best of replace (`dp[i-1][j-1]`), delete (`dp[i-1][j]`), or insert (`dp[i][j-1]`).
+4. The edges are pure deletions or insertions: `dp[i][0] = i` and `dp[0][j] = j`.
+5. Each cell reads only the row above and its left neighbour, so one row plus a saved diagonal value is enough.
+
+**Complexity.** O(m·n) time, O(n) space.
+
+Run the demo:
+
+```bash
+python3 dp/72_edit_distance.py
+```
+
+## 138 — Copy List with Random Pointer
+
+**Problem.** Deep-copy a linked list where every node also has a `random` pointer to any node or to nothing.
+
+**Thought process.**
+1. The tricky part is `random`: when you copy a node, its random target may not have a copy yet, so you need a lookup from any original node to its copy.
+2. The simple version is a hash map from old node to new node: create every copy, then wire `next` and `random` through the map. That's O(n) extra space.
+3. To drop the map, weave each copy right after its original (`A -> A' -> B -> B'`). Now the copy of any node X is just `X.next`.
+4. Second pass sets `A'.random = A.random.next`. Third pass unzips the two lists and restores the original's `next` pointers.
+
+**Complexity.** O(n) time, O(1) extra space beyond the new list.
+
+Run the demo:
+
+```bash
+python3 linked_list/138_copy_list_with_random_pointer.py
 ```
