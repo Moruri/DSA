@@ -298,6 +298,13 @@
 | 72 | Edit Distance | Dynamic Programming / 2-D | `dp/72_edit_distance.py` |
 | 138 | Copy List with Random Pointer | Linked Lists / Interleaving | `linked_list/138_copy_list_with_random_pointer.py` |
 
+### 2026-10-23 (Friday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 1584 | Min Cost to Connect All Points | Graphs / Minimum Spanning Tree (Prim) | `graphs/1584_min_cost_to_connect_all_points.py` |
+| 40 | Combination Sum II | Backtracking / Duplicate Skipping | `backtracking/40_combination_sum_ii.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -342,5 +349,6 @@
 - **2026-10-20:** complete (4 + 155)
 - **2026-10-21:** complete (199 + 45)
 - **2026-10-22:** complete (72 + 138)
-- **Next open day:** 2026-10-23
-- **Remaining days in streak (from 2026-10-23 inclusive through 2026-12-09):** 48
+- **2026-10-23:** complete (1584 + 40)
+- **Next open day:** 2026-10-24
+- **Remaining days in streak (from 2026-10-24 inclusive through 2026-12-09):** 47

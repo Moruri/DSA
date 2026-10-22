@@ -84,6 +84,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 45 | [Jump Game II](https://leetcode.com/problems/jump-game-ii/) | Medium | Greedy / Implicit BFS | `greedy/45_jump_game_ii.py` |
 | 72 | [Edit Distance](https://leetcode.com/problems/edit-distance/) | Medium | Dynamic Programming / 2-D | `dp/72_edit_distance.py` |
 | 138 | [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) | Medium | Linked Lists / Interleaving | `linked_list/138_copy_list_with_random_pointer.py` |
+| 1584 | [Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/) | Medium | Graphs / Minimum Spanning Tree | `graphs/1584_min_cost_to_connect_all_points.py` |
+| 40 | [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/) | Medium | Backtracking | `backtracking/40_combination_sum_ii.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1494,4 +1496,40 @@ Run the demo:
 
 ```bash
 python3 linked_list/138_copy_list_with_random_pointer.py
+```
+
+## 1584 — Min Cost to Connect All Points
+
+**Problem.** Connect all points on a plane so every pair is reachable, where an edge costs the Manhattan distance between its ends. Return the minimum total cost.
+
+**Thought process.**
+1. "Connect everything as cheaply as possible, no cycles needed" is exactly a minimum spanning tree, here over a complete graph with n·(n−1)/2 implicit edges.
+2. Kruskal would sort all those edges (O(n² log n)). Prim grows one tree instead: always add the outside point with the cheapest edge into the tree. The cut property says that cheapest crossing edge is always safe to take.
+3. Because the graph is dense, skip the heap. Keep an array `best[v]` holding the cheapest known edge from the tree to each outside point. Each round, scan for the smallest `best`, add that point, then let it lower `best` for everyone still outside.
+4. n rounds of two O(n) scans gives O(n²), which beats the heap version on a complete graph, and edges are computed on the fly so nothing is stored.
+
+**Complexity.** O(n²) time, O(n) space.
+
+Run the demo:
+
+```bash
+python3 graphs/1584_min_cost_to_connect_all_points.py
+```
+
+## 40 — Combination Sum II
+
+**Problem.** Return every unique combination of candidates that adds up to target. Each element may be used at most once, and the input can contain duplicate values.
+
+**Thought process.**
+1. It's the classic choose-or-skip backtracking from Combination Sum, but with two twists: move to `i + 1` after picking (each element used once), and avoid duplicate combinations caused by repeated values.
+2. Sort first. Now equal values sit together, and at any depth of the recursion, picking the first `1` or the second `1` as the next element leads to identical subtrees.
+3. So inside the loop, skip `candidates[i]` when `i > start` and it equals `candidates[i-1]`. The `i > start` part matters: it still allows `[1, 1, 6]`, because the second `1` is chosen at a deeper level, not as a sibling.
+4. Sorting also enables pruning: once a candidate exceeds the remaining sum, every later one does too, so break.
+
+**Complexity.** O(2ⁿ) combinations in the worst case (each output costs up to O(n) to copy), O(n) recursion depth.
+
+Run the demo:
+
+```bash
+python3 backtracking/40_combination_sum_ii.py
 ```
