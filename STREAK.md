@@ -305,6 +305,12 @@
 | 1584 | Min Cost to Connect All Points | Graphs / Minimum Spanning Tree (Prim) | `graphs/1584_min_cost_to_connect_all_points.py` |
 | 40 | Combination Sum II | Backtracking / Duplicate Skipping | `backtracking/40_combination_sum_ii.py` |
 
+### 2026-10-24 (Saturday) — complete (quota 1)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 137 | Single Number II | Bit Manipulation / Mod-3 Counter | `bit_manipulation/137_single_number_ii.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -350,5 +356,6 @@
 - **2026-10-21:** complete (199 + 45)
 - **2026-10-22:** complete (72 + 138)
 - **2026-10-23:** complete (1584 + 40)
-- **Next open day:** 2026-10-24
-- **Remaining days in streak (from 2026-10-24 inclusive through 2026-12-09):** 47
+- **2026-10-24:** complete (137)
+- **Next open day:** 2026-10-25
+- **Remaining days in streak (from 2026-10-25 inclusive through 2026-12-09):** 46

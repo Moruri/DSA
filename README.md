@@ -86,6 +86,7 @@ Data Structures & Algorithms practice solutions (Python).
 | 138 | [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) | Medium | Linked Lists / Interleaving | `linked_list/138_copy_list_with_random_pointer.py` |
 | 1584 | [Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/) | Medium | Graphs / Minimum Spanning Tree | `graphs/1584_min_cost_to_connect_all_points.py` |
 | 40 | [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/) | Medium | Backtracking | `backtracking/40_combination_sum_ii.py` |
+| 137 | [Single Number II](https://leetcode.com/problems/single-number-ii/) | Medium | Bit Manipulation / Mod-3 Counter | `bit_manipulation/137_single_number_ii.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1532,4 +1533,23 @@ Run the demo:
 
 ```bash
 python3 backtracking/40_combination_sum_ii.py
+```
+
+## 137 — Single Number II
+
+**Problem.** Every element of `nums` appears three times except one, which appears once. Find it in O(n) time and O(1) extra space.
+
+**Thought process.**
+1. The XOR trick from Single Number fails here, because three copies don't cancel (`x ^ x ^ x == x`).
+2. Look at one bit position at a time. Each tripled number adds 0 or 3 to that bit's count, so `count % 3` is exactly the lone number's bit. That already gives an O(32·n) solution.
+3. To handle all 32 positions at once, run a counter that goes 0, 1, 2, 0 in every position in parallel. Two integers hold its state: `ones` marks positions at count 1, `twos` marks positions at count 2.
+4. For each `x`: `ones = (ones ^ x) & ~twos`, then `twos = (twos ^ x) & ~ones`. Tracing a single ticking bit shows it moves state 0 to 1 to 2 and back to 0, while bits where `x` is 0 stay put.
+5. Tripled values wrap back to 0, so whatever remains in `ones` is the lone number. Python's unbounded negative ints still work, since their infinite leading 1s just tick together.
+
+**Complexity.** O(n) time, O(1) extra space.
+
+Run the demo:
+
+```bash
+python3 bit_manipulation/137_single_number_ii.py
 ```
