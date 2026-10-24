@@ -87,6 +87,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 1584 | [Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/) | Medium | Graphs / Minimum Spanning Tree | `graphs/1584_min_cost_to_connect_all_points.py` |
 | 40 | [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/) | Medium | Backtracking | `backtracking/40_combination_sum_ii.py` |
 | 137 | [Single Number II](https://leetcode.com/problems/single-number-ii/) | Medium | Bit Manipulation / Mod-3 Counter | `bit_manipulation/137_single_number_ii.py` |
+| 124 | [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | Hard | Trees / Post-order DFS | `trees/124_binary_tree_maximum_path_sum.py` |
+| 846 | [Hand of Straights](https://leetcode.com/problems/hand-of-straights/) | Medium | Greedy / Hashing | `greedy/846_hand_of_straights.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1552,4 +1554,41 @@ Run the demo:
 
 ```bash
 python3 bit_manipulation/137_single_number_ii.py
+```
+
+## 124 — Binary Tree Maximum Path Sum
+
+**Problem.** Return the largest sum of node values along any path in a binary tree. A path can start and end anywhere, but it can't revisit a node.
+
+**Thought process.**
+1. Every path has one highest node where it turns, its peak. Through that peak, the best path is the best downward chain on the left, plus the peak, plus the best downward chain on the right.
+2. Define `gain(node)` as the best chain that starts at `node` and goes straight down one side: `node.val + max(0, gain(left), gain(right))`. Clamping at 0 drops a branch that would only lower the sum.
+3. A post-order DFS computes gains bottom-up. At each node, also score it as a peak using both clamped sides, and keep the running best.
+4. The subtle part: what a node returns to its parent can use only one branch, because a parent can't extend a path that already forks. What it records as a candidate answer can use both.
+5. Start the best at negative infinity, so an all-negative tree returns its largest single node rather than 0.
+
+**Complexity.** O(n) time, O(h) recursion stack.
+
+Run the demo:
+
+```bash
+python3 trees/124_binary_tree_maximum_path_sum.py
+```
+
+## 846 — Hand of Straights
+
+**Problem.** Decide whether the cards in `hand` can be split into groups of `groupSize` consecutive values.
+
+**Thought process.**
+1. If the card count isn't a multiple of `groupSize`, the answer is immediately no.
+2. Take the smallest value `x` still in the hand. Nothing smaller exists, so `x` can't sit in the middle of a run. It has to start one. Because the move is forced, being greedy is safe.
+3. Every copy of `x` must start its own run, so peel off `count[x]` runs at once by subtracting `count[x]` from each of `x` through `x + groupSize - 1`. If any value has too few copies, fail.
+4. Walk the distinct values in sorted order and skip any already used up.
+
+**Complexity.** O(n log n) for sorting distinct values, plus O(k · groupSize) for the subtractions; O(k) extra space for the counter.
+
+Run the demo:
+
+```bash
+python3 greedy/846_hand_of_straights.py
 ```
