@@ -311,6 +311,13 @@
 |---|-------|-------|------|
 | 137 | Single Number II | Bit Manipulation / Mod-3 Counter | `bit_manipulation/137_single_number_ii.py` |
 
+### 2026-10-25 (Sunday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 124 | Binary Tree Maximum Path Sum | Trees / Post-order DFS | `trees/124_binary_tree_maximum_path_sum.py` |
+| 846 | Hand of Straights | Greedy / Hashing | `greedy/846_hand_of_straights.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -357,5 +364,6 @@
 - **2026-10-22:** complete (72 + 138)
 - **2026-10-23:** complete (1584 + 40)
 - **2026-10-24:** complete (137)
-- **Next open day:** 2026-10-25
-- **Remaining days in streak (from 2026-10-25 inclusive through 2026-12-09):** 46
+- **2026-10-25:** complete (124 + 846)
+- **Next open day:** 2026-10-26
+- **Remaining days in streak (from 2026-10-26 inclusive through 2026-12-09):** 45
