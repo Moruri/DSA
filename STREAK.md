@@ -318,6 +318,13 @@
 | 124 | Binary Tree Maximum Path Sum | Trees / Post-order DFS | `trees/124_binary_tree_maximum_path_sum.py` |
 | 846 | Hand of Straights | Greedy / Hashing | `greedy/846_hand_of_straights.py` |
 
+### 2026-10-26 (Monday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 74 | Search a 2D Matrix | Binary Search | `binary_search/74_search_a_2d_matrix.py` |
+| 150 | Evaluate Reverse Polish Notation | Stack | `stack/150_evaluate_reverse_polish_notation.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -365,5 +372,6 @@
 - **2026-10-23:** complete (1584 + 40)
 - **2026-10-24:** complete (137)
 - **2026-10-25:** complete (124 + 846)
-- **Next open day:** 2026-10-26
-- **Remaining days in streak (from 2026-10-26 inclusive through 2026-12-09):** 45
+- **2026-10-26:** complete (74 + 150)
+- **Next open day:** 2026-10-27
+- **Remaining days in streak (from 2026-10-27 inclusive through 2026-12-09):** 44
