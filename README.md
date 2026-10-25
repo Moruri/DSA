@@ -89,6 +89,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 137 | [Single Number II](https://leetcode.com/problems/single-number-ii/) | Medium | Bit Manipulation / Mod-3 Counter | `bit_manipulation/137_single_number_ii.py` |
 | 124 | [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | Hard | Trees / Post-order DFS | `trees/124_binary_tree_maximum_path_sum.py` |
 | 846 | [Hand of Straights](https://leetcode.com/problems/hand-of-straights/) | Medium | Greedy / Hashing | `greedy/846_hand_of_straights.py` |
+| 74 | [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) | Medium | Binary Search | `binary_search/74_search_a_2d_matrix.py` |
+| 150 | [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) | Medium | Stack | `stack/150_evaluate_reverse_polish_notation.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1591,4 +1593,40 @@ Run the demo:
 
 ```bash
 python3 greedy/846_hand_of_straights.py
+```
+
+## 74 — Search a 2D Matrix
+
+**Problem.** Each row of an `m x n` matrix is sorted and every row starts above the previous row's last value. Return whether `target` is present, in O(log(m·n)).
+
+**Thought process.**
+1. Read row by row, the grid is one sorted list of `m·n` numbers folded into rows.
+2. Binary search the imaginary flat index range `0 .. m·n - 1`.
+3. Translate an index to a cell only when reading it: `row = idx // n`, `col = idx % n`.
+4. Compare, discard the impossible half, repeat until found or empty.
+
+**Complexity.** O(log(m·n)) time, O(1) space.
+
+Run the demo:
+
+```bash
+python3 binary_search/74_search_a_2d_matrix.py
+```
+
+## 150 — Evaluate Reverse Polish Notation
+
+**Problem.** Evaluate a postfix arithmetic expression given as string tokens (`+ - * /`, division truncates toward zero).
+
+**Thought process.**
+1. In postfix, each operator applies to the two most recent unused values, which is exactly a stack's top two.
+2. Push numbers; on an operator pop `right` then `left`, compute `left op right`, push the result.
+3. Watch operand order for `-` and `/`, and use `int(a / b)` because Python's `//` floors instead of truncating.
+4. The single value left at the end is the answer.
+
+**Complexity.** O(n) time, O(n) space.
+
+Run the demo:
+
+```bash
+python3 stack/150_evaluate_reverse_polish_notation.py
 ```
