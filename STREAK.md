@@ -325,6 +325,13 @@
 | 74 | Search a 2D Matrix | Binary Search | `binary_search/74_search_a_2d_matrix.py` |
 | 150 | Evaluate Reverse Polish Notation | Stack | `stack/150_evaluate_reverse_polish_notation.py` |
 
+### 2026-10-27 (Tuesday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 213 | House Robber II | Dynamic Programming | `dp/213_house_robber_ii.py` |
+| 355 | Design Twitter | Design / Heap | `design/355_design_twitter.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -373,5 +380,6 @@
 - **2026-10-24:** complete (137)
 - **2026-10-25:** complete (124 + 846)
 - **2026-10-26:** complete (74 + 150)
-- **Next open day:** 2026-10-27
-- **Remaining days in streak (from 2026-10-27 inclusive through 2026-12-09):** 44
+- **2026-10-27:** complete (213 + 355)
+- **Next open day:** 2026-10-28
+- **Remaining days in streak (from 2026-10-28 inclusive through 2026-12-09):** 43
