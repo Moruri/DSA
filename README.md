@@ -91,6 +91,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 846 | [Hand of Straights](https://leetcode.com/problems/hand-of-straights/) | Medium | Greedy / Hashing | `greedy/846_hand_of_straights.py` |
 | 74 | [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) | Medium | Binary Search | `binary_search/74_search_a_2d_matrix.py` |
 | 150 | [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) | Medium | Stack | `stack/150_evaluate_reverse_polish_notation.py` |
+| 213 | [House Robber II](https://leetcode.com/problems/house-robber-ii/) | Medium | Dynamic Programming | `dp/213_house_robber_ii.py` |
+| 355 | [Design Twitter](https://leetcode.com/problems/design-twitter/) | Medium | Design / Heap | `design/355_design_twitter.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1629,4 +1631,40 @@ Run the demo:
 
 ```bash
 python3 stack/150_evaluate_reverse_polish_notation.py
+```
+
+## 213 — House Robber II
+
+**Problem.** Rob houses arranged in a circle without robbing two neighbours (the first and last houses touch).
+
+**Thought process.**
+1. The linear version (198) is a two-variable DP: at each house, take the better of skipping it or robbing it plus the best from two houses back.
+2. The circle adds only one extra conflict, house 0 versus house n-1, and any legal plan leaves at least one of them alone.
+3. Solve the line twice, once without the last house and once without the first, and take the max.
+4. A single house is its own answer.
+
+**Complexity.** O(n) time, O(1) space.
+
+Run the demo:
+
+```bash
+python3 dp/213_house_robber_ii.py
+```
+
+## 355 — Design Twitter
+
+**Problem.** Support posting, following, unfollowing, and a news feed of the 10 most recent tweets from a user and the people they follow.
+
+**Thought process.**
+1. Keep each user's tweets in a time-ordered list stamped with a global counter, and follows in a set per user.
+2. The feed is "newest 10 across several sorted lists", the k-way merge pattern from Merge k Sorted Lists.
+3. Seed a max-heap with each relevant user's newest tweet; pop the newest, push that user's next-older tweet, and stop at 10.
+4. Always include the user's own tweets, and ignore self-unfollows.
+
+**Complexity.** Post, follow, and unfollow are O(1); the feed is O(F + 10 log F) for F people in the feed.
+
+Run the demo:
+
+```bash
+python3 design/355_design_twitter.py
 ```
