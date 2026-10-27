@@ -93,6 +93,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 150 | [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) | Medium | Stack | `stack/150_evaluate_reverse_polish_notation.py` |
 | 213 | [House Robber II](https://leetcode.com/problems/house-robber-ii/) | Medium | Dynamic Programming | `dp/213_house_robber_ii.py` |
 | 355 | [Design Twitter](https://leetcode.com/problems/design-twitter/) | Medium | Design / Heap | `design/355_design_twitter.py` |
+| 25 | [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) | Hard | Linked Lists / In-place Reversal | `linked_list/25_reverse_nodes_in_k_group.py` |
+| 130 | [Surrounded Regions](https://leetcode.com/problems/surrounded-regions/) | Medium | Graphs / Boundary DFS | `graphs/130_surrounded_regions.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1667,4 +1669,40 @@ Run the demo:
 
 ```bash
 python3 design/355_design_twitter.py
+```
+
+## 25 — Reverse Nodes in k-Group
+
+**Problem.** Reverse a linked list k nodes at a time, leaving a final group shorter than k untouched.
+
+**Thought process.**
+1. It's the classic three-pointer list reversal, applied one window at a time; the real work is stitching each reversed group to its neighbours.
+2. A dummy head plus a `group_prev` pointer (the tail of the finished prefix) removes the special case for the first group.
+3. Probe k steps ahead first; if the list runs out, the short tail stays as is.
+4. Reverse with `prev` starting at the next group's head, so the group's new tail is already linked onward, then hook `group_prev.next` to the new front.
+
+**Complexity.** O(n) time, O(1) extra space.
+
+Run the demo:
+
+```bash
+python3 linked_list/25_reverse_nodes_in_k_group.py
+```
+
+## 130 — Surrounded Regions
+
+**Problem.** Flip every region of 'O' that is fully enclosed by 'X'; regions touching the border survive.
+
+**Thought process.**
+1. Asking "is this region surrounded?" is awkward, so ask the reverse: which O's can reach the border?
+2. Flood fill from every border O and mark what it reaches as safe, the same search-from-the-goal trick as Pacific Atlantic Water Flow.
+3. Any O left unmarked is captured and becomes 'X'; safe cells go back to 'O'.
+4. An explicit stack avoids Python's recursion limit on big all-O boards.
+
+**Complexity.** O(m·n) time and worst-case space.
+
+Run the demo:
+
+```bash
+python3 graphs/130_surrounded_regions.py
 ```

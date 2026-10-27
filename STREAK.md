@@ -332,6 +332,13 @@
 | 213 | House Robber II | Dynamic Programming | `dp/213_house_robber_ii.py` |
 | 355 | Design Twitter | Design / Heap | `design/355_design_twitter.py` |
 
+### 2026-10-28 (Wednesday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 25 | Reverse Nodes in k-Group | Linked Lists / In-place Reversal | `linked_list/25_reverse_nodes_in_k_group.py` |
+| 130 | Surrounded Regions | Graphs / Boundary DFS | `graphs/130_surrounded_regions.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -381,5 +388,6 @@
 - **2026-10-25:** complete (124 + 846)
 - **2026-10-26:** complete (74 + 150)
 - **2026-10-27:** complete (213 + 355)
-- **Next open day:** 2026-10-28
-- **Remaining days in streak (from 2026-10-28 inclusive through 2026-12-09):** 43
+- **2026-10-28:** complete (25 + 130)
+- **Next open day:** 2026-10-29
+- **Remaining days in streak (from 2026-10-29 inclusive through 2026-12-09):** 42
