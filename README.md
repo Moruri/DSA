@@ -95,6 +95,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 355 | [Design Twitter](https://leetcode.com/problems/design-twitter/) | Medium | Design / Heap | `design/355_design_twitter.py` |
 | 25 | [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) | Hard | Linked Lists / In-place Reversal | `linked_list/25_reverse_nodes_in_k_group.py` |
 | 130 | [Surrounded Regions](https://leetcode.com/problems/surrounded-regions/) | Medium | Graphs / Boundary DFS | `graphs/130_surrounded_regions.py` |
+| 332 | [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/) | Hard | Graphs / Eulerian Path | `graphs/332_reconstruct_itinerary.py` |
+| 678 | [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) | Medium | Greedy / Open-count Range | `greedy/678_valid_parenthesis_string.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1705,4 +1707,41 @@ Run the demo:
 
 ```bash
 python3 graphs/130_surrounded_regions.py
+```
+
+## 332 — Reconstruct Itinerary
+
+**Problem.** Use every airline ticket exactly once, starting from JFK, and return the lexically smallest valid itinerary.
+
+**Thought process.**
+1. Using every edge exactly once is an Eulerian path, so cities are nodes and tickets are directed edges.
+2. Greedily flying to the smallest next city can strand you at a dead end while tickets remain.
+3. Hierholzer's fix keeps the greedy walk but adds a city to the route only once its outgoing tickets are used up, so dead ends land at the end where they belong; reverse that list at the end.
+4. Reverse-sorted adjacency lists let `pop()` hand back the smallest destination in O(1), and an explicit stack replaces recursion.
+
+**Complexity.** O(E log E) time for sorting, O(E) space.
+
+Run the demo:
+
+```bash
+python3 graphs/332_reconstruct_itinerary.py
+```
+
+## 678 — Valid Parenthesis String
+
+**Problem.** Each '*' can be '(', ')' or empty; decide whether some choice makes the string balanced.
+
+**Thought process.**
+1. Without stars you track one open-bracket count that must never go negative and must end at 0.
+2. Stars make the count uncertain, so track its range: `lo` is the fewest open brackets possible and `hi` the most.
+3. '(' raises both, ')' lowers both, '*' lowers `lo` and raises `hi`.
+4. If `hi` goes negative even all-'(' stars can't save it; clamp `lo` at 0 because a negative count isn't a real option.
+5. Every count in the range is reachable, so the string is valid exactly when `lo` ends at 0.
+
+**Complexity.** O(n) time, O(1) space.
+
+Run the demo:
+
+```bash
+python3 greedy/678_valid_parenthesis_string.py
 ```
