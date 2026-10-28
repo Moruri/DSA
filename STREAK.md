@@ -339,6 +339,13 @@
 | 25 | Reverse Nodes in k-Group | Linked Lists / In-place Reversal | `linked_list/25_reverse_nodes_in_k_group.py` |
 | 130 | Surrounded Regions | Graphs / Boundary DFS | `graphs/130_surrounded_regions.py` |
 
+### 2026-10-29 (Thursday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 332 | Reconstruct Itinerary | Graphs / Eulerian Path | `graphs/332_reconstruct_itinerary.py` |
+| 678 | Valid Parenthesis String | Greedy / Open-count Range | `greedy/678_valid_parenthesis_string.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -389,5 +396,6 @@
 - **2026-10-26:** complete (74 + 150)
 - **2026-10-27:** complete (213 + 355)
 - **2026-10-28:** complete (25 + 130)
-- **Next open day:** 2026-10-29
-- **Remaining days in streak (from 2026-10-29 inclusive through 2026-12-09):** 42
+- **2026-10-29:** complete (332 + 678)
+- **Next open day:** 2026-10-30
+- **Remaining days in streak (from 2026-10-30 inclusive through 2026-12-09):** 41
