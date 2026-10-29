@@ -346,6 +346,13 @@
 | 332 | Reconstruct Itinerary | Graphs / Eulerian Path | `graphs/332_reconstruct_itinerary.py` |
 | 678 | Valid Parenthesis String | Greedy / Open-count Range | `greedy/678_valid_parenthesis_string.py` |
 
+### 2026-10-30 (Friday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 212 | Word Search II | Trie / Grid Backtracking | `trie/212_word_search_ii.py` |
+| 36 | Valid Sudoku | Hashing / Sets | `hashing/36_valid_sudoku.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -397,5 +404,6 @@
 - **2026-10-27:** complete (213 + 355)
 - **2026-10-28:** complete (25 + 130)
 - **2026-10-29:** complete (332 + 678)
-- **Next open day:** 2026-10-30
-- **Remaining days in streak (from 2026-10-30 inclusive through 2026-12-09):** 41
+- **2026-10-30:** complete (212 + 36)
+- **Next open day:** 2026-10-31
+- **Remaining days in streak (from 2026-10-31 inclusive through 2026-12-09):** 40
