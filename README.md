@@ -97,6 +97,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 130 | [Surrounded Regions](https://leetcode.com/problems/surrounded-regions/) | Medium | Graphs / Boundary DFS | `graphs/130_surrounded_regions.py` |
 | 332 | [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/) | Hard | Graphs / Eulerian Path | `graphs/332_reconstruct_itinerary.py` |
 | 678 | [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) | Medium | Greedy / Open-count Range | `greedy/678_valid_parenthesis_string.py` |
+| 212 | [Word Search II](https://leetcode.com/problems/word-search-ii/) | Hard | Trie / Grid Backtracking | `trie/212_word_search_ii.py` |
+| 36 | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | Medium | Hashing / Sets | `hashing/36_valid_sudoku.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1744,4 +1746,42 @@ Run the demo:
 
 ```bash
 python3 greedy/678_valid_parenthesis_string.py
+```
+
+## 212 — Word Search II
+
+**Problem.** Find every word from a list that can be traced on a letter grid through adjacent cells, using each cell once per word.
+
+**Thought process.**
+1. Running Word Search I once per word repeats the same grid walks for words that share prefixes.
+2. Instead walk the grid once and ask at each step whether the path so far is a prefix of any word; a trie answers that per letter.
+3. DFS from every cell while carrying the current trie node, and stop as soon as the next letter isn't a child.
+4. When a node holds a word, record it and clear it so it's reported once.
+5. Mark cells with '#' while they're on the path and restore them on the way back.
+6. Delete trie branches that have no word and no children left, so found words make later searches end sooner.
+
+**Complexity.** O(m·n·4·3^(L−1)) worst-case search where L is the longest word, plus O(total letters) to build the trie.
+
+Run the demo:
+
+```bash
+python3 trie/212_word_search_ii.py
+```
+
+## 36 — Valid Sudoku
+
+**Problem.** Check that no filled digit repeats in any row, column, or 3x3 box of a partial Sudoku board.
+
+**Thought process.**
+1. Each filled cell belongs to exactly three groups, and each group must hold distinct digits, which is a seen-before question for hash sets.
+2. Keep nine sets each for rows, columns and boxes, and scan the board once.
+3. The box index is `(r // 3) * 3 + c // 3`, numbering the boxes 0 to 8.
+4. Skip empty cells, and don't try to solve the puzzle; validity is only about duplicates.
+
+**Complexity.** O(1) for a fixed 9x9 board (O(n²) in general).
+
+Run the demo:
+
+```bash
+python3 hashing/36_valid_sudoku.py
 ```
