@@ -99,6 +99,7 @@ Data Structures & Algorithms practice solutions (Python).
 | 678 | [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) | Medium | Greedy / Open-count Range | `greedy/678_valid_parenthesis_string.py` |
 | 212 | [Word Search II](https://leetcode.com/problems/word-search-ii/) | Hard | Trie / Grid Backtracking | `trie/212_word_search_ii.py` |
 | 36 | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | Medium | Hashing / Sets | `hashing/36_valid_sudoku.py` |
+| 1851 | [Minimum Interval to Include Each Query](https://leetcode.com/problems/minimum-interval-to-include-each-query/) | Hard | Intervals / Offline Sweep + Heap | `intervals/1851_minimum_interval_to_include_each_query.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1784,4 +1785,22 @@ Run the demo:
 
 ```bash
 python3 hashing/36_valid_sudoku.py
+```
+
+## 1851 — Minimum Interval to Include Each Query
+
+**Problem.** For each query point, return the size of the smallest interval that contains it, or -1 if none does.
+
+**Thought process.**
+1. Checking every interval per query is O(n * q), too slow, so answer the queries offline in sorted order to share work.
+2. Sort intervals by left end and sweep queries ascending; push every interval with `l <= q` into a min-heap keyed by `(size, right)`.
+3. Pop tops whose right end is `< q`; they're dead for this query and every larger one, so lazy deletion loses nothing.
+4. The surviving top is the smallest interval covering `q`; write it back to the query's original index.
+
+**Complexity.** O(n log n + q log q) time, O(n + q) space.
+
+Run the demo:
+
+```bash
+python3 intervals/1851_minimum_interval_to_include_each_query.py
 ```
