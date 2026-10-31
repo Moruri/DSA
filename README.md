@@ -100,6 +100,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 212 | [Word Search II](https://leetcode.com/problems/word-search-ii/) | Hard | Trie / Grid Backtracking | `trie/212_word_search_ii.py` |
 | 36 | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | Medium | Hashing / Sets | `hashing/36_valid_sudoku.py` |
 | 1851 | [Minimum Interval to Include Each Query](https://leetcode.com/problems/minimum-interval-to-include-each-query/) | Hard | Intervals / Offline Sweep + Heap | `intervals/1851_minimum_interval_to_include_each_query.py` |
+| 787 | [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) | Medium | Graphs / Bellman-Ford (k+1 rounds) | `graphs/787_cheapest_flights_within_k_stops.py` |
+| 43 | [Multiply Strings](https://leetcode.com/problems/multiply-strings/) | Medium | Math / Grade-school Multiplication | `math/43_multiply_strings.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1803,4 +1805,38 @@ Run the demo:
 
 ```bash
 python3 intervals/1851_minimum_interval_to_include_each_query.py
+```
+
+## 787 — Cheapest Flights Within K Stops
+
+**Problem.** Find the cheapest price from `src` to `dst` using at most `k` stops (at most `k + 1` flights), or -1.
+
+**Thought process.**
+1. Plain Dijkstra settles each city at its cheapest cost, but that route may use too many stops, so a pricier, shorter route could be wrongly discarded.
+2. "At most k + 1 edges" is exactly Bellman-Ford's shape: after round i, `dist[v]` is the best cost using at most i edges. Run k + 1 rounds.
+3. Relax each round from a snapshot of the previous round, otherwise two flights can chain inside one round and break the stop limit.
+
+**Complexity.** O((k + 1) * E) time, O(n) space.
+
+Run the demo:
+
+```bash
+python3 graphs/787_cheapest_flights_within_k_stops.py
+```
+
+## 43 — Multiply Strings
+
+**Problem.** Multiply two non-negative integers given as decimal strings without converting them to integers.
+
+**Thought process.**
+1. The product of an m-digit and an n-digit number has at most m + n digits.
+2. Digit i of `num1` times digit j of `num2` lands in slots `i + j` (carry) and `i + j + 1` (ones) of a length m + n array.
+3. Walk both strings right to left, add each product plus the existing slot value, keep `% 10`, push `// 10` left, then strip leading zeros.
+
+**Complexity.** O(m * n) time, O(m + n) space.
+
+Run the demo:
+
+```bash
+python3 math/43_multiply_strings.py
 ```
