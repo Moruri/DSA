@@ -366,6 +366,13 @@
 | 787 | Cheapest Flights Within K Stops | Graphs / Bellman-Ford (k+1 rounds) | `graphs/787_cheapest_flights_within_k_stops.py` |
 | 43 | Multiply Strings | Math / Grade-school Multiplication | `math/43_multiply_strings.py` |
 
+### 2026-11-02 (Monday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 394 | Decode String | Stack / Nested Parsing | `stack/394_decode_string.py` |
+| 1642 | Furthest Building You Can Reach | Heap / Greedy | `heap/1642_furthest_building_you_can_reach.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -420,5 +427,6 @@
 - **2026-10-30:** complete (212 + 36)
 - **2026-10-31:** complete (1851)
 - **2026-11-01:** complete (787 + 43)
-- **Next open day:** 2026-11-02
-- **Remaining days in streak (from 2026-11-02 inclusive through 2026-12-09):** 38
+- **2026-11-02:** complete (394 + 1642)
+- **Next open day:** 2026-11-03
+- **Remaining days in streak (from 2026-11-03 inclusive through 2026-12-09):** 37

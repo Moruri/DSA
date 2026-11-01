@@ -102,6 +102,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 1851 | [Minimum Interval to Include Each Query](https://leetcode.com/problems/minimum-interval-to-include-each-query/) | Hard | Intervals / Offline Sweep + Heap | `intervals/1851_minimum_interval_to_include_each_query.py` |
 | 787 | [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) | Medium | Graphs / Bellman-Ford (k+1 rounds) | `graphs/787_cheapest_flights_within_k_stops.py` |
 | 43 | [Multiply Strings](https://leetcode.com/problems/multiply-strings/) | Medium | Math / Grade-school Multiplication | `math/43_multiply_strings.py` |
+| 394 | [Decode String](https://leetcode.com/problems/decode-string/) | Medium | Stack / Nested Parsing | `stack/394_decode_string.py` |
+| 1642 | [Furthest Building You Can Reach](https://leetcode.com/problems/furthest-building-you-can-reach/) | Medium | Heap / Greedy | `heap/1642_furthest_building_you_can_reach.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1839,4 +1841,38 @@ Run the demo:
 
 ```bash
 python3 math/43_multiply_strings.py
+```
+
+## 394 — Decode String
+
+**Problem.** Expand an encoded string where `k[text]` means `text` repeated k times, with brackets that can nest.
+
+**Thought process.**
+1. Nesting means we pause outer work, finish inner work, then resume, which is what a stack does.
+2. On `[`, push the text built so far plus the count read just before it, then start fresh. Read multi-digit counts as `num * 10 + digit`.
+3. On `]`, pop `(prev, k)` and set the current text to `prev + current * k`. Inner blocks finish first, so outer repeats copy already-decoded text.
+
+**Complexity.** O(output length) time and space, plus O(depth) stack.
+
+Run the demo:
+
+```bash
+python3 stack/394_decode_string.py
+```
+
+## 1642 — Furthest Building You Can Reach
+
+**Problem.** Walk along buildings; each upward step costs one ladder or bricks equal to the climb. Return the furthest index you can reach.
+
+**Thought process.**
+1. Ladders are worth the most on the biggest climbs, but we can't see future climbs, so decide in hindsight.
+2. Put every climb in a min-heap as if it used a ladder. When the heap holds more than `ladders` climbs, pop the smallest and pay for it with bricks.
+3. The heap always keeps the largest climbs on ladders, which is the cheapest brick spending possible, so the first time bricks go negative is the true limit.
+
+**Complexity.** O(n log L) time, O(L) space, where L is the number of ladders.
+
+Run the demo:
+
+```bash
+python3 heap/1642_furthest_building_you_can_reach.py
 ```
