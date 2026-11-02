@@ -104,6 +104,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 43 | [Multiply Strings](https://leetcode.com/problems/multiply-strings/) | Medium | Math / Grade-school Multiplication | `math/43_multiply_strings.py` |
 | 394 | [Decode String](https://leetcode.com/problems/decode-string/) | Medium | Stack / Nested Parsing | `stack/394_decode_string.py` |
 | 1642 | [Furthest Building You Can Reach](https://leetcode.com/problems/furthest-building-you-can-reach/) | Medium | Heap / Greedy | `heap/1642_furthest_building_you_can_reach.py` |
+| 1004 | [Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/) | Medium | Sliding Window / Budgeted Flips | `sliding_window/1004_max_consecutive_ones_iii.py` |
+| 309 | [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) | Medium | Dynamic Programming / State Machine | `dp/309_best_time_to_buy_and_sell_stock_with_cooldown.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1875,4 +1877,38 @@ Run the demo:
 
 ```bash
 python3 heap/1642_furthest_building_you_can_reach.py
+```
+
+## 1004 — Max Consecutive Ones III
+
+**Problem.** Given a binary array and `k`, return the longest run of 1s you can make by flipping at most `k` zeros.
+
+**Thought process.**
+1. Flipping at most `k` zeros is the same as finding the longest window that contains at most `k` zeros.
+2. Grow the right edge and count zeros. When the count passes `k`, move the left edge forward until it's back to `k`.
+3. Adding elements can only add zeros, so the left edge never needs to move back; each index enters and leaves once.
+
+**Complexity.** O(n) time, O(1) space.
+
+Run the demo:
+
+```bash
+python3 sliding_window/1004_max_consecutive_ones_iii.py
+```
+
+## 309 — Best Time to Buy and Sell Stock with Cooldown
+
+**Problem.** Unlimited buy/sell transactions, one share at a time, and a one-day cooldown after every sale. Return the max profit.
+
+**Thought process.**
+1. Each day you're in one of three states: holding a share, just sold (cooldown tomorrow), or resting with nothing.
+2. Transitions: `hold = max(hold, rest - p)`, `sold = hold + p`, `rest = max(rest, sold)`. You can only buy from rest, and sold must pass through rest, which is exactly the cooldown rule.
+3. Start with `hold = sold = -inf`, `rest = 0`; the answer is `max(sold, rest)`.
+
+**Complexity.** O(n) time, O(1) space.
+
+Run the demo:
+
+```bash
+python3 dp/309_best_time_to_buy_and_sell_stock_with_cooldown.py
 ```
