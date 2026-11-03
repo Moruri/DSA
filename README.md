@@ -106,6 +106,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 1642 | [Furthest Building You Can Reach](https://leetcode.com/problems/furthest-building-you-can-reach/) | Medium | Heap / Greedy | `heap/1642_furthest_building_you_can_reach.py` |
 | 1004 | [Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/) | Medium | Sliding Window / Budgeted Flips | `sliding_window/1004_max_consecutive_ones_iii.py` |
 | 309 | [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) | Medium | Dynamic Programming / State Machine | `dp/309_best_time_to_buy_and_sell_stock_with_cooldown.py` |
+| 721 | [Accounts Merge](https://leetcode.com/problems/accounts-merge/) | Medium | Union-Find / Grouping by Shared Keys | `union_find/721_accounts_merge.py` |
+| 153 | [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) | Medium | Binary Search / Rotation Pivot | `binary_search/153_find_minimum_in_rotated_sorted_array.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1911,4 +1913,38 @@ Run the demo:
 
 ```bash
 python3 dp/309_best_time_to_buy_and_sell_stock_with_cooldown.py
+```
+
+## 721 — Accounts Merge
+
+**Problem.** Each account is a name plus emails. Accounts that share any email belong to the same person (a shared name alone doesn't count). Merge them and return each person with sorted emails.
+
+**Thought process.**
+1. "Shares an email" chains transitively (A with B, B with C means A and C are one person), which is a connectivity question, so union-find fits.
+2. Treat accounts as nodes. Remember the first account that owned each email; when another account has the same email, union the two.
+3. Afterwards, group every email under its owner's root, sort each group, and prefix the name.
+
+**Complexity.** O(E·α(n)) for the unions plus O(E log E) to sort, O(E + n) space, where E is the total number of emails.
+
+Run the demo:
+
+```bash
+python3 union_find/721_accounts_merge.py
+```
+
+## 153 — Find Minimum in Rotated Sorted Array
+
+**Problem.** A sorted array of unique values was rotated. Find its minimum in O(log n).
+
+**Thought process.**
+1. The array is a high sorted run followed by a low sorted run; the minimum is where the low run starts.
+2. Compare `nums[mid]` with `nums[hi]`. If it's bigger, mid is in the high run, so go right (`lo = mid + 1`). Otherwise mid..hi is sorted and mid might be the answer, so keep it (`hi = mid`).
+3. Comparing against the right end matters because `nums[hi]` is always in the low run, which also handles the unrotated case correctly.
+
+**Complexity.** O(log n) time, O(1) space.
+
+Run the demo:
+
+```bash
+python3 binary_search/153_find_minimum_in_rotated_sorted_array.py
 ```

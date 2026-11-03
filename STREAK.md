@@ -380,6 +380,13 @@
 | 1004 | Max Consecutive Ones III | Sliding Window / Budgeted Flips | `sliding_window/1004_max_consecutive_ones_iii.py` |
 | 309 | Best Time to Buy and Sell Stock with Cooldown | DP / State Machine | `dp/309_best_time_to_buy_and_sell_stock_with_cooldown.py` |
 
+### 2026-11-04 (Wednesday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 721 | Accounts Merge | Union-Find / Grouping by Shared Keys | `union_find/721_accounts_merge.py` |
+| 153 | Find Minimum in Rotated Sorted Array | Binary Search / Rotation Pivot | `binary_search/153_find_minimum_in_rotated_sorted_array.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -436,5 +443,6 @@
 - **2026-11-01:** complete (787 + 43)
 - **2026-11-02:** complete (394 + 1642)
 - **2026-11-03:** complete (1004 + 309)
-- **Next open day:** 2026-11-04
-- **Remaining days in streak (from 2026-11-04 inclusive through 2026-12-09):** 36
+- **2026-11-04:** complete (721 + 153)
+- **Next open day:** 2026-11-05
+- **Remaining days in streak (from 2026-11-05 inclusive through 2026-12-09):** 35
