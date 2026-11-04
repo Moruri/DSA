@@ -387,6 +387,13 @@
 | 721 | Accounts Merge | Union-Find / Grouping by Shared Keys | `union_find/721_accounts_merge.py` |
 | 153 | Find Minimum in Rotated Sorted Array | Binary Search / Rotation Pivot | `binary_search/153_find_minimum_in_rotated_sorted_array.py` |
 
+### 2026-11-05 (Thursday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 662 | Maximum Width of Binary Tree | Trees / BFS with Positional Indexing | `trees/662_maximum_width_of_binary_tree.py` |
+| 986 | Interval List Intersections | Intervals / Two Pointers | `intervals/986_interval_list_intersections.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -444,5 +451,6 @@
 - **2026-11-02:** complete (394 + 1642)
 - **2026-11-03:** complete (1004 + 309)
 - **2026-11-04:** complete (721 + 153)
-- **Next open day:** 2026-11-05
-- **Remaining days in streak (from 2026-11-05 inclusive through 2026-12-09):** 35
+- **2026-11-05:** complete (662 + 986)
+- **Next open day:** 2026-11-06
+- **Remaining days in streak (from 2026-11-06 inclusive through 2026-12-09):** 34

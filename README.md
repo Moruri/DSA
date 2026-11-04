@@ -108,6 +108,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 309 | [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) | Medium | Dynamic Programming / State Machine | `dp/309_best_time_to_buy_and_sell_stock_with_cooldown.py` |
 | 721 | [Accounts Merge](https://leetcode.com/problems/accounts-merge/) | Medium | Union-Find / Grouping by Shared Keys | `union_find/721_accounts_merge.py` |
 | 153 | [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) | Medium | Binary Search / Rotation Pivot | `binary_search/153_find_minimum_in_rotated_sorted_array.py` |
+| 662 | [Maximum Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/) | Medium | Trees / BFS with Positional Indexing | `trees/662_maximum_width_of_binary_tree.py` |
+| 986 | [Interval List Intersections](https://leetcode.com/problems/interval-list-intersections/) | Medium | Intervals / Two Pointers | `intervals/986_interval_list_intersections.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1947,4 +1949,38 @@ Run the demo:
 
 ```bash
 python3 binary_search/153_find_minimum_in_rotated_sorted_array.py
+```
+
+## 662 — Maximum Width of Binary Tree
+
+**Problem.** Return the widest level of a binary tree, where width counts the null gaps between a level's leftmost and rightmost nodes.
+
+**Thought process.**
+1. Counting nulls directly blows up on deep, skinny trees, so give each node the index it would have in a complete tree instead: children of `i` are `2i` and `2i + 1`.
+2. A level's width is then just `last_index - first_index + 1`; the gaps are counted by the arithmetic.
+3. BFS level by level carrying `(node, index)`. Re-base each level by subtracting its first index so the numbers don't double out of control; widths are differences, so the shift changes nothing.
+
+**Complexity.** O(n) time, O(w) space for the widest level.
+
+Run the demo:
+
+```bash
+python3 trees/662_maximum_width_of_binary_tree.py
+```
+
+## 986 — Interval List Intersections
+
+**Problem.** Two sorted lists of disjoint closed intervals; return all their intersections.
+
+**Thought process.**
+1. Both lists are sorted, so walk them together with one pointer each, like merging sorted arrays.
+2. The current pair overlaps on `[max(starts), min(ends)]`, which is real whenever `lo <= hi`.
+3. Advance whichever interval ends first: it can't touch anything later in the other list. The one that ends later might still overlap the next interval, so it stays.
+
+**Complexity.** O(m + n) time, O(1) extra space.
+
+Run the demo:
+
+```bash
+python3 intervals/986_interval_list_intersections.py
 ```
