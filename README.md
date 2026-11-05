@@ -110,6 +110,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 153 | [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) | Medium | Binary Search / Rotation Pivot | `binary_search/153_find_minimum_in_rotated_sorted_array.py` |
 | 662 | [Maximum Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/) | Medium | Trees / BFS with Positional Indexing | `trees/662_maximum_width_of_binary_tree.py` |
 | 986 | [Interval List Intersections](https://leetcode.com/problems/interval-list-intersections/) | Medium | Intervals / Two Pointers | `intervals/986_interval_list_intersections.py` |
+| 148 | [Sort List](https://leetcode.com/problems/sort-list/) | Medium | Linked Lists / Merge Sort | `linked_list/148_sort_list.py` |
+| 17 | [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) | Medium | Backtracking / Strings | `backtracking/17_letter_combinations_of_a_phone_number.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -1983,4 +1985,38 @@ Run the demo:
 
 ```bash
 python3 intervals/986_interval_list_intersections.py
+```
+
+## 148 — Sort List
+
+**Problem.** Sort a singly linked list in ascending order in O(n log n) time.
+
+**Thought process.**
+1. Arrays get merge sort for free via random access; a linked list needs slow/fast pointers to find the midpoint, then a cut so the two halves become independent subproblems.
+2. Top-down: base case is empty/single node; otherwise split at mid, recurse on each half, then merge the two sorted lists with the classic linear weave.
+3. Cutting before the recurse is essential — without it the left call would keep walking into the right half and never terminate.
+
+**Complexity.** O(n log n) time, O(log n) recursion space (top-down).
+
+Run the demo:
+
+```bash
+python3 linked_list/148_sort_list.py
+```
+
+## 17 — Letter Combinations of a Phone Number
+
+**Problem.** Given digits 2–9, return every letter string the old phone keypad could produce for that sequence.
+
+**Thought process.**
+1. Each digit expands to 3–4 letters; a combination picks one letter per digit in order, so the answer size is the product of those counts (≤ 4^n).
+2. Backtracking DFS: at index i try every letter for digits[i], append, recurse, then pop. When the path length equals n, snapshot the joined string.
+3. Empty input → [] (no digits means no combinations; do not emit the empty string).
+
+**Complexity.** O(4^n · n) time worst case, O(n) recursion/path space plus the output.
+
+Run the demo:
+
+```bash
+python3 backtracking/17_letter_combinations_of_a_phone_number.py
 ```
