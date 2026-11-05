@@ -394,6 +394,13 @@
 | 662 | Maximum Width of Binary Tree | Trees / BFS with Positional Indexing | `trees/662_maximum_width_of_binary_tree.py` |
 | 986 | Interval List Intersections | Intervals / Two Pointers | `intervals/986_interval_list_intersections.py` |
 
+### 2026-11-06 (Friday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 148 | Sort List | Linked Lists / Merge Sort | `linked_list/148_sort_list.py` |
+| 17 | Letter Combinations of a Phone Number | Backtracking / Strings | `backtracking/17_letter_combinations_of_a_phone_number.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -452,5 +459,6 @@
 - **2026-11-03:** complete (1004 + 309)
 - **2026-11-04:** complete (721 + 153)
 - **2026-11-05:** complete (662 + 986)
-- **Next open day:** 2026-11-06
-- **Remaining days in streak (from 2026-11-06 inclusive through 2026-12-09):** 34
+- **2026-11-06:** complete (148 + 17)
+- **Next open day:** 2026-11-07
+- **Remaining days in streak (from 2026-11-07 inclusive through 2026-12-09):** 33
