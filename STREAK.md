@@ -401,6 +401,12 @@
 | 148 | Sort List | Linked Lists / Merge Sort | `linked_list/148_sort_list.py` |
 | 17 | Letter Combinations of a Phone Number | Backtracking / Strings | `backtracking/17_letter_combinations_of_a_phone_number.py` |
 
+### 2026-11-07 (Saturday) — complete (quota 1)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 735 | Asteroid Collision | Stack | `stack/735_asteroid_collision.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -460,5 +466,6 @@
 - **2026-11-04:** complete (721 + 153)
 - **2026-11-05:** complete (662 + 986)
 - **2026-11-06:** complete (148 + 17)
-- **Next open day:** 2026-11-07
-- **Remaining days in streak (from 2026-11-07 inclusive through 2026-12-09):** 33
+- **2026-11-07:** complete (735)
+- **Next open day:** 2026-11-08
+- **Remaining days in streak (from 2026-11-08 inclusive through 2026-12-09):** 32
