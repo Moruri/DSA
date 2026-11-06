@@ -112,6 +112,7 @@ Data Structures & Algorithms practice solutions (Python).
 | 986 | [Interval List Intersections](https://leetcode.com/problems/interval-list-intersections/) | Medium | Intervals / Two Pointers | `intervals/986_interval_list_intersections.py` |
 | 148 | [Sort List](https://leetcode.com/problems/sort-list/) | Medium | Linked Lists / Merge Sort | `linked_list/148_sort_list.py` |
 | 17 | [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) | Medium | Backtracking / Strings | `backtracking/17_letter_combinations_of_a_phone_number.py` |
+| 735 | [Asteroid Collision](https://leetcode.com/problems/asteroid-collision/) | Medium | Stack | `stack/735_asteroid_collision.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2019,4 +2020,21 @@ Run the demo:
 
 ```bash
 python3 backtracking/17_letter_combinations_of_a_phone_number.py
+```
+
+## 735 — Asteroid Collision
+
+**Problem.** Asteroids drift on a line; sign is direction (positive right, negative left) and absolute value is size. Same-speed rocks collide only when a right-mover meets a left-mover: the smaller explodes, equals both explode. Return the survivors after every collision.
+
+**Thought process.**
+1. The only dangerous pattern is a positive rock already on the stack when a negative arrives — those two are heading toward each other. Same-direction asteroids never meet, so they just stack.
+2. Scan left to right with a survivors stack. On a non-head-on arrival, push. On a head-on, duel while the top is positive and the new rock is negative: pop if top is smaller, kill both if equal, kill the new rock if top is larger.
+3. A big negative can chain-smash several smaller right-movers; only push the new rock if it outlived every duel (or never fought).
+
+**Complexity.** O(n) time (each asteroid pushed/popped at most once), O(n) stack space worst case.
+
+Run the demo:
+
+```bash
+python3 stack/735_asteroid_collision.py
 ```
