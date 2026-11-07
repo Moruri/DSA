@@ -407,6 +407,13 @@
 |---|-------|-------|------|
 | 735 | Asteroid Collision | Stack | `stack/735_asteroid_collision.py` |
 
+### 2026-11-08 (Sunday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 221 | Maximal Square | Dynamic Programming / Matrix | `dp/221_maximal_square.py` |
+| 380 | Insert Delete GetRandom O(1) | Design / Hash Map + Array | `design/380_insert_delete_getrandom_o1.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -467,5 +474,6 @@
 - **2026-11-05:** complete (662 + 986)
 - **2026-11-06:** complete (148 + 17)
 - **2026-11-07:** complete (735)
-- **Next open day:** 2026-11-08
-- **Remaining days in streak (from 2026-11-08 inclusive through 2026-12-09):** 32
+- **2026-11-08:** complete (221 + 380)
+- **Next open day:** 2026-11-09
+- **Remaining days in streak (from 2026-11-09 inclusive through 2026-12-09):** 31
