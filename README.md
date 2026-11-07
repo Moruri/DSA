@@ -113,6 +113,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 148 | [Sort List](https://leetcode.com/problems/sort-list/) | Medium | Linked Lists / Merge Sort | `linked_list/148_sort_list.py` |
 | 17 | [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) | Medium | Backtracking / Strings | `backtracking/17_letter_combinations_of_a_phone_number.py` |
 | 735 | [Asteroid Collision](https://leetcode.com/problems/asteroid-collision/) | Medium | Stack | `stack/735_asteroid_collision.py` |
+| 221 | [Maximal Square](https://leetcode.com/problems/maximal-square/) | Medium | Dynamic Programming / Matrix | `dp/221_maximal_square.py` |
+| 380 | [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/) | Medium | Design / Hash Map + Array | `design/380_insert_delete_getrandom_o1.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2037,4 +2039,40 @@ Run the demo:
 
 ```bash
 python3 stack/735_asteroid_collision.py
+```
+
+## 221 — Maximal Square
+
+**Problem.** Given an m × n binary matrix of `'0'` and `'1'`, return the area of the largest square that contains only `'1'`s.
+
+**Thought process.**
+1. Trying every cell as a top-left corner and expanding the side repeats a lot of "is this region all 1s?" work.
+2. Flip the question: if cell `(i, j)` is `'1'`, how big a square can end here (bottom-right)? Call that `dp[i][j]`.
+3. A k × k square ending here is this `'1'` plus three overlapping (k-1) squares — above, left, and diagonal. The shortest of those three is the bottleneck, so `dp[i][j] = min(above, left, diag) + 1`. A `'0'` starts a side of 0.
+4. Pad the DP table with a first row and column of zeros so the border needs no special case. Track the best side and return side² (for squares, max area is just max side squared).
+
+**Complexity.** O(m n) time, O(m n) space (or O(n) with a rolling row).
+
+Run the demo:
+
+```bash
+python3 dp/221_maximal_square.py
+```
+
+## 380 — Insert Delete GetRandom O(1)
+
+**Problem.** Build a set that inserts, removes, and returns a uniformly random element, each in average O(1). No duplicates; `getRandom` is never called when empty.
+
+**Thought process.**
+1. A hash set cannot pick "element at index i". An array can pick a random index in O(1) and append in O(1), but deleting from the middle is linear.
+2. Keep both: a packed array of the live values, plus a map from value → its index.
+3. `insert` appends and records the new index. `getRandom` draws a random index — every slot is live, so the draw is uniform.
+4. `remove` uses swap-with-last: move the tail into the hole, update that element's index, pop the tail, and delete the target from the map. No shift, no holes.
+
+**Complexity.** O(1) average per operation, O(n) space.
+
+Run the demo:
+
+```bash
+python3 design/380_insert_delete_getrandom_o1.py
 ```
