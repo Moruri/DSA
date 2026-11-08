@@ -115,6 +115,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 735 | [Asteroid Collision](https://leetcode.com/problems/asteroid-collision/) | Medium | Stack | `stack/735_asteroid_collision.py` |
 | 221 | [Maximal Square](https://leetcode.com/problems/maximal-square/) | Medium | Dynamic Programming / Matrix | `dp/221_maximal_square.py` |
 | 380 | [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/) | Medium | Design / Hash Map + Array | `design/380_insert_delete_getrandom_o1.py` |
+| 75 | [Sort Colors](https://leetcode.com/problems/sort-colors/) | Medium | Two Pointers / Dutch National Flag | `two_pointers/75_sort_colors.py` |
+| 785 | [Is Graph Bipartite?](https://leetcode.com/problems/is-graph-bipartite/) | Medium | Graphs / BFS Two-Coloring | `graphs/785_is_graph_bipartite.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2075,4 +2077,40 @@ Run the demo:
 
 ```bash
 python3 design/380_insert_delete_getrandom_o1.py
+```
+
+## 75 — Sort Colors
+
+**Problem.** Sort an array of 0s, 1s, and 2s in place (red, white, blue) without the library sort, ideally in one pass with O(1) space.
+
+**Thought process.**
+1. Counting each color and overwriting works but needs two passes.
+2. Dutch National Flag: keep `low`, `mid`, `high` so that `[0, low)` is all 0, `[low, mid)` is all 1, `[mid, high]` is unknown, and `(high, n)` is all 2.
+3. If `nums[mid]` is 0, swap it with `nums[low]` and advance both. If it is 1, just advance `mid`. If it is 2, swap it with `nums[high]` and shrink `high`, but keep `mid` where it is, because the value that came in from the right hasn't been checked yet.
+4. Stop when `mid > high`; the unknown region is empty and the array reads 0s, 1s, 2s.
+
+**Complexity.** O(n) time in one pass, O(1) space.
+
+Run the demo:
+
+```bash
+python3 two_pointers/75_sort_colors.py
+```
+
+## 785 — Is Graph Bipartite?
+
+**Problem.** Given an undirected graph as an adjacency list (possibly disconnected), decide whether its nodes can be split into two groups so every edge crosses between them.
+
+**Thought process.**
+1. That's the same as two-coloring the nodes so no edge joins two nodes of the same color.
+2. Coloring one node forces every neighbor to the other color, and so on outward, so there is no real choice inside a component.
+3. BFS from every still-uncolored node: color the start 0, give each uncolored neighbor the opposite color, and fail the moment a neighbor already has the same color as the current node.
+4. That conflict is exactly an odd cycle, and a graph is bipartite iff it has none.
+
+**Complexity.** O(V + E) time, O(V) space.
+
+Run the demo:
+
+```bash
+python3 graphs/785_is_graph_bipartite.py
 ```
