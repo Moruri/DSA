@@ -117,6 +117,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 380 | [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/) | Medium | Design / Hash Map + Array | `design/380_insert_delete_getrandom_o1.py` |
 | 75 | [Sort Colors](https://leetcode.com/problems/sort-colors/) | Medium | Two Pointers / Dutch National Flag | `two_pointers/75_sort_colors.py` |
 | 785 | [Is Graph Bipartite?](https://leetcode.com/problems/is-graph-bipartite/) | Medium | Graphs / BFS Two-Coloring | `graphs/785_is_graph_bipartite.py` |
+| 31 | [Next Permutation](https://leetcode.com/problems/next-permutation/) | Medium | Arrays / In-place Permutation | `arrays/31_next_permutation.py` |
+| 1448 | [Count Good Nodes in Binary Tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree/) | Medium | Trees / DFS with Path State | `trees/1448_count_good_nodes_in_binary_tree.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2113,4 +2115,39 @@ Run the demo:
 
 ```bash
 python3 graphs/785_is_graph_bipartite.py
+```
+
+## 31 — Next Permutation
+
+**Problem.** Rearrange `nums` into the next lexicographically greater permutation in place; if it is already the largest, wrap around to the smallest.
+
+**Thought process.**
+1. Treat it like an odometer: change the rightmost position that can still grow, and grow it as little as possible.
+2. Scan from the right past the descending suffix. That suffix is already maxed out, so the first index `i` with `nums[i] < nums[i + 1]` is the pivot. If there is none, the array is the last permutation, so reverse it.
+3. Swap the pivot with the rightmost suffix element bigger than it, which is the smallest value that still increases it.
+4. The suffix is still descending after the swap, so reverse it to make the tail as small as possible.
+
+**Complexity.** O(n) time, O(1) space.
+
+Run the demo:
+
+```bash
+python3 arrays/31_next_permutation.py
+```
+
+## 1448 — Count Good Nodes in Binary Tree
+
+**Problem.** A node is good if nothing on the path from the root down to it is larger than it. Count the good nodes.
+
+**Thought process.**
+1. Whether a node is good depends only on the largest value among its ancestors, so carry that running maximum down the tree instead of the whole path.
+2. DFS with `(node, max_so_far)`: count the node if `node.val >= max_so_far`, then hand `max(max_so_far, node.val)` to both children.
+3. An explicit stack avoids Python's recursion limit on very deep, skewed trees.
+
+**Complexity.** O(n) time, O(h) space for the stack.
+
+Run the demo:
+
+```bash
+python3 trees/1448_count_good_nodes_in_binary_tree.py
 ```

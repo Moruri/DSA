@@ -421,6 +421,13 @@
 | 75 | Sort Colors | Two Pointers / Dutch National Flag | `two_pointers/75_sort_colors.py` |
 | 785 | Is Graph Bipartite? | Graphs / BFS Two-Coloring | `graphs/785_is_graph_bipartite.py` |
 
+### 2026-11-10 (Tuesday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 31 | Next Permutation | Arrays / In-place Permutation | `arrays/31_next_permutation.py` |
+| 1448 | Count Good Nodes in Binary Tree | Trees / DFS with Path State | `trees/1448_count_good_nodes_in_binary_tree.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -483,5 +490,6 @@
 - **2026-11-07:** complete (735)
 - **2026-11-08:** complete (221 + 380)
 - **2026-11-09:** complete (75 + 785)
-- **Next open day:** 2026-11-10
-- **Remaining days in streak (from 2026-11-10 inclusive through 2026-12-09):** 30
+- **2026-11-10:** complete (31 + 1448)
+- **Next open day:** 2026-11-11
+- **Remaining days in streak (from 2026-11-11 inclusive through 2026-12-09):** 29
