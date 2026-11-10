@@ -119,6 +119,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 785 | [Is Graph Bipartite?](https://leetcode.com/problems/is-graph-bipartite/) | Medium | Graphs / BFS Two-Coloring | `graphs/785_is_graph_bipartite.py` |
 | 31 | [Next Permutation](https://leetcode.com/problems/next-permutation/) | Medium | Arrays / In-place Permutation | `arrays/31_next_permutation.py` |
 | 1448 | [Count Good Nodes in Binary Tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree/) | Medium | Trees / DFS with Path State | `trees/1448_count_good_nodes_in_binary_tree.py` |
+| 1011 | [Capacity To Ship Packages Within D Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/) | Medium | Binary Search / Search on the Answer | `binary_search/1011_capacity_to_ship_packages_within_d_days.py` |
+| 525 | [Contiguous Array](https://leetcode.com/problems/contiguous-array/) | Medium | Hashing / Prefix Balance | `hashing/525_contiguous_array.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2150,4 +2152,38 @@ Run the demo:
 
 ```bash
 python3 trees/1448_count_good_nodes_in_binary_tree.py
+```
+
+## 1011 — Capacity To Ship Packages Within D Days
+
+**Problem.** Packages must ship in order, filling the ship each day up to its capacity. Find the smallest capacity that ships everything within `days`.
+
+**Thought process.**
+1. Search for the answer, not inside the array: for a fixed capacity, a greedy pass (fill each day until the next package overflows) tells you in O(n) whether it fits.
+2. That yes/no check is monotone, since any bigger capacity also works, so binary search can find the first capacity that says yes.
+3. The range is `max(weights)` (must lift the heaviest package) to `sum(weights)` (everything in one day). If `mid` fits, keep it and go lower; otherwise go to `mid + 1`.
+
+**Complexity.** O(n log(sum(weights))) time, O(1) space.
+
+Run the demo:
+
+```bash
+python3 binary_search/1011_capacity_to_ship_packages_within_d_days.py
+```
+
+## 525 — Contiguous Array
+
+**Problem.** In a binary array, find the longest contiguous subarray with as many 0s as 1s.
+
+**Thought process.**
+1. Count each 0 as -1 and each 1 as +1, so a balanced subarray is one whose sum is 0.
+2. A subarray sums to 0 exactly when the running balance at its end matches the running balance just before its start.
+3. Keep the first index where each balance appeared (seeded with `{0: -1}`); whenever a balance repeats, the gap is a balanced stretch, and the earliest start gives the longest one. It's the same prefix-sum plus hash map trick as 560.
+
+**Complexity.** O(n) time, O(n) space.
+
+Run the demo:
+
+```bash
+python3 hashing/525_contiguous_array.py
 ```
