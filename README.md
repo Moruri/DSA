@@ -121,6 +121,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 1448 | [Count Good Nodes in Binary Tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree/) | Medium | Trees / DFS with Path State | `trees/1448_count_good_nodes_in_binary_tree.py` |
 | 1011 | [Capacity To Ship Packages Within D Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/) | Medium | Binary Search / Search on the Answer | `binary_search/1011_capacity_to_ship_packages_within_d_days.py` |
 | 525 | [Contiguous Array](https://leetcode.com/problems/contiguous-array/) | Medium | Hashing / Prefix Balance | `hashing/525_contiguous_array.py` |
+| 142 | [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) | Medium | Linked Lists / Floyd's Cycle Detection | `linked_list/142_linked_list_cycle_ii.py` |
+| 1899 | [Merge Triplets to Form Target Triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/) | Medium | Greedy | `greedy/1899_merge_triplets_to_form_target_triplet.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2186,4 +2188,38 @@ Run the demo:
 
 ```bash
 python3 hashing/525_contiguous_array.py
+```
+
+## 142 — Linked List Cycle II
+
+**Problem.** Return the node where a linked list's cycle begins (or `None`), using O(1) extra memory.
+
+**Thought process.**
+1. A visited set works but costs O(n) memory. Floyd's tortoise and hare avoids it: slow moves 1, fast moves 2; if there's a cycle, fast closes the gap by one node per step and they must meet.
+2. Let `a` = head to cycle start, `b` = cycle start to meeting point, `L` = cycle length. Fast walked twice as far: `2(a + b) = a + b + kL`, so `a = kL - b`.
+3. That means walking `a` more steps from the meeting point lands exactly on the cycle start. Reset one pointer to head, step both by one, and they meet at the entrance.
+
+**Complexity.** O(n) time, O(1) space.
+
+Run the demo:
+
+```bash
+python3 linked_list/142_linked_list_cycle_ii.py
+```
+
+## 1899 — Merge Triplets to Form Target Triplet
+
+**Problem.** Merging two triplets takes their element-wise max. Can some triplet become exactly `target`?
+
+**Thought process.**
+1. Max only goes up, so any triplet with a coordinate above the target's would overshoot forever. Discard it.
+2. Every remaining triplet is `<=` target everywhere, so merging them all is safe and can only help. Take the element-wise max of all safe triplets.
+3. The answer is yes exactly when that merged max equals the target, meaning each coordinate is hit by at least one safe triplet.
+
+**Complexity.** O(n) time, O(1) space.
+
+Run the demo:
+
+```bash
+python3 greedy/1899_merge_triplets_to_form_target_triplet.py
 ```

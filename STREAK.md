@@ -435,6 +435,13 @@
 | 1011 | Capacity To Ship Packages Within D Days | Binary Search / Search on the Answer | `binary_search/1011_capacity_to_ship_packages_within_d_days.py` |
 | 525 | Contiguous Array | Hashing / Prefix Balance | `hashing/525_contiguous_array.py` |
 
+### 2026-11-12 (Thursday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 142 | Linked List Cycle II | Linked Lists / Floyd's Cycle Detection | `linked_list/142_linked_list_cycle_ii.py` |
+| 1899 | Merge Triplets to Form Target Triplet | Greedy | `greedy/1899_merge_triplets_to_form_target_triplet.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -499,5 +506,6 @@
 - **2026-11-09:** complete (75 + 785)
 - **2026-11-10:** complete (31 + 1448)
 - **2026-11-11:** complete (1011 + 525)
-- **Next open day:** 2026-11-12
-- **Remaining days in streak (from 2026-11-12 inclusive through 2026-12-09):** 28
+- **2026-11-12:** complete (142 + 1899)
+- **Next open day:** 2026-11-13
+- **Remaining days in streak (from 2026-11-13 inclusive through 2026-12-09):** 27
