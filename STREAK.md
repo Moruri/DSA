@@ -442,6 +442,13 @@
 | 142 | Linked List Cycle II | Linked Lists / Floyd's Cycle Detection | `linked_list/142_linked_list_cycle_ii.py` |
 | 1899 | Merge Triplets to Form Target Triplet | Greedy | `greedy/1899_merge_triplets_to_form_target_triplet.py` |
 
+### 2026-11-13 (Friday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 97 | Interleaving String | Dynamic Programming / 2D Prefix Grid | `dp/97_interleaving_string.py` |
+| 767 | Reorganize String | Heaps / Greedy Scheduling | `heap/767_reorganize_string.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -507,5 +514,6 @@
 - **2026-11-10:** complete (31 + 1448)
 - **2026-11-11:** complete (1011 + 525)
 - **2026-11-12:** complete (142 + 1899)
-- **Next open day:** 2026-11-13
-- **Remaining days in streak (from 2026-11-13 inclusive through 2026-12-09):** 27
+- **2026-11-13:** complete (97 + 767)
+- **Next open day:** 2026-11-14
+- **Remaining days in streak (from 2026-11-14 inclusive through 2026-12-09):** 26
