@@ -123,6 +123,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 525 | [Contiguous Array](https://leetcode.com/problems/contiguous-array/) | Medium | Hashing / Prefix Balance | `hashing/525_contiguous_array.py` |
 | 142 | [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) | Medium | Linked Lists / Floyd's Cycle Detection | `linked_list/142_linked_list_cycle_ii.py` |
 | 1899 | [Merge Triplets to Form Target Triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/) | Medium | Greedy | `greedy/1899_merge_triplets_to_form_target_triplet.py` |
+| 97 | [Interleaving String](https://leetcode.com/problems/interleaving-string/) | Medium | Dynamic Programming / 2D Prefix Grid | `dp/97_interleaving_string.py` |
+| 767 | [Reorganize String](https://leetcode.com/problems/reorganize-string/) | Medium | Heaps / Greedy Scheduling | `heap/767_reorganize_string.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2222,4 +2224,39 @@ Run the demo:
 
 ```bash
 python3 greedy/1899_merge_triplets_to_form_target_triplet.py
+```
+
+## 97 — Interleaving String
+
+**Problem.** Is `s3` formed by interleaving `s1` and `s2` while keeping each string's internal order?
+
+**Thought process.**
+1. Lengths must add up, or it's an instant no.
+2. Greedy breaks when both strings offer the same next character, so remember every possibility: `dp[i][j]` = can the first `i` chars of `s1` and first `j` of `s2` build the first `i+j` of `s3`?
+3. The newest char `s3[i+j-1]` came from either `s1[i-1]` (look up) or `s2[j-1]` (look left). Think of it as walking a grid from top-left to bottom-right where each step must "spend" a matching char.
+4. Each row only needs the row above, so a rolling 1D array suffices.
+
+**Complexity.** O(m·n) time, O(n) space.
+
+Run the demo:
+
+```bash
+python3 dp/97_interleaving_string.py
+```
+
+## 767 — Reorganize String
+
+**Problem.** Rearrange `s` so no two adjacent characters match, or return `""`.
+
+**Thought process.**
+1. Feasible only if the most common char fits in every other slot: `max_count <= (n + 1) // 2`.
+2. Greedy: always place the char with the most copies left, except the one just placed. Burning the biggest pile early stops it from clumping at the end.
+3. A max-heap picks the biggest pile; the just-used char sits out one turn in a "held" slot, then goes back in (the Task Scheduler cooldown trick).
+
+**Complexity.** O(n log k) time (k ≤ 26 distinct chars), O(k) extra space.
+
+Run the demo:
+
+```bash
+python3 heap/767_reorganize_string.py
 ```
