@@ -515,5 +515,6 @@
 - **2026-11-11:** complete (1011 + 525)
 - **2026-11-12:** complete (142 + 1899)
 - **2026-11-13:** complete (97 + 767)
-- **Next open day:** 2026-11-14
-- **Remaining days in streak (from 2026-11-14 inclusive through 2026-12-09):** 26
+- **2026-11-14:** complete (1268)
+- **Next open day:** 2026-11-15
+- **Remaining days in streak (from 2026-11-15 inclusive through 2026-12-09):** 25
