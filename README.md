@@ -125,6 +125,7 @@ Data Structures & Algorithms practice solutions (Python).
 | 1899 | [Merge Triplets to Form Target Triplet](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/) | Medium | Greedy | `greedy/1899_merge_triplets_to_form_target_triplet.py` |
 | 97 | [Interleaving String](https://leetcode.com/problems/interleaving-string/) | Medium | Dynamic Programming / 2D Prefix Grid | `dp/97_interleaving_string.py` |
 | 767 | [Reorganize String](https://leetcode.com/problems/reorganize-string/) | Medium | Heaps / Greedy Scheduling | `heap/767_reorganize_string.py` |
+| 1268 | [Search Suggestions System](https://leetcode.com/problems/search-suggestions-system/) | Medium | Trie / Prefix Search | `trie/1268_search_suggestions_system.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2259,4 +2260,21 @@ Run the demo:
 
 ```bash
 python3 heap/767_reorganize_string.py
+```
+
+## 1268 — Search Suggestions System
+
+**Problem.** After each typed character of `searchWord`, return up to three lexicographically smallest products starting with that prefix.
+
+**Thought process.**
+1. "Words with this prefix" is the trie's home turf: walking one edge per typed char lands on the node whose subtree holds every match.
+2. Insert products in sorted order and let each node cache the first three words that pass through it — sorted insertion makes those the three smallest, so no subtree DFS is needed per keystroke.
+3. Walk the trie as you type and read each node's cache; once a char has no child, every remaining prefix answers `[]`.
+
+**Complexity.** O(n log n · w) to sort, O(L) to build (L = total chars), O(m) to answer; O(L) space.
+
+Run the demo:
+
+```bash
+python3 trie/1268_search_suggestions_system.py
 ```
