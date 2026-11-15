@@ -126,6 +126,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 97 | [Interleaving String](https://leetcode.com/problems/interleaving-string/) | Medium | Dynamic Programming / 2D Prefix Grid | `dp/97_interleaving_string.py` |
 | 767 | [Reorganize String](https://leetcode.com/problems/reorganize-string/) | Medium | Heaps / Greedy Scheduling | `heap/767_reorganize_string.py` |
 | 1268 | [Search Suggestions System](https://leetcode.com/problems/search-suggestions-system/) | Medium | Trie / Prefix Search | `trie/1268_search_suggestions_system.py` |
+| 289 | [Game of Life](https://leetcode.com/problems/game-of-life/) | Medium | Matrix / In-place State Encoding | `matrix/289_game_of_life.py` |
+| 438 | [Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/) | Medium | Sliding Window / Frequency Counting | `sliding_window/438_find_all_anagrams_in_a_string.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2277,4 +2279,39 @@ Run the demo:
 
 ```bash
 python3 trie/1268_search_suggestions_system.py
+```
+
+## 289 — Game of Life
+
+**Problem.** Compute the next generation of Conway's Game of Life on an `m x n` board, in place.
+
+**Thought process.**
+1. Overwriting a cell right away corrupts its neighbours' counts later in the scan. A copy fixes that but costs O(mn) space.
+2. Each cell needs only two bits: bit 0 = current state, bit 1 = next state.
+3. Pass 1: count neighbours with `cell & 1` (old state, never modified) and set bit 1 (`|= 2`) when the cell lives next round.
+4. Pass 2: `>>= 1` every cell so the next state takes over, which matches the "all at once" rule.
+
+**Complexity.** O(m·n) time, O(1) extra space.
+
+Run the demo:
+
+```bash
+python3 matrix/289_game_of_life.py
+```
+
+## 438 — Find All Anagrams in a String
+
+**Problem.** Return every start index in `s` where a substring is an anagram of `p`.
+
+**Thought process.**
+1. Every anagram has length `len(p)`, so slide a fixed-size window instead of recounting each substring.
+2. Each step adds one entering letter and removes one leaving letter, O(1) per step.
+3. Track `matches`, the number of the 26 letters whose window count equals `p`'s. Each update only changes one letter's status, so `matches` stays O(1) to maintain; `matches == 26` means anagram.
+
+**Complexity.** O(n + k) time, O(1) space (two 26-slot arrays).
+
+Run the demo:
+
+```bash
+python3 sliding_window/438_find_all_anagrams_in_a_string.py
 ```

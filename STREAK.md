@@ -449,6 +449,19 @@
 | 97 | Interleaving String | Dynamic Programming / 2D Prefix Grid | `dp/97_interleaving_string.py` |
 | 767 | Reorganize String | Heaps / Greedy Scheduling | `heap/767_reorganize_string.py` |
 
+### 2026-11-14 (Saturday) — complete (quota 1)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 1268 | Search Suggestions System | Trie / Prefix Search | `trie/1268_search_suggestions_system.py` |
+
+### 2026-11-15 (Sunday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 289 | Game of Life | Matrix / In-place State Encoding | `matrix/289_game_of_life.py` |
+| 438 | Find All Anagrams in a String | Sliding Window / Frequency Counting | `sliding_window/438_find_all_anagrams_in_a_string.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -516,5 +529,6 @@
 - **2026-11-12:** complete (142 + 1899)
 - **2026-11-13:** complete (97 + 767)
 - **2026-11-14:** complete (1268)
-- **Next open day:** 2026-11-15
-- **Remaining days in streak (from 2026-11-15 inclusive through 2026-12-09):** 25
+- **2026-11-15:** complete (289 + 438)
+- **Next open day:** 2026-11-16
+- **Remaining days in streak (from 2026-11-16 inclusive through 2026-12-09):** 24
