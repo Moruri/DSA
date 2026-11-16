@@ -462,6 +462,13 @@
 | 289 | Game of Life | Matrix / In-place State Encoding | `matrix/289_game_of_life.py` |
 | 438 | Find All Anagrams in a String | Sliding Window / Frequency Counting | `sliding_window/438_find_all_anagrams_in_a_string.py` |
 
+### 2026-11-16 (Monday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 131 | Palindrome Partitioning | Backtracking / DP Precompute | `backtracking/131_palindrome_partitioning.py` |
+| 179 | Largest Number | Sorting / Custom Comparator | `sorting/179_largest_number.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -530,5 +537,6 @@
 - **2026-11-13:** complete (97 + 767)
 - **2026-11-14:** complete (1268)
 - **2026-11-15:** complete (289 + 438)
-- **Next open day:** 2026-11-16
-- **Remaining days in streak (from 2026-11-16 inclusive through 2026-12-09):** 24
+- **2026-11-16:** complete (131 + 179)
+- **Next open day:** 2026-11-17
+- **Remaining days in streak (from 2026-11-17 inclusive through 2026-12-09):** 23

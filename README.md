@@ -128,6 +128,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 1268 | [Search Suggestions System](https://leetcode.com/problems/search-suggestions-system/) | Medium | Trie / Prefix Search | `trie/1268_search_suggestions_system.py` |
 | 289 | [Game of Life](https://leetcode.com/problems/game-of-life/) | Medium | Matrix / In-place State Encoding | `matrix/289_game_of_life.py` |
 | 438 | [Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/) | Medium | Sliding Window / Frequency Counting | `sliding_window/438_find_all_anagrams_in_a_string.py` |
+| 131 | [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/) | Medium | Backtracking / DP Precompute | `backtracking/131_palindrome_partitioning.py` |
+| 179 | [Largest Number](https://leetcode.com/problems/largest-number/) | Medium | Sorting / Custom Comparator | `sorting/179_largest_number.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2314,4 +2316,39 @@ Run the demo:
 
 ```bash
 python3 sliding_window/438_find_all_anagrams_in_a_string.py
+```
+
+## 131 — Palindrome Partitioning
+
+**Problem.** Split `s` into pieces that are all palindromes; return every such partition.
+
+**Thought process.**
+1. A partition is a chain of cut choices: from `start`, pick an `end` where `s[start:end+1]` is a palindrome, then solve the rest. That decision tree is classic backtracking.
+2. Precompute `is_pal[i][j]` with DP (`s[i] == s[j]` and the inside is a palindrome), filling `i` right-to-left, so each check during the DFS is O(1).
+3. DFS pushes a piece, recurses from `end + 1`, then pops it. Reaching `start == n` means the path covers the whole string, so save a copy.
+
+**Complexity.** O(n²) table + O(n·2ⁿ) output in the worst case (`"aaaa…"`); O(n²) space.
+
+Run the demo:
+
+```bash
+python3 backtracking/131_palindrome_partitioning.py
+```
+
+## 179 — Largest Number
+
+**Problem.** Arrange non-negative integers so their concatenation is the largest possible number.
+
+**Thought process.**
+1. Numeric order and plain string order both fail (`[3, 30]` must give `"330"`, not `"303"`).
+2. For any pair, only `a+b` vs `b+a` matters, so put `a` first when `a+b > b+a`. This order is transitive, so sorting with it is valid.
+3. Exchange argument: in the sorted result no adjacent swap makes the number bigger, so the result is the maximum.
+4. Edge case: if the first piece is `"0"`, everything is zero, so return `"0"` instead of `"000"`.
+
+**Complexity.** O(n log n · k) time (k = max digits), O(n·k) space.
+
+Run the demo:
+
+```bash
+python3 sorting/179_largest_number.py
 ```
