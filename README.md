@@ -130,6 +130,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 438 | [Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/) | Medium | Sliding Window / Frequency Counting | `sliding_window/438_find_all_anagrams_in_a_string.py` |
 | 131 | [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/) | Medium | Backtracking / DP Precompute | `backtracking/131_palindrome_partitioning.py` |
 | 179 | [Largest Number](https://leetcode.com/problems/largest-number/) | Medium | Sorting / Custom Comparator | `sorting/179_largest_number.py` |
+| 310 | [Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/) | Medium | Graphs / Topological Sort (Leaf Peeling) | `topological_sort/310_minimum_height_trees.py` |
+| 990 | [Satisfiability of Equality Equations](https://leetcode.com/problems/satisfiability-of-equality-equations/) | Medium | Union-Find | `union_find/990_satisfiability_of_equality_equations.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2351,4 +2353,40 @@ Run the demo:
 
 ```bash
 python3 sorting/179_largest_number.py
+```
+
+## 310 — Minimum Height Trees
+
+**Problem.** Given an undirected tree, return every node that, used as the root, gives the smallest possible height.
+
+**Thought process.**
+1. Running BFS from every node is O(n²). The best root is the *center* of the tree, the middle of its longest path.
+2. Leaves are the worst roots. Removing every current leaf at once shortens every longest path by one node at each end, so the center stays put.
+3. Peel the tree like an onion, Kahn-style: queue all degree-1 nodes, remove them, and neighbors that drop to degree 1 form the next layer.
+4. Stop at ≤ 2 nodes left: a longest path has one middle node (odd length) or two (even length). Edge case: `n == 1` returns `[0]`.
+
+**Complexity.** O(n) time, O(n) space.
+
+Run the demo:
+
+```bash
+python3 topological_sort/310_minimum_height_trees.py
+```
+
+## 990 — Satisfiability of Equality Equations
+
+**Problem.** Given equations like `"a==b"` and `"a!=b"`, decide whether some integer assignment satisfies all of them.
+
+**Thought process.**
+1. `==` is transitive, so equalities group variables into classes that must share a value. That is a Union-Find job.
+2. Pass 1: union both sides of every `==`. Pass 2: a `!=` whose sides share a root is a contradiction, so return `False`.
+3. The two passes are required: checking `!=` mid-stream would miss a later `==` chain that merges the two sides.
+4. If nothing breaks, give each class its own number, so the answer is `True`. `a!=a` fails naturally.
+
+**Complexity.** O(n·α(26)) ≈ O(n) time, O(1) space (26-slot parent array).
+
+Run the demo:
+
+```bash
+python3 union_find/990_satisfiability_of_equality_equations.py
 ```

@@ -469,6 +469,13 @@
 | 131 | Palindrome Partitioning | Backtracking / DP Precompute | `backtracking/131_palindrome_partitioning.py` |
 | 179 | Largest Number | Sorting / Custom Comparator | `sorting/179_largest_number.py` |
 
+### 2026-11-17 (Tuesday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 310 | Minimum Height Trees | Topological Sort / Leaf Peeling | `topological_sort/310_minimum_height_trees.py` |
+| 990 | Satisfiability of Equality Equations | Union-Find | `union_find/990_satisfiability_of_equality_equations.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -538,5 +545,6 @@
 - **2026-11-14:** complete (1268)
 - **2026-11-15:** complete (289 + 438)
 - **2026-11-16:** complete (131 + 179)
-- **Next open day:** 2026-11-17
-- **Remaining days in streak (from 2026-11-17 inclusive through 2026-12-09):** 23
+- **2026-11-17:** complete (310 + 990)
+- **Next open day:** 2026-11-18
+- **Remaining days in streak (from 2026-11-18 inclusive through 2026-12-09):** 22
