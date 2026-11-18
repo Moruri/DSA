@@ -132,6 +132,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 179 | [Largest Number](https://leetcode.com/problems/largest-number/) | Medium | Sorting / Custom Comparator | `sorting/179_largest_number.py` |
 | 310 | [Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/) | Medium | Graphs / Topological Sort (Leaf Peeling) | `topological_sort/310_minimum_height_trees.py` |
 | 990 | [Satisfiability of Equality Equations](https://leetcode.com/problems/satisfiability-of-equality-equations/) | Medium | Union-Find | `union_find/990_satisfiability_of_equality_equations.py` |
+| 494 | [Target Sum](https://leetcode.com/problems/target-sum/) | Medium | Dynamic Programming / 0-1 Knapsack Counting | `dp/494_target_sum.py` |
+| 1834 | [Single-Threaded CPU](https://leetcode.com/problems/single-threaded-cpu/) | Medium | Heap / Event Simulation | `heap/1834_single_threaded_cpu.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2389,4 +2391,40 @@ Run the demo:
 
 ```bash
 python3 union_find/990_satisfiability_of_equality_equations.py
+```
+
+## 494 — Target Sum
+
+**Problem.** Put `+` or `-` before every number in `nums`; count the sign assignments whose total equals `target`.
+
+**Thought process.**
+1. Brute force is 2^n. Algebra shrinks it: with P = plus-group and N = minus-group, `sum(P) - sum(N) = target` and `sum(P) + sum(N) = total`, so `sum(P) = (total + target) / 2`.
+2. Now it is "count subsets summing to S", a 0/1 knapsack. Reject early if `|target| > total` or the parity is odd.
+3. `ways[0] = 1`; for each num, sweep `s` downward and do `ways[s] += ways[s - num]`. The downward sweep means each number is used at most once.
+4. Zeros double the count automatically (+0 and -0 are distinct choices).
+
+**Complexity.** O(n·S) time, O(S) space.
+
+Run the demo:
+
+```bash
+python3 dp/494_target_sum.py
+```
+
+## 1834 — Single-Threaded CPU
+
+**Problem.** Given `[enqueueTime, processingTime]` tasks, simulate a CPU that always picks the shortest available task (ties to the smaller index), never preempts, and idles when nothing has arrived. Return the processing order.
+
+**Thought process.**
+1. Two repeated questions: which tasks have arrived, and which arrived task is best?
+2. Arrivals: sort indices by enqueue time and sweep a pointer forward as the clock advances.
+3. Best: a min-heap of `(processingTime, index)`. The tuple order encodes the rule and the tie-break.
+4. If the heap is empty, jump the clock to the next arrival (times reach 1e9, so never tick). Otherwise pop, record, and add its processing time to the clock.
+
+**Complexity.** O(n log n) time, O(n) space.
+
+Run the demo:
+
+```bash
+python3 heap/1834_single_threaded_cpu.py
 ```
