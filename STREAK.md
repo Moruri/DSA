@@ -476,6 +476,13 @@
 | 310 | Minimum Height Trees | Topological Sort / Leaf Peeling | `topological_sort/310_minimum_height_trees.py` |
 | 990 | Satisfiability of Equality Equations | Union-Find | `union_find/990_satisfiability_of_equality_equations.py` |
 
+### 2026-11-18 (Wednesday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 494 | Target Sum | Dynamic Programming / 0-1 Knapsack Counting | `dp/494_target_sum.py` |
+| 1834 | Single-Threaded CPU | Heap / Event Simulation | `heap/1834_single_threaded_cpu.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -546,5 +553,6 @@
 - **2026-11-15:** complete (289 + 438)
 - **2026-11-16:** complete (131 + 179)
 - **2026-11-17:** complete (310 + 990)
-- **Next open day:** 2026-11-18
-- **Remaining days in streak (from 2026-11-18 inclusive through 2026-12-09):** 22
+- **2026-11-18:** complete (494 + 1834)
+- **Next open day:** 2026-11-19
+- **Remaining days in streak (from 2026-11-19 inclusive through 2026-12-09):** 21
