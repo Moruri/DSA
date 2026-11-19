@@ -483,6 +483,13 @@
 | 494 | Target Sum | Dynamic Programming / 0-1 Knapsack Counting | `dp/494_target_sum.py` |
 | 1834 | Single-Threaded CPU | Heap / Event Simulation | `heap/1834_single_threaded_cpu.py` |
 
+### 2026-11-19 (Thursday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 82 | Remove Duplicates from Sorted List II | Linked Lists / Dummy Head | `linked_list/82_remove_duplicates_from_sorted_list_ii.py` |
+| 658 | Find K Closest Elements | Binary Search / Window Left Edge | `binary_search/658_find_k_closest_elements.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -554,5 +561,6 @@
 - **2026-11-16:** complete (131 + 179)
 - **2026-11-17:** complete (310 + 990)
 - **2026-11-18:** complete (494 + 1834)
-- **Next open day:** 2026-11-19
-- **Remaining days in streak (from 2026-11-19 inclusive through 2026-12-09):** 21
+- **2026-11-19:** complete (82 + 658)
+- **Next open day:** 2026-11-20
+- **Remaining days in streak (from 2026-11-20 inclusive through 2026-12-09):** 20
