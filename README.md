@@ -134,6 +134,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 990 | [Satisfiability of Equality Equations](https://leetcode.com/problems/satisfiability-of-equality-equations/) | Medium | Union-Find | `union_find/990_satisfiability_of_equality_equations.py` |
 | 494 | [Target Sum](https://leetcode.com/problems/target-sum/) | Medium | Dynamic Programming / 0-1 Knapsack Counting | `dp/494_target_sum.py` |
 | 1834 | [Single-Threaded CPU](https://leetcode.com/problems/single-threaded-cpu/) | Medium | Heap / Event Simulation | `heap/1834_single_threaded_cpu.py` |
+| 82 | [Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/) | Medium | Linked Lists / Dummy Head | `linked_list/82_remove_duplicates_from_sorted_list_ii.py` |
+| 658 | [Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/) | Medium | Binary Search / Window Left Edge | `binary_search/658_find_k_closest_elements.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2427,4 +2429,40 @@ Run the demo:
 
 ```bash
 python3 heap/1834_single_threaded_cpu.py
+```
+
+## 82 — Remove Duplicates from Sorted List II
+
+**Problem.** In a sorted linked list, delete every value that appears more than once (all copies), keeping only originally-unique values.
+
+**Thought process.**
+1. You can't judge a node alone; you must peek at its neighbour. And the head itself may die, so put a dummy sentinel in front.
+2. `prev` = last node definitely kept (starts at the dummy). Look at `cur = prev.next`.
+3. If `cur.next.val == cur.val`, skip the whole run of that value and splice it out with `prev.next = node after run`. Don't move `prev`: the next node might start another run.
+4. Otherwise `cur` is unique, so advance `prev = cur`. Sorted order guarantees equal values sit together, so one pass is enough.
+
+**Complexity.** O(n) time, O(1) extra space.
+
+Run the demo:
+
+```bash
+python3 linked_list/82_remove_duplicates_from_sorted_list_ii.py
+```
+
+## 658 — Find K Closest Elements
+
+**Problem.** Given sorted `arr`, `k`, and `x`, return the `k` values closest to `x` (ties go to the smaller value), in ascending order.
+
+**Thought process.**
+1. The answer is always a contiguous length-k window, so binary-search its left edge `lo` in `[0, n-k]`.
+2. Windows starting at `mid` and `mid+1` differ only by `arr[mid]` vs `arr[mid+k]`.
+3. If `x - arr[mid] > arr[mid+k] - x`, the left end is worse, so slide right (`lo = mid+1`); otherwise `hi = mid`. Signed differences handle `x` outside the window and send ties left.
+4. Return `arr[lo:lo+k]`.
+
+**Complexity.** O(log(n−k) + k) time, O(1) extra space.
+
+Run the demo:
+
+```bash
+python3 binary_search/658_find_k_closest_elements.py
 ```
