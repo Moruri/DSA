@@ -136,6 +136,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 1834 | [Single-Threaded CPU](https://leetcode.com/problems/single-threaded-cpu/) | Medium | Heap / Event Simulation | `heap/1834_single_threaded_cpu.py` |
 | 82 | [Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/) | Medium | Linked Lists / Dummy Head | `linked_list/82_remove_duplicates_from_sorted_list_ii.py` |
 | 658 | [Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/) | Medium | Binary Search / Window Left Edge | `binary_search/658_find_k_closest_elements.py` |
+| 402 | [Remove K Digits](https://leetcode.com/problems/remove-k-digits/) | Medium | Monotonic Stack / Greedy | `stack/402_remove_k_digits.py` |
+| 337 | [House Robber III](https://leetcode.com/problems/house-robber-iii/) | Medium | Trees / Tree DP | `trees/337_house_robber_iii.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2465,4 +2467,40 @@ Run the demo:
 
 ```bash
 python3 binary_search/658_find_k_closest_elements.py
+```
+
+## 402 — Remove K Digits
+
+**Problem.** Remove exactly `k` digits from the number string `num` so the result is as small as possible (no leading zeros; `"0"` if empty).
+
+**Thought process.**
+1. Leftmost digits dominate, so the best single deletion is the first "peak": a digit bigger than the one after it.
+2. Keep a stack. For each digit `d`, while removals remain and the top is bigger than `d`, pop it. Then push `d`. The stack stays non-decreasing.
+3. If removals are still owed, the biggest digits are at the end, so chop the last `k`.
+4. Strip leading zeros; empty becomes `"0"`.
+
+**Complexity.** O(n) time (each digit pushed and popped at most once), O(n) space.
+
+Run the demo:
+
+```bash
+python3 stack/402_remove_k_digits.py
+```
+
+## 337 — House Robber III
+
+**Problem.** Houses form a binary tree; you can't rob a parent and its child. Return the maximum loot.
+
+**Thought process.**
+1. It's House Robber on a tree: rob or skip each node, and robbing forbids the children.
+2. Trying both choices recursively recomputes grandchildren over and over. Have each node return a pair instead: `(rob, skip)` for its subtree.
+3. Post-order: `rob = val + left.skip + right.skip`; `skip = max(left) + max(right)`.
+4. Answer is `max(root pair)`; an empty subtree is `(0, 0)`.
+
+**Complexity.** O(n) time, O(h) recursion space.
+
+Run the demo:
+
+```bash
+python3 trees/337_house_robber_iii.py
 ```

@@ -490,6 +490,13 @@
 | 82 | Remove Duplicates from Sorted List II | Linked Lists / Dummy Head | `linked_list/82_remove_duplicates_from_sorted_list_ii.py` |
 | 658 | Find K Closest Elements | Binary Search / Window Left Edge | `binary_search/658_find_k_closest_elements.py` |
 
+### 2026-11-20 (Friday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 402 | Remove K Digits | Monotonic Stack / Greedy | `stack/402_remove_k_digits.py` |
+| 337 | House Robber III | Trees / Tree DP | `trees/337_house_robber_iii.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -562,5 +569,6 @@
 - **2026-11-17:** complete (310 + 990)
 - **2026-11-18:** complete (494 + 1834)
 - **2026-11-19:** complete (82 + 658)
-- **Next open day:** 2026-11-20
-- **Remaining days in streak (from 2026-11-20 inclusive through 2026-12-09):** 20
+- **2026-11-20:** complete (402 + 337)
+- **Next open day:** 2026-11-21
+- **Remaining days in streak (from 2026-11-21 inclusive through 2026-12-09):** 19
