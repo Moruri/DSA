@@ -138,6 +138,7 @@ Data Structures & Algorithms practice solutions (Python).
 | 658 | [Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/) | Medium | Binary Search / Window Left Edge | `binary_search/658_find_k_closest_elements.py` |
 | 402 | [Remove K Digits](https://leetcode.com/problems/remove-k-digits/) | Medium | Monotonic Stack / Greedy | `stack/402_remove_k_digits.py` |
 | 337 | [House Robber III](https://leetcode.com/problems/house-robber-iii/) | Medium | Trees / Tree DP | `trees/337_house_robber_iii.py` |
+| 1631 | [Path With Minimum Effort](https://leetcode.com/problems/path-with-minimum-effort/) | Medium | Graphs / Dijkstra (Minimax Path) | `graphs/1631_path_with_minimum_effort.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2503,4 +2504,22 @@ Run the demo:
 
 ```bash
 python3 trees/337_house_robber_iii.py
+```
+
+## 1631 — Path With Minimum Effort
+
+**Problem.** Walk a height grid from top-left to bottom-right (4 directions). A route's effort is its single biggest height jump between neighbouring cells. Minimise that effort.
+
+**Thought process.**
+1. Cells are nodes; neighbouring cells share an edge weighted by `|height difference|`.
+2. A path's cost is the *max* edge on it, not the sum. Dijkstra still works, because adding an edge never lowers the cost: `max(cost, w) >= cost`.
+3. Min-heap keyed by effort so far. Pop the easiest cell, relax each neighbour with `max(effort, step)`, and push when it improves that neighbour's best.
+4. The first time the target is popped, its effort is the answer. (Binary search on the answer plus BFS, or union-find adding edges by weight, also work.)
+
+**Complexity.** O(R·C·log(R·C)) time, O(R·C) space.
+
+Run the demo:
+
+```bash
+python3 graphs/1631_path_with_minimum_effort.py
 ```
