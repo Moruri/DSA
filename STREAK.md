@@ -497,6 +497,12 @@
 | 402 | Remove K Digits | Monotonic Stack / Greedy | `stack/402_remove_k_digits.py` |
 | 337 | House Robber III | Trees / Tree DP | `trees/337_house_robber_iii.py` |
 
+### 2026-11-21 (Saturday) — complete (quota 1)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 1631 | Path With Minimum Effort | Graphs / Dijkstra (Minimax Path) | `graphs/1631_path_with_minimum_effort.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -570,5 +576,6 @@
 - **2026-11-18:** complete (494 + 1834)
 - **2026-11-19:** complete (82 + 658)
 - **2026-11-20:** complete (402 + 337)
-- **Next open day:** 2026-11-21
-- **Remaining days in streak (from 2026-11-21 inclusive through 2026-12-09):** 19
+- **2026-11-21:** complete (1631)
+- **Next open day:** 2026-11-22
+- **Remaining days in streak (from 2026-11-22 inclusive through 2026-12-09):** 18
