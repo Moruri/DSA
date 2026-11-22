@@ -139,6 +139,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 402 | [Remove K Digits](https://leetcode.com/problems/remove-k-digits/) | Medium | Monotonic Stack / Greedy | `stack/402_remove_k_digits.py` |
 | 337 | [House Robber III](https://leetcode.com/problems/house-robber-iii/) | Medium | Trees / Tree DP | `trees/337_house_robber_iii.py` |
 | 1631 | [Path With Minimum Effort](https://leetcode.com/problems/path-with-minimum-effort/) | Medium | Graphs / Dijkstra (Minimax Path) | `graphs/1631_path_with_minimum_effort.py` |
+| 452 | [Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/) | Medium | Intervals / Greedy | `intervals/452_minimum_number_of_arrows_to_burst_balloons.py` |
+| 1239 | [Maximum Length of a Concatenated String with Unique Characters](https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/) | Medium | Backtracking / Bitmask | `backtracking/1239_maximum_length_of_a_concatenated_string_with_unique_characters.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2522,4 +2524,41 @@ Run the demo:
 
 ```bash
 python3 graphs/1631_path_with_minimum_effort.py
+```
+
+## 452 — Minimum Number of Arrows to Burst Balloons
+
+**Problem.** Balloons are intervals on the x-axis; a vertical arrow at `x` bursts every balloon with `start <= x <= end`. Return the fewest arrows that burst them all.
+
+**Thought process.**
+1. Restated: find the fewest points that stab every interval.
+2. The balloon that ends first needs an arrow at or before its end. Shooting exactly at its end is never worse: it still hits that balloon and reaches as far right as possible.
+3. Sort by end. Shoot at the first end, skip every balloon that starts at or before the arrow, and fire a new arrow at the end of the first balloon that starts after it.
+4. Touching counts (`[1,2]` and `[2,3]` share x = 2), so the new-arrow test is strictly `start > arrow`.
+5. Exchange argument: any optimal first arrow can slide right to the earliest end without losing a balloon. Same sort-by-end greedy as 435, counting the other side.
+
+**Complexity.** O(n log n) time for the sort, O(1) extra space.
+
+Run the demo:
+
+```bash
+python3 intervals/452_minimum_number_of_arrows_to_burst_balloons.py
+```
+
+## 1239 — Maximum Length of a Concatenated String with Unique Characters
+
+**Problem.** Pick a subsequence of lowercase words whose concatenation has no repeated letter. Return the longest possible length.
+
+**Thought process.**
+1. Order doesn't matter, only which letters are used, so each word becomes a 26-bit mask.
+2. Drop words that repeat a letter inside themselves (mask popcount < word length).
+3. Two words fit together exactly when `a & b == 0`; the union is `a | b` and its popcount is the length.
+4. Backtrack like Subsets (78): from index `i`, try each later word that doesn't clash with the current mask, recurse, and track the best popcount. A clash cuts the branch right away, since adding more words can't undo a repeat.
+
+**Complexity.** O(2^n) worst case (n ≤ 16), O(1) per step with bit operations; O(n) recursion depth.
+
+Run the demo:
+
+```bash
+python3 backtracking/1239_maximum_length_of_a_concatenated_string_with_unique_characters.py
 ```
