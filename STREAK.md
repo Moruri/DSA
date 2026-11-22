@@ -503,6 +503,13 @@
 |---|-------|-------|------|
 | 1631 | Path With Minimum Effort | Graphs / Dijkstra (Minimax Path) | `graphs/1631_path_with_minimum_effort.py` |
 
+### 2026-11-22 (Sunday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 452 | Minimum Number of Arrows to Burst Balloons | Intervals / Greedy | `intervals/452_minimum_number_of_arrows_to_burst_balloons.py` |
+| 1239 | Maximum Length of a Concatenated String with Unique Characters | Backtracking / Bitmask | `backtracking/1239_maximum_length_of_a_concatenated_string_with_unique_characters.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -577,5 +584,6 @@
 - **2026-11-19:** complete (82 + 658)
 - **2026-11-20:** complete (402 + 337)
 - **2026-11-21:** complete (1631)
-- **Next open day:** 2026-11-22
-- **Remaining days in streak (from 2026-11-22 inclusive through 2026-12-09):** 18
+- **2026-11-22:** complete (452 + 1239)
+- **Next open day:** 2026-11-23
+- **Remaining days in streak (from 2026-11-23 inclusive through 2026-12-09):** 17
