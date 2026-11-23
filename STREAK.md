@@ -510,6 +510,13 @@
 | 452 | Minimum Number of Arrows to Burst Balloons | Intervals / Greedy | `intervals/452_minimum_number_of_arrows_to_burst_balloons.py` |
 | 1239 | Maximum Length of a Concatenated String with Unique Characters | Backtracking / Bitmask | `backtracking/1239_maximum_length_of_a_concatenated_string_with_unique_characters.py` |
 
+### 2026-11-23 (Monday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 1146 | Snapshot Array | Design / Binary Search (Versioned Values) | `design/1146_snapshot_array.py` |
+| 974 | Subarray Sums Divisible by K | Hashing / Prefix Sum Mod K | `hashing/974_subarray_sums_divisible_by_k.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -585,5 +592,6 @@
 - **2026-11-20:** complete (402 + 337)
 - **2026-11-21:** complete (1631)
 - **2026-11-22:** complete (452 + 1239)
-- **Next open day:** 2026-11-23
-- **Remaining days in streak (from 2026-11-23 inclusive through 2026-12-09):** 17
+- **2026-11-23:** complete (1146 + 974)
+- **Next open day:** 2026-11-24
+- **Remaining days in streak (from 2026-11-24 inclusive through 2026-12-09):** 16

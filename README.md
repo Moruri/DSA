@@ -141,6 +141,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 1631 | [Path With Minimum Effort](https://leetcode.com/problems/path-with-minimum-effort/) | Medium | Graphs / Dijkstra (Minimax Path) | `graphs/1631_path_with_minimum_effort.py` |
 | 452 | [Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/) | Medium | Intervals / Greedy | `intervals/452_minimum_number_of_arrows_to_burst_balloons.py` |
 | 1239 | [Maximum Length of a Concatenated String with Unique Characters](https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/) | Medium | Backtracking / Bitmask | `backtracking/1239_maximum_length_of_a_concatenated_string_with_unique_characters.py` |
+| 1146 | [Snapshot Array](https://leetcode.com/problems/snapshot-array/) | Medium | Design / Binary Search (Versioned Values) | `design/1146_snapshot_array.py` |
+| 974 | [Subarray Sums Divisible by K](https://leetcode.com/problems/subarray-sums-divisible-by-k/) | Medium | Hashing / Prefix Sum Mod K | `hashing/974_subarray_sums_divisible_by_k.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2561,4 +2563,42 @@ Run the demo:
 
 ```bash
 python3 backtracking/1239_maximum_length_of_a_concatenated_string_with_unique_characters.py
+```
+
+## 1146 — Snapshot Array
+
+**Problem.** Design an array with `set(index, val)`, `snap()` (returns 0, 1, 2, …) and `get(index, snap_id)` that reads the value a cell had when that snapshot was taken.
+
+**Thought process.**
+1. Copying the whole array on every snap is O(length) per snap — up to 2.5·10^9 cells. Too slow.
+2. Most cells don't change between snaps, so store each cell's *history* instead: a list of (snap_id, value) pairs, starting at [(0, 0)].
+3. `set` writes into the current generation: overwrite the last entry if it already has the current snap_id, else append. `snap` just bumps a counter.
+4. `get(index, s)` needs the last write at or before s. Each history is sorted by snap_id, so binary-search for the rightmost id ≤ s.
+5. Same versioned-value idea as 981 Time Based Key-Value Store, applied per cell.
+
+**Complexity.** set O(1), snap O(1), get O(log w) for w writes to that cell; space O(length + sets).
+
+Run the demo:
+
+```bash
+python3 design/1146_snapshot_array.py
+```
+
+## 974 — Subarray Sums Divisible by K
+
+**Problem.** Count the non-empty contiguous subarrays whose sum is divisible by `k`.
+
+**Thought process.**
+1. A subarray sum is a difference of two prefix sums: `P[j] - P[i]`.
+2. That difference is divisible by k exactly when both prefixes leave the same remainder mod k — so count pairs of prefixes with equal remainders.
+3. One pass with `count[r]`: at each prefix with remainder r, add `count[r]` (every earlier match closes a valid subarray here), then increment it.
+4. Seed `count[0] = 1` for the empty prefix. Python's `%` already maps negatives into [0, k).
+5. Same skeleton as 560 and 525 — only the hash key changes.
+
+**Complexity.** O(n) time, O(k) space.
+
+Run the demo:
+
+```bash
+python3 hashing/974_subarray_sums_divisible_by_k.py
 ```
