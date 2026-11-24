@@ -517,6 +517,13 @@
 | 1146 | Snapshot Array | Design / Binary Search (Versioned Values) | `design/1146_snapshot_array.py` |
 | 974 | Subarray Sums Divisible by K | Hashing / Prefix Sum Mod K | `hashing/974_subarray_sums_divisible_by_k.py` |
 
+### 2026-11-24 (Tuesday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 103 | Binary Tree Zigzag Level Order Traversal | Trees / BFS (Alternating Direction) | `trees/103_binary_tree_zigzag_level_order_traversal.py` |
+| 1094 | Car Pooling | Arrays / Difference Array (Sweep Line) | `arrays/1094_car_pooling.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -593,5 +600,6 @@
 - **2026-11-21:** complete (1631)
 - **2026-11-22:** complete (452 + 1239)
 - **2026-11-23:** complete (1146 + 974)
-- **Next open day:** 2026-11-24
-- **Remaining days in streak (from 2026-11-24 inclusive through 2026-12-09):** 16
+- **2026-11-24:** complete (103 + 1094)
+- **Next open day:** 2026-11-25
+- **Remaining days in streak (from 2026-11-25 inclusive through 2026-12-09):** 15
