@@ -143,6 +143,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 1239 | [Maximum Length of a Concatenated String with Unique Characters](https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/) | Medium | Backtracking / Bitmask | `backtracking/1239_maximum_length_of_a_concatenated_string_with_unique_characters.py` |
 | 1146 | [Snapshot Array](https://leetcode.com/problems/snapshot-array/) | Medium | Design / Binary Search (Versioned Values) | `design/1146_snapshot_array.py` |
 | 974 | [Subarray Sums Divisible by K](https://leetcode.com/problems/subarray-sums-divisible-by-k/) | Medium | Hashing / Prefix Sum Mod K | `hashing/974_subarray_sums_divisible_by_k.py` |
+| 103 | [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) | Medium | Trees / BFS (Alternating Direction) | `trees/103_binary_tree_zigzag_level_order_traversal.py` |
+| 1094 | [Car Pooling](https://leetcode.com/problems/car-pooling/) | Medium | Arrays / Difference Array (Sweep Line) | `arrays/1094_car_pooling.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2601,4 +2603,39 @@ Run the demo:
 
 ```bash
 python3 hashing/974_subarray_sums_divisible_by_k.py
+```
+
+## 103 — Binary Tree Zigzag Level Order Traversal
+
+**Problem.** Return the level-order values of a binary tree, alternating left-to-right and right-to-left on each level.
+
+**Thought process.**
+1. Without the zigzag this is plain BFS level order (102): snapshot `len(queue)` to process one level at a time.
+2. The zigzag changes the order we *write* values, not the order we *visit* nodes. Swapping which child gets enqueued first scrambles the next level — keep the traversal boring and fix the output.
+3. For a level of width k, the i-th visited node goes to `row[i]` on left-to-right levels and `row[k-1-i]` on right-to-left levels. Flip a flag after every level.
+
+**Complexity.** O(n) time; O(w) queue space for max width w.
+
+Run the demo:
+
+```bash
+python3 trees/103_binary_tree_zigzag_level_order_traversal.py
+```
+
+## 1094 — Car Pooling
+
+**Problem.** A car with `capacity` seats drives east; each trip `[p, from, to]` picks up p people at `from` and drops them at `to`. Can every trip be served?
+
+**Thought process.**
+1. All that matters is the load at each kilometre; it must never exceed capacity.
+2. A trip only *changes* the load at two points, so record `delta[from] += p` and `delta[to] -= p` (people leave at `to`, freeing the seat there).
+3. Sweep km 0..1000 with a running sum of delta — that sum is the load. Return False the moment it exceeds capacity.
+4. With unbounded locations, sort the events (drop-offs first on ties) or use a min-heap of drop-offs — same sweep-line idea.
+
+**Complexity.** O(T + 1001) time, O(1001) space.
+
+Run the demo:
+
+```bash
+python3 arrays/1094_car_pooling.py
 ```
