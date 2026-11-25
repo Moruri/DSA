@@ -145,6 +145,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 974 | [Subarray Sums Divisible by K](https://leetcode.com/problems/subarray-sums-divisible-by-k/) | Medium | Hashing / Prefix Sum Mod K | `hashing/974_subarray_sums_divisible_by_k.py` |
 | 103 | [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) | Medium | Trees / BFS (Alternating Direction) | `trees/103_binary_tree_zigzag_level_order_traversal.py` |
 | 1094 | [Car Pooling](https://leetcode.com/problems/car-pooling/) | Medium | Arrays / Difference Array (Sweep Line) | `arrays/1094_car_pooling.py` |
+| 648 | [Replace Words](https://leetcode.com/problems/replace-words/) | Medium | Trie / Shortest Prefix Match | `trie/648_replace_words.py` |
+| 881 | [Boats to Save People](https://leetcode.com/problems/boats-to-save-people/) | Medium | Two Pointers / Greedy Pairing | `two_pointers/881_boats_to_save_people.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2638,4 +2640,38 @@ Run the demo:
 
 ```bash
 python3 arrays/1094_car_pooling.py
+```
+
+## 648 — Replace Words
+
+**Problem.** Replace every word in a sentence with the shortest dictionary root that prefixes it.
+
+**Thought process.**
+1. Checking every root against every word re-compares the same leading letters over and over.
+2. Insert all roots into a trie once, marking where each root ends.
+3. Walk each word down the trie; the first end-marker hit is the shortest root, so stop and emit that prefix. A missing child means no root matches — keep the word.
+
+**Complexity.** O(total root letters + total word letters) time, O(total root letters) space.
+
+Run the demo:
+
+```bash
+python3 trie/648_replace_words.py
+```
+
+## 881 — Boats to Save People
+
+**Problem.** Boats hold at most two people with combined weight ≤ limit. Minimise the number of boats.
+
+**Thought process.**
+1. The heaviest person always needs a boat; the only question is who rides with them.
+2. Their best partner is the lightest person left — if the lightest doesn't fit, nobody does.
+3. Sort, keep pointers at lightest (i) and heaviest (j). Each boat takes people[j]; it also takes people[i] when they fit together. An exchange argument shows this pairing never costs an extra boat.
+
+**Complexity.** O(n log n) time for the sort, O(1) extra space for the sweep.
+
+Run the demo:
+
+```bash
+python3 two_pointers/881_boats_to_save_people.py
 ```
