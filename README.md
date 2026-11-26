@@ -147,6 +147,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 1094 | [Car Pooling](https://leetcode.com/problems/car-pooling/) | Medium | Arrays / Difference Array (Sweep Line) | `arrays/1094_car_pooling.py` |
 | 648 | [Replace Words](https://leetcode.com/problems/replace-words/) | Medium | Trie / Shortest Prefix Match | `trie/648_replace_words.py` |
 | 881 | [Boats to Save People](https://leetcode.com/problems/boats-to-save-people/) | Medium | Two Pointers / Greedy Pairing | `two_pointers/881_boats_to_save_people.py` |
+| 1658 | [Minimum Operations to Reduce X to Zero](https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/) | Medium | Sliding Window / Complement Trick | `sliding_window/1658_minimum_operations_to_reduce_x_to_zero.py` |
+| 166 | [Fraction to Recurring Decimal](https://leetcode.com/problems/fraction-to-recurring-decimal/) | Medium | Math / Long Division + Remainder Memo | `math/166_fraction_to_recurring_decimal.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2674,4 +2676,38 @@ Run the demo:
 
 ```bash
 python3 two_pointers/881_boats_to_save_people.py
+```
+
+## 1658 — Minimum Operations to Reduce X to Zero
+
+**Problem.** Remove elements from either end of nums, subtracting each from x; find the fewest removals that make x exactly 0.
+
+**Thought process.**
+1. Removing a prefix plus a suffix is the same as keeping one contiguous middle block.
+2. That block must sum to sum(nums) − x, so minimise removals by maximising the kept window.
+3. All values are positive, so a variable-size sliding window (grow right, shrink left while too big) finds every window with that exact sum. Answer = n − longest window, or −1.
+
+**Complexity.** O(n) time, O(1) space.
+
+Run the demo:
+
+```bash
+python3 sliding_window/1658_minimum_operations_to_reduce_x_to_zero.py
+```
+
+## 166 — Fraction to Recurring Decimal
+
+**Problem.** Write numerator/denominator as a decimal string, wrapping any repeating part in parentheses.
+
+**Thought process.**
+1. Long division: each next digit comes from remainder × 10 ÷ denominator.
+2. The next digit depends only on the current remainder, so a repeated remainder means the digits repeat from that point.
+3. Remember remainder → digit index; on a repeat, insert "(" at that index and close with ")". Handle sign and the integer part separately.
+
+**Complexity.** O(denominator) time and space in the worst case (pigeonhole on remainders).
+
+Run the demo:
+
+```bash
+python3 math/166_fraction_to_recurring_decimal.py
 ```

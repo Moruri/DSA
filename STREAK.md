@@ -531,6 +531,13 @@
 | 648 | Replace Words | Trie / Shortest Prefix Match | `trie/648_replace_words.py` |
 | 881 | Boats to Save People | Two Pointers / Greedy Pairing | `two_pointers/881_boats_to_save_people.py` |
 
+### 2026-11-26 (Thursday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 1658 | Minimum Operations to Reduce X to Zero | Sliding Window / Complement Trick | `sliding_window/1658_minimum_operations_to_reduce_x_to_zero.py` |
+| 166 | Fraction to Recurring Decimal | Math / Long Division + Remainder Memo | `math/166_fraction_to_recurring_decimal.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -609,5 +616,6 @@
 - **2026-11-23:** complete (1146 + 974)
 - **2026-11-24:** complete (103 + 1094)
 - **2026-11-25:** complete (648 + 881)
-- **Next open day:** 2026-11-26
-- **Remaining days in streak (from 2026-11-26 inclusive through 2026-12-09):** 14
+- **2026-11-26:** complete (1658 + 166)
+- **Next open day:** 2026-11-27
+- **Remaining days in streak (from 2026-11-27 inclusive through 2026-12-09):** 13
