@@ -149,6 +149,8 @@ Data Structures & Algorithms practice solutions (Python).
 | 881 | [Boats to Save People](https://leetcode.com/problems/boats-to-save-people/) | Medium | Two Pointers / Greedy Pairing | `two_pointers/881_boats_to_save_people.py` |
 | 1658 | [Minimum Operations to Reduce X to Zero](https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/) | Medium | Sliding Window / Complement Trick | `sliding_window/1658_minimum_operations_to_reduce_x_to_zero.py` |
 | 166 | [Fraction to Recurring Decimal](https://leetcode.com/problems/fraction-to-recurring-decimal/) | Medium | Math / Long Division + Remainder Memo | `math/166_fraction_to_recurring_decimal.py` |
+| 1235 | [Maximum Profit in Job Scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/) | Hard | Dynamic Programming / Weighted Intervals + Binary Search | `dp/1235_maximum_profit_in_job_scheduling.py` |
+| 909 | [Snakes and Ladders](https://leetcode.com/problems/snakes-and-ladders/) | Medium | Graphs / BFS on a Board | `graphs/909_snakes_and_ladders.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2710,4 +2712,38 @@ Run the demo:
 
 ```bash
 python3 math/166_fraction_to_recurring_decimal.py
+```
+
+## 1235 — Maximum Profit in Job Scheduling
+
+**Problem.** Choose non-overlapping jobs (start, end, profit) to maximise total profit; a job may start exactly when another ends.
+
+**Thought process.**
+1. Weighted interval scheduling: greedy fails because one big job can beat several small ones, so use DP.
+2. Sort by end time. dp[i] = best profit from the first i jobs: either skip job i (dp[i-1]) or take it (profit + dp[j]).
+3. j = number of jobs ending at or before job i starts, found by binary search on the sorted end times.
+
+**Complexity.** O(n log n) time, O(n) space.
+
+Run the demo:
+
+```bash
+python3 dp/1235_maximum_profit_in_job_scheduling.py
+```
+
+## 909 — Snakes and Ladders
+
+**Problem.** On a zig-zag numbered n×n board, each die roll moves 1–6 squares and snakes/ladders teleport you; find the fewest moves from 1 to n².
+
+**Thought process.**
+1. Every roll costs one move, so this is shortest path in an unweighted graph: BFS.
+2. Map square → (row, col) with divmod(square − 1, n), flipping the row from the bottom and the column on odd rows.
+3. From each square try the 6 targets, follow at most one snake/ladder, and enqueue unseen destinations with moves + 1.
+
+**Complexity.** O(n²) time and space.
+
+Run the demo:
+
+```bash
+python3 graphs/909_snakes_and_ladders.py
 ```
