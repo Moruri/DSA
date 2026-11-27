@@ -538,6 +538,13 @@
 | 1658 | Minimum Operations to Reduce X to Zero | Sliding Window / Complement Trick | `sliding_window/1658_minimum_operations_to_reduce_x_to_zero.py` |
 | 166 | Fraction to Recurring Decimal | Math / Long Division + Remainder Memo | `math/166_fraction_to_recurring_decimal.py` |
 
+### 2026-11-27 (Friday) — complete (quota 2)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 1235 | Maximum Profit in Job Scheduling | Dynamic Programming / Weighted Intervals + Binary Search | `dp/1235_maximum_profit_in_job_scheduling.py` |
+| 909 | Snakes and Ladders | Graphs / BFS on a Board | `graphs/909_snakes_and_ladders.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -617,5 +624,6 @@
 - **2026-11-24:** complete (103 + 1094)
 - **2026-11-25:** complete (648 + 881)
 - **2026-11-26:** complete (1658 + 166)
-- **Next open day:** 2026-11-27
-- **Remaining days in streak (from 2026-11-27 inclusive through 2026-12-09):** 13
+- **2026-11-27:** complete (1235 + 909)
+- **Next open day:** 2026-11-28
+- **Remaining days in streak (from 2026-11-28 inclusive through 2026-12-09):** 12
