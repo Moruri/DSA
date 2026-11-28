@@ -545,6 +545,12 @@
 | 1235 | Maximum Profit in Job Scheduling | Dynamic Programming / Weighted Intervals + Binary Search | `dp/1235_maximum_profit_in_job_scheduling.py` |
 | 909 | Snakes and Ladders | Graphs / BFS on a Board | `graphs/909_snakes_and_ladders.py` |
 
+### 2026-11-28 (Saturday) — complete (quota 1)
+
+| # | Title | Topic | Path |
+|---|-------|-------|------|
+| 907 | Sum of Subarray Minimums | Stack / Monotonic Stack Contribution | `stack/907_sum_of_subarray_minimums.py` |
+
 ## Status
 
 - **2026-09-11:** complete (560 + 102) — catch-up applied 2026-09-12
@@ -625,5 +631,6 @@
 - **2026-11-25:** complete (648 + 881)
 - **2026-11-26:** complete (1658 + 166)
 - **2026-11-27:** complete (1235 + 909)
-- **Next open day:** 2026-11-28
-- **Remaining days in streak (from 2026-11-28 inclusive through 2026-12-09):** 12
+- **2026-11-28:** complete (907)
+- **Next open day:** 2026-11-29
+- **Remaining days in streak (from 2026-11-29 inclusive through 2026-12-09):** 11

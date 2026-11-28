@@ -151,6 +151,7 @@ Data Structures & Algorithms practice solutions (Python).
 | 166 | [Fraction to Recurring Decimal](https://leetcode.com/problems/fraction-to-recurring-decimal/) | Medium | Math / Long Division + Remainder Memo | `math/166_fraction_to_recurring_decimal.py` |
 | 1235 | [Maximum Profit in Job Scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/) | Hard | Dynamic Programming / Weighted Intervals + Binary Search | `dp/1235_maximum_profit_in_job_scheduling.py` |
 | 909 | [Snakes and Ladders](https://leetcode.com/problems/snakes-and-ladders/) | Medium | Graphs / BFS on a Board | `graphs/909_snakes_and_ladders.py` |
+| 907 | [Sum of Subarray Minimums](https://leetcode.com/problems/sum-of-subarray-minimums/) | Medium | Stack / Monotonic Stack Contribution | `stack/907_sum_of_subarray_minimums.py` |
 
 ## 560 — Subarray Sum Equals K
 
@@ -2746,4 +2747,22 @@ Run the demo:
 
 ```bash
 python3 graphs/909_snakes_and_ladders.py
+```
+
+## 907 — Sum of Subarray Minimums
+
+**Problem.** Return the sum of min(b) over every contiguous subarray b of arr, modulo 10^9 + 7.
+
+**Thought process.**
+1. Enumerating O(n²) subarrays is too slow, so flip the question: for each arr[i], count the subarrays where it is the minimum and add arr[i] × count.
+2. arr[i] is the minimum of every subarray that starts after its previous smaller element and ends before its next smaller element, so count = (i − prev) × (next − i).
+3. Break ties asymmetrically (strictly smaller on the left, smaller-or-equal on the right) so duplicate minimums are counted once.
+4. One monotonic increasing stack finds both boundaries: when an index is popped, the element popping it is its right boundary, and the new stack top is its left boundary. A −∞ sentinel at the end empties the stack.
+
+**Complexity.** O(n) time, O(n) space.
+
+Run the demo:
+
+```bash
+python3 stack/907_sum_of_subarray_minimums.py
 ```
